@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangular Automata</title>
+  <link rel="icon" type="image/x-icon" href="style/icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="purple">
+      <h1>TRIANGULAR AUTOMATA</h1>
+          <p class="menu">
+              &nbsp;
+              <a onclick="showPage('home')">Home</a>
+              <a onclick="showPage('gallery')">Gallery</a>
+              <a onclick="showPage('rule')">Rules</a>
+              <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
+              &nbsp;
+          </p>
+      </div>
+      <div class="banner"></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article id="gallery" ><!-- GALLERY -->
+        <p class="gallery-content" id="gallery-content"></p>
+    </article>
+    <article id="home"><!-- HOME -->
+      <h2>Introduction</h2>
+      <!-- <p>Self-reproduction for rule 170 has been proven<sup>[1]</sup></p> -->
+      <h2>References</h2>
+      <div class="csl-bib-body" style="line-height: 1.35; ">
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Copy%20Machines%20-%20Self-reproduction%20with%202%20States%20on%20Archimedean%20Tilings&amp;rft.aufirst=Mohammad%20Reza&amp;rft.aulast=Saadat&amp;rft.au=Mohammad%20Reza%20Saadat&amp;rft.au=Nagy%20Benedek&amp;rft.date=2023"></span>
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. R. Saadat and B. Nagy, “Generating Patterns on the Triangular Grid by Cellular Automata including Alternating Use of Two Rules,” in <i>2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)</i>, Zagreb, Croatia: IEEE, Sep. 2021, pp. 253–258. doi: <a href="https://doi.org/10.1109/ISPA52656.2021.9552107">10.1109/ISPA52656.2021.9552107</a>.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FISPA52656.2021.9552107&amp;rft_id=urn%3Aisbn%3A978-1-66542-639-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Generating%20Patterns%20on%20the%20Triangular%20Grid%20by%20Cellular%20Automata%20including%20Alternating%20Use%20of%20Two%20Rules&amp;rft.btitle=2021%2012th%20International%20Symposium%20on%20Image%20and%20Signal%20Processing%20and%20Analysis%20(ISPA)&amp;rft.place=Zagreb%2C%20Croatia&amp;rft.publisher=IEEE&amp;rft.aufirst=Mohammad%20Reza&amp;rft.aulast=Saadat&amp;rft.au=Mohammad%20Reza%20Saadat&amp;rft.au=Benedek%20Nagy&amp;rft.date=2021-09-13&amp;rft.pages=253-258&amp;rft.spage=253&amp;rft.epage=258&amp;rft.isbn=978-1-66542-639-8"></span>
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">S. Annadurai, “A Game of Life on a Pythagorean Tessellation,” in <i>2021 International Conference on Recent Trends on Electronics, Information, Communication &amp; Technology (RTEICT)</i>, Bangalore, India: IEEE, Aug. 2021, pp. 829–834. doi: <a href="https://doi.org/10.1109/RTEICT52294.2021.9573855">10.1109/RTEICT52294.2021.9573855</a>.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FRTEICT52294.2021.9573855&amp;rft_id=urn%3Aisbn%3A978-1-66543-559-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=A%20Game%20of%20Life%20on%20a%20Pythagorean%20Tessellation&amp;rft.btitle=2021%20International%20Conference%20on%20Recent%20Trends%20on%20Electronics%2C%20Information%2C%20Communication%20%26%20Technology%20(RTEICT)&amp;rft.place=Bangalore%2C%20India&amp;rft.publisher=IEEE&amp;rft.aufirst=Soorya&amp;rft.aulast=Annadurai&amp;rft.au=Soorya%20Annadurai&amp;rft.date=2021-08-27&amp;rft.pages=829-834&amp;rft.spage=829&amp;rft.epage=834&amp;rft.isbn=978-1-66543-559-8"></span>
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. Saadat and B. Nagy, “Cellular Automata Approach to Mathematical Morphology in the Triangular Grid,” <i>ACTA POLYTECH HUNG</i>, vol. 15, no. 6, pp. 45–62, 2018, doi: <a href="https://doi.org/10.12700/APH.15.6.2018.6.3">10.12700/APH.15.6.2018.6.3</a>.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.12700%2FAPH.15.6.2018.6.3&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20Approach%20to%20Mathematical%20Morphology%20in%20the%20Triangular%20Grid&amp;rft.jtitle=Acta%20Polytechnica%20Hungarica&amp;rft.stitle=ACTA%20POLYTECH%20HUNG&amp;rft.volume=15&amp;rft.issue=6&amp;rft.aufirst=MohammadReza&amp;rft.aulast=Saadat&amp;rft.au=MohammadReza%20Saadat&amp;rft.au=Benedek%20Nagy&amp;rft.date=2018&amp;rft.pages=45-62&amp;rft.spage=45&amp;rft.epage=62&amp;rft.issn=17858860%2C%2020642687"></span>
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">B. Nagy, “Finding shortest path with neighbourhood sequences in triangular grids,” in <i>ISPA 2001. Proceedings of the 2nd International Symposium on Image and Signal Processing and Analysis. In conjunction with 23rd International Conference on Information Technology Interfaces (IEEE Cat. No.01EX480)</i>, Pula, Croatia: Univ. Zagreb, 2001, pp. 55–60. doi: <a href="https://doi.org/10.1109/ISPA.2001.938603">10.1109/ISPA.2001.938603</a>.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FISPA.2001.938603&amp;rft_id=urn%3Aisbn%3A978-953-96769-4-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Finding%20shortest%20path%20with%20neighbourhood%20sequences%20in%20triangular%20grids&amp;rft.btitle=ISPA%202001.%20Proceedings%20of%20the%202nd%20International%20Symposium%20on%20Image%20and%20Signal%20Processing%20and%20Analysis.%20In%20conjunction%20with%2023rd%20International%20Conference%20on%20Information%20Technology%20Interfaces%20(IEEE%20Cat.%20No.01EX480)&amp;rft.place=Pula%2C%20Croatia&amp;rft.publisher=Univ.%20Zagreb&amp;rft.aufirst=B.&amp;rft.aulast=Nagy&amp;rft.au=B.%20Nagy&amp;rft.date=2001&amp;rft.pages=55-60&amp;rft.spage=55&amp;rft.epage=60&amp;rft.isbn=978-953-96769-4-8"></span>
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">C. Bays, “Cellular Automata in the Triangular Tessellation,” 1994.</div>
+        </div>
+        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20in%20the%20Triangular%20Tessellation&amp;rft.aufirst=Carter&amp;rft.aulast=Bays&amp;rft.au=Carter%20Bays&amp;rft.date=1994"></span>
+      </div>
+    </article>
+    <article id="rule"> <!-- RULE -->
+      <h2 id="rule-title">Rule 0</h2>
+      <p id="rule-and-arrows">
+        <img class="arrow" id="left-arrow" src="style/triangle-left-white.svg">
+        <img id="rule-plot" src="images/rules/rule-0.svg">
+        <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
+      </p><p>
+        <img class="evolution-plot" id="evolution-plot-OneAlive">
+        <img class="evolution-plot" id="evolution-plot-TA">
+        <img class="evolution-plot" id="evolution-plot-Random">
+      </br>
+        <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
+        <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
+        <button type="button" id="button-Random" onclick="setStart('Random')">Random</button>
+      </p>
+    </article>
+    <article id="close-up"><!-- CLOSE-UP -->
+        <span>
+          <a id="big-rule-number" href=""></a>
+          <img class="evolution-plot" id="hq-plot">
+        </span>
+    </article>
+    <footer id="footer"><!-- FOOTER -->
+      Start :
+      <select id="start-selection" onChange="setStart(this.value);">
+        <option value="OneAlive">One Alive</option>
+        <option value="TA">Logo TA</option>
+        <option value="Random">Random</option>
+      </select>
+      &nbsp;&nbsp;
+      Time :
+      <select id="time-selection" onChange="setTime(this.value);">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="16">16</option>
+        <option value="25">25</option>
+        <option value="32">32</option>
+        <option value="50">50</option>
+        <option value="64">64</option>
+        <option value="75">75</option>
+        <option value="96">96</option>
+        <option value="100">100</option>
+        <option value="125">125</option>
+        <option value="126">126</option>
+        <option value="127">127</option>
+        <option value="128">128</option>
+      </select>
+    </footer>
+  </main>
+    
+</body>
+</html>
+<script src="jquery-3.7.0.min.js"></script> 
+<script src="script.js"></script>
