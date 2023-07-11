@@ -8,6 +8,30 @@
   <link rel="icon" type="image/x-icon" href="style/icon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    .evolution-plot {
+            border: solid 1px;
+            max-width: 100%;
+            width: 600px;
+            aspect-ratio: 1;
+        }
+
+    #big-rule-number {
+        text-decoration: none;
+        position: absolute;
+        margin-top: 6px;
+        margin-left: 10px;
+        color: black;
+        text-shadow: white 1px 1px 4px;
+        font-size: larger;
+    }
+    #big-rule-number:hover,
+    #big-rule-number:focus,
+    #big-rule-number:active {
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
 <body>
 
   <header>
@@ -71,6 +95,7 @@
 </body>
 </html>
 <script src="jquery-3.7.0.min.js"></script> 
+<script src="script.js"></script> 
 <script>
     //// NAVIGATION ////
     var urlParams = new URLSearchParams(window.location.search);

@@ -8,6 +8,55 @@
   <link rel="icon" type="image/x-icon" href="style/icon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    #rule {
+        margin-bottom: 10px;
+    }
+
+    #rule-plot {
+        width: 400px;
+        max-width: 84%;
+    }
+
+    .evolution-plot {
+        border: solid 1px;
+        max-width: 100%;
+        width: 600px;
+        aspect-ratio: 1;
+    }
+
+    #evolution-plot-OneAlive, #evolution-plot-TA, #evolution-plot-Random {
+        display: inline;
+    }
+
+    #rule-and-arrows {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arrow {
+        width: 40px;
+        max-width: 8%;
+        margin: 0;
+        display: inline-block;
+        
+        vertical-align: middle;
+    }
+    #right-arrow:hover,
+    #right-arrow:focus,
+    #right-arrow:active {
+        content:url('style/triangle-right-purple.svg');
+        cursor: pointer;
+    }
+    #left-arrow:hover,
+    #left-arrow:focus,
+    #left-arrow:active {
+        content:url('style/triangle-left-purple.svg');
+        cursor: pointer;
+    }
+</style>
 <body>
 
   <header>
@@ -49,6 +98,7 @@
 </body>
 </html>
 <script src="jquery-3.7.0.min.js"></script> 
+<script src="script.js"></script> 
 <script>
 //// NAVIGATION ////
 var urlParams = new URLSearchParams(window.location.search);

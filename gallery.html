@@ -8,8 +8,42 @@
   <link rel="icon" type="image/x-icon" href="style/icon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<style>
+  .gallery-content {
+      text-align: center;
+  }
 
+  .gallery-element {
+      display: inline-block;
+      border: solid 1px;
+      width: 150px;
+      height: 150px;
+      margin: 5px;
+  }
+
+  .rule-number {
+      text-decoration: none;
+      position: absolute;
+      margin-top: 3px;
+      margin-left: 5px;
+      color: black;
+      text-shadow: white 1px 1px 4px;
+      font-size: large;
+  }
+  .rule-number:hover,
+  .rule-number:focus,
+  .rule-number:active {
+      font-weight: bold;
+      /* font-size: larger; */
+  }
+
+  .gallery-element img{
+      width: 150px;
+      height: 150px;
+  }
+</style>
+<body>
+  
   <header>
     <nav>
       <div class="purple">
@@ -68,6 +102,7 @@
 </body>
 </html>
 <script src="jquery-3.7.0.min.js"></script>
+<script src="script.js"></script> 
 <script>
 //// NAVIGATION ////
 var urlParams = new URLSearchParams(window.location.search);
