@@ -80,9 +80,9 @@
     <article id="rule"> <!-- RULE -->
       <h2 id="rule-title">Rule 0</h2>
       <p id="rule-and-arrows">
-        <img class="arrow" id="left-arrow" onclick="leftArrow();location.reload();" src="style/triangle-left-white.svg">
+        <img class="arrow" id="left-arrow" src="style/triangle-left-white.svg">
         <img id="rule-plot" src="images/rules/rule-0.svg">
-        <img class="arrow" id="right-arrow" onclick="rightArrow();location.reload();" src="style/triangle-right-white.svg">
+        <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
       </p><p>
         <img class="evolution-plot" id="evolution-plot-OneAlive">
         <img class="evolution-plot" id="evolution-plot-TA">
@@ -126,30 +126,30 @@ function setRule(rule) {
 
 }
 
+// Arrows //
+document.getElementById('left-arrow').addEventListener("click",function(){
+    if (currentRule<=0) {
+        setRule(255);
+    } else {
+        setRule(currentRule-1);
+    };
+    updateRulePage()
+});
+document.getElementById('right-arrow').addEventListener("click",function(){
+    if (currentRule>=255) {
+        setRule(0);
+    } else {
+        setRule(currentRule+1);
+    };
+    updateRulePage()
+});
+
 function preloadImage(url) {
     var img=new Image();
     img.src=url;
 }
 preloadImage('style/triangle-left-purple.svg');
 preloadImage('style/triangle-right-purple.svg');
-
-// Arrows //
-function leftArrow() {
-    if (currentRule<=0) {
-        setRule(255);
-    } else {
-        setRule(currentRule-1);
-    };
-}
-
-function rightArrow() {
-    if (currentRule>=255) {
-        setRule(0);
-    } else {
-        setRule(currentRule+1);
-    };
-}
-
 
 //// RULE PAGE ////
 function updateRulePage() {
