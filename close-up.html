@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangular Automata</title>
+  <link rel="icon" type="image/x-icon" href="style/icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="purple">
+      <h1>TRIANGULAR AUTOMATA</h1>
+          <p class="menu">
+              &nbsp;
+              <a onclick="window.location='index.html'+window.location.search;">Home</a>
+              <a onclick="window.location='gallery.html'+window.location.search;" style="text-decoration: underline;">Gallery</a>
+              <a onclick="window.location='rules.html'+window.location.search;">Rules</a>
+              <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
+              &nbsp;
+          </p>
+      </div>
+      <div class="banner"></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article id="close-up"><!-- CLOSE-UP -->
+        <span>
+          <a id="big-rule-number" onclick="window.location='rules.html'+window.location.search;"></a>
+          <img class="evolution-plot" id="hq-plot">
+        </span>
+    </article>
+    <footer id="footer"><!-- FOOTER -->
+      Start :
+      <select id="start-selection" onChange="setStart(this.value);">
+        <option value="OneAlive">One Alive</option>
+        <option value="TA">Logo TA</option>
+        <option value="Random">Random</option>
+      </select>
+      &nbsp;&nbsp;
+      Time :
+      <select id="time-selection" onChange="setTime(this.value);">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="16">16</option>
+        <option value="25">25</option>
+        <option value="32">32</option>
+        <option value="50">50</option>
+        <option value="64">64</option>
+        <option value="75">75</option>
+        <option value="96">96</option>
+        <option value="100">100</option>
+        <option value="125">125</option>
+        <option value="126">126</option>
+        <option value="127">127</option>
+        <option value="128">128</option>
+      </select>
+    </footer>
+  </main>
+    
+</body>
+</html>
+<script src="jquery-3.7.0.min.js"></script> 
+<script>
+    //// NAVIGATION ////
+    var urlParams = new URLSearchParams(window.location.search);
+    var currentRule = Number(urlParams.get('rule'));
+    
+    if (urlParams.get('time')==null) {
+        var currentTime=32;
+    } else {
+        var currentTime = Number(urlParams.get('time'));
+        document.getElementById('time-selection').value=Number(currentTime);
+    }
+    
+    if (urlParams.get('start')==null) {
+      var  currentStart='OneAlive';
+    }  else {
+      var currentStart = urlParams.get('start');
+      document.getElementById('start-selection').value=currentStart;
+    }
+    
+
+    function updateCloseUpPage() {
+        document.getElementById("hq-plot").src = 'images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg';
+    }
+
+    function setTime(time) {
+        currentTime = time;
+        document.getElementById('time-selection').value=Number(currentTime);
+        document.getElementById('big-rule-number').innerHTML=currentRule.toString();
+        urlParams.set('time', currentTime);
+        history.pushState(null, null, "?"+urlParams.toString());
+        updateCloseUpPage()
+    }
+    
+    function setStart(start) {
+        currentStart = start;
+        urlParams.set('start', currentStart);
+        history.pushState(null, null, "?"+urlParams.toString());
+        updateCloseUpPage()
+    }
+    
+    setTime(currentTime);
+    setStart(currentStart);
+</script>

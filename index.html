@@ -14,14 +14,14 @@
     <nav>
       <div class="purple">
       <h1>TRIANGULAR AUTOMATA</h1>
-          <p class="menu">
-              &nbsp;
-              <a onclick="showPage('home')">Home</a>
-              <a onclick="showPage('gallery')">Gallery</a>
-              <a onclick="showPage('rule')">Rules</a>
-              <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
-              &nbsp;
-          </p>
+        <p class="menu">
+            &nbsp;
+            <a onclick="window.location='index.html'+window.location.search;" style="text-decoration: underline;">Home</a>
+            <a onclick="window.location='gallery.html'+window.location.search;">Gallery</a>
+            <a onclick="window.location='rules.html'+window.location.search;">Rules</a>
+            <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
+            &nbsp;
+        </p>
       </div>
       <div class="banner"></div>
     </nav>
@@ -62,63 +62,8 @@
         <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20in%20the%20Triangular%20Tessellation&amp;rft.aufirst=Carter&amp;rft.aulast=Bays&amp;rft.au=Carter%20Bays&amp;rft.date=1994"></span>
       </div>
     </article>
-    <article id="rule"> <!-- RULE -->
-      <h2 id="rule-title">Rule 0</h2>
-      <p id="rule-and-arrows">
-        <img class="arrow" id="left-arrow" src="style/triangle-left-white.svg">
-        <img id="rule-plot" src="images/rules/rule-0.svg">
-        <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
-      </p><p>
-        <img class="evolution-plot" id="evolution-plot-OneAlive">
-        <img class="evolution-plot" id="evolution-plot-TA">
-        <img class="evolution-plot" id="evolution-plot-Random">
-      </br>
-        <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
-        <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
-        <button type="button" id="button-Random" onclick="setStart('Random')">Random</button>
-      </p>
-    </article>
-    <article id="close-up"><!-- CLOSE-UP -->
-        <span>
-          <a id="big-rule-number" href=""></a>
-          <img class="evolution-plot" id="hq-plot">
-        </span>
-    </article>
-    <footer id="footer"><!-- FOOTER -->
-      Start :
-      <select id="start-selection" onChange="setStart(this.value);">
-        <option value="OneAlive">One Alive</option>
-        <option value="TA">Logo TA</option>
-        <option value="Random">Random</option>
-      </select>
-      &nbsp;&nbsp;
-      Time :
-      <select id="time-selection" onChange="setTime(this.value);">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="8">8</option>
-        <option value="10">10</option>
-        <option value="16">16</option>
-        <option value="25">25</option>
-        <option value="32">32</option>
-        <option value="50">50</option>
-        <option value="64">64</option>
-        <option value="75">75</option>
-        <option value="96">96</option>
-        <option value="100">100</option>
-        <option value="125">125</option>
-        <option value="126">126</option>
-        <option value="127">127</option>
-        <option value="128">128</option>
-      </select>
-    </footer>
   </main>
     
 </body>
 </html>
-<script src="jquery-3.7.0.min.js"></script> 
-<script src="script.js"></script>
+<script src="jquery-3.7.0.min.js"></script>

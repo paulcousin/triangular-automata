@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangular Automata</title>
+  <link rel="icon" type="image/x-icon" href="style/icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="purple">
+      <h1>TRIANGULAR AUTOMATA</h1>
+        <p class="menu">
+            &nbsp;
+            <a onclick="window.location='index.html'+window.location.search;">Home</a>
+            <a onclick="window.location='gallery.html'+window.location.search;">Gallery</a>
+            <a onclick="window.location='rules.html'+window.location.search;" style="text-decoration: underline;">Rules</a>
+            <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
+            &nbsp;
+        </p>
+      </div>
+      <div class="banner"></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article id="rule"> <!-- RULE -->
+      <h2 id="rule-title">Rule 0</h2>
+      <p id="rule-and-arrows">
+        <img class="arrow" id="left-arrow" src="style/triangle-left-white.svg">
+        <img id="rule-plot" src="images/rules/rule-0.svg">
+        <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
+      </p><p>
+        <img class="evolution-plot" id="evolution-plot-OneAlive">
+        <img class="evolution-plot" id="evolution-plot-TA">
+        <img class="evolution-plot" id="evolution-plot-Random">
+      </br>
+        <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
+        <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
+        <button type="button" id="button-Random" onclick="setStart('Random')">Random</button>
+      </p>
+    </article>
+  </main>
+    
+</body>
+</html>
+<script src="jquery-3.7.0.min.js"></script> 
+<script>
+//// NAVIGATION ////
+var urlParams = new URLSearchParams(window.location.search);
+var currentRule = Number(urlParams.get('rule'));
+
+if (urlParams.get('start')==null) {
+  var  currentStart='OneAlive';
+}  else {
+  var currentStart = urlParams.get('start');
+}
+
+function setStart(start) {
+    currentStart = start;
+    urlParams.set('start', currentStart);
+    history.pushState(null, null, "?"+urlParams.toString());
+    showPlot(start)
+}
+
+setStart(currentStart);
+
+function setRule(rule) {
+    currentRule = rule;
+    urlParams.set('rule', currentRule);
+    history.pushState(null, null, "?"+urlParams.toString());
+
+}
+
+// Arrows //
+document.getElementById('left-arrow').addEventListener("click",function(){
+    if (currentRule<=0) {
+        setRule(255);
+    } else {
+        setRule(currentRule-1);
+    };
+    updateRulePage()
+});
+document.getElementById('right-arrow').addEventListener("click",function(){
+    if (currentRule>=255) {
+        setRule(0);
+    } else {
+        setRule(currentRule+1);
+    };
+    updateRulePage()
+});
+
+//// RULE PAGE ////
+function updateRulePage() {
+    document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
+    document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
+    document.getElementById("evolution-plot-OneAlive").src = 'images/animations/rule-'+currentRule.toString()+'-OneAlive.gif';
+    document.getElementById("evolution-plot-TA").src = 'images/animations/rule-'+currentRule.toString()+'-TA.gif';
+    document.getElementById("evolution-plot-Random").src = 'images/animations/rule-'+currentRule.toString()+'-Random.gif';
+}
+updateRulePage()
+
+function showPlot(whatToShow) {
+    document.getElementById('evolution-plot-OneAlive').style.display = "none";
+    document.getElementById('evolution-plot-TA').style.display = "none";
+    document.getElementById('evolution-plot-Random').style.display = "none";
+    document.getElementById('evolution-plot-'+whatToShow).style.display = "inline";
+    document.getElementById('button-OneAlive').style.fontWeight = "normal";
+    document.getElementById('button-TA').style.fontWeight = "normal";
+    document.getElementById('button-Random').style.fontWeight = "normal";
+    document.getElementById('button-'+whatToShow).style.fontWeight = "bold";
+}
+</script>
