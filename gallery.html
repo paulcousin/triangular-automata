@@ -34,12 +34,15 @@
   .rule-number:focus,
   .rule-number:active {
       font-weight: bold;
-      /* font-size: larger; */
+      cursor: pointer;
   }
 
   .gallery-element img{
       width: 150px;
       height: 150px;
+  }
+  .gallery-element img:hover{
+    cursor: pointer;
   }
 </style>
 <body>
@@ -47,7 +50,7 @@
   <header>
     <nav>
       <div class="purple">
-      <h1>TRIANGULAR AUTOMATA</h1>
+      <h1 onclick="window.location='index.html'+window.location.search;">TRIANGULAR AUTOMATA</h1>
           <p class="menu">
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;">Home</a>
@@ -60,6 +63,7 @@
       <div class="banner"></div>
     </nav>
   </header>
+  <img src="style/triangle-left-white.svg" id="back" onclick="window.location=document.referrer.split('?')[0]+window.location.search">
 
   <main id="main">
     <article id="gallery"  style="display: block;"><!-- GALLERY -->
@@ -126,15 +130,13 @@ if (urlParams.get('start')==null) {
 //// GALLERY ////
 var galleryContent = "";
 for (let i = 0; i <= 255; i++) { 
-    galleryContent += '<div class="gallery-element"><a class="rule-number" id="rule-number-';
+    galleryContent += `<div class="gallery-element"><a class="rule-number" onclick="setRule(`;
     galleryContent += i.toString();
-    galleryContent += '">';
+    galleryContent += `);window.location='rules.html'+window.location.search;">`;
     galleryContent += i.toString();
-    galleryContent += '</a><a id="gallery-element-';
+    galleryContent += `</a><a id="gallery-element-`;
     galleryContent += i.toString();
-    galleryContent += '"><img id="img';
-    galleryContent += i.toString();
-    galleryContent += '" alt="';
+    galleryContent += `"><img id="img`;
     galleryContent += i.toString();
     galleryContent += `" onclick="setRule(`;
     galleryContent += i.toString();
@@ -143,8 +145,8 @@ for (let i = 0; i <= 255; i++) {
 document.getElementById("gallery-content").innerHTML += galleryContent;
 
 function updateGallery() {
-    for (let i = 0; i <= 255; i++) { 
-        document.getElementById('img'+i.toString()).src='images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg';
+    for (let i = 0; i <= 255; i++) {
+      document.getElementById('img'+i.toString()).src='images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg';
     }
 }
 
@@ -152,20 +154,20 @@ function setTime(time) {
     currentTime = time;
     updateGallery()
     urlParams.set('time', currentTime);
-    history.pushState(null, null, "?"+urlParams.toString());
+    history.replaceState(null, null, "?"+urlParams.toString());
 }
 
 function setStart(start) {
     currentStart = start;
     updateGallery()
     urlParams.set('start', currentStart);
-    history.pushState(null, null, "?"+urlParams.toString());
+    history.replaceState(null, null, "?"+urlParams.toString());
 }
 
 function setRule(rule) {
     currentRule = rule;
     urlParams.set('rule', currentRule);
-    history.pushState(null, null, "?"+urlParams.toString());
+    history.replaceState(null, null, "?"+urlParams.toString());
 }
 
 setTime(currentTime);

@@ -37,7 +37,7 @@
   <header>
     <nav>
       <div class="purple">
-      <h1>TRIANGULAR AUTOMATA</h1>
+      <h1 onclick="window.location='index.html'+window.location.search;">TRIANGULAR AUTOMATA</h1>
           <p class="menu">
               &nbsp;
               <a onclick="window.location='index.html'+window.location.search;">Home</a>
@@ -50,6 +50,7 @@
       <div class="banner"></div>
     </nav>
   </header>
+  <img src="style/triangle-left-white.svg" id="back" onclick="window.location=document.referrer.split('?')[0]+window.location.search">
 
   <main id="main">
     <article id="close-up"><!-- CLOSE-UP -->
@@ -125,14 +126,14 @@
         document.getElementById('time-selection').value=Number(currentTime);
         document.getElementById('big-rule-number').innerHTML=currentRule.toString();
         urlParams.set('time', currentTime);
-        history.pushState(null, null, "?"+urlParams.toString());
+        history.replaceState(null, null, "?"+urlParams.toString());
         updateCloseUpPage()
     }
     
     function setStart(start) {
         currentStart = start;
         urlParams.set('start', currentStart);
-        history.pushState(null, null, "?"+urlParams.toString());
+        history.replaceState(null, null, "?"+urlParams.toString());
         updateCloseUpPage()
     }
     
