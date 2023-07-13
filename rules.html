@@ -84,9 +84,7 @@
         <img id="rule-plot" src="images/rules/rule-0.svg">
         <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
       </p><p>
-        <img class="evolution-plot" id="evolution-plot-OneAlive">
-        <img class="evolution-plot" id="evolution-plot-TA">
-        <img class="evolution-plot" id="evolution-plot-Random">
+        <img class="evolution-plot" id="evolution-plot">
       </br>
         <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
         <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
@@ -155,20 +153,19 @@ preloadImage('style/triangle-right-purple.svg');
 function updateRulePage() {
     document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
     document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
-    document.getElementById("evolution-plot-OneAlive").src = 'images/animations/rule-'+currentRule.toString()+'-OneAlive.gif';
-    document.getElementById("evolution-plot-TA").src = 'images/animations/rule-'+currentRule.toString()+'-TA.gif';
-    document.getElementById("evolution-plot-Random").src = 'images/animations/rule-'+currentRule.toString()+'-Random.gif';
+    document.getElementById("evolution-plot").src = 'style/wait.gif';
+    document.getElementById("evolution-plot").src = 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif';
 }
-updateRulePage()
 
 function showPlot(whatToShow) {
-    document.getElementById('evolution-plot-OneAlive').style.display = "none";
-    document.getElementById('evolution-plot-TA').style.display = "none";
-    document.getElementById('evolution-plot-Random').style.display = "none";
-    document.getElementById('evolution-plot-'+whatToShow).style.display = "inline";
+    document.getElementById("evolution-plot").src = 'style/wait.gif';
+    document.getElementById("evolution-plot").src = 'images/animations/rule-'+currentRule.toString()+'-'+whatToShow+'.gif';
     document.getElementById('button-OneAlive').style.fontWeight = "normal";
     document.getElementById('button-TA').style.fontWeight = "normal";
     document.getElementById('button-Random').style.fontWeight = "normal";
     document.getElementById('button-'+whatToShow).style.fontWeight = "bold";
 }
+
+updateRulePage()
+
 </script>
