@@ -24,6 +24,9 @@
         width: 600px;
         aspect-ratio: 1;
     }
+    .evolution-plot:hover {
+        cursor: pointer;
+    }
 
     #evolution-plot-OneAlive, #evolution-plot-TA, #evolution-plot-Random {
         display: inline;
@@ -43,15 +46,11 @@
         display: inline-block;
         vertical-align: middle;
     }
-    #right-arrow:hover,
-    #right-arrow:focus,
-    #right-arrow:active {
+    #right-arrow:hover {
         content:url('style/triangle-right-purple.svg');
         cursor: pointer;
     }
-    #left-arrow:hover,
-    #left-arrow:focus,
-    #left-arrow:active {
+    #left-arrow:hover {
         content:url('style/triangle-left-purple.svg');
         cursor: pointer;
     }
@@ -84,7 +83,7 @@
         <img id="rule-plot" src="images/rules/rule-0.svg">
         <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
       </p><p>
-        <img class="evolution-plot" id="evolution-plot">
+        <img class="evolution-plot" id="evolution-plot" onclick="setTime(128);window.location='close-up.html'+window.location.search;">
       </br>
         <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
         <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
@@ -122,6 +121,11 @@ function setRule(rule) {
     urlParams.set('rule', currentRule);
     history.replaceState(null, null, "?"+urlParams.toString());
 
+}
+
+function setTime(time) {
+    urlParams.set('time', time);
+    history.replaceState(null, null, "?"+urlParams.toString());
 }
 
 // Arrows //

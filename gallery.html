@@ -30,9 +30,7 @@
       text-shadow: white 1px 1px 4px;
       font-size: large;
   }
-  .rule-number:hover,
-  .rule-number:focus,
-  .rule-number:active {
+  .rule-number:hover {
       font-weight: bold;
       cursor: pointer;
   }
@@ -146,6 +144,9 @@ document.getElementById("gallery-content").innerHTML += galleryContent;
 
 function updateGallery() {
     for (let i = 0; i <= 255; i++) {
+      document.getElementById('img'+i.toString()).src='style/wait-small.gif';
+    }
+    for (let i = 0; i <= 255; i++) {
       document.getElementById('img'+i.toString()).src='images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg';
     }
 }
@@ -170,6 +171,6 @@ function setRule(rule) {
     history.replaceState(null, null, "?"+urlParams.toString());
 }
 
-setTime(currentTime);
-setStart(currentStart);
+updateGallery();
+
 </script>

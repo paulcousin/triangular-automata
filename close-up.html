@@ -15,6 +15,9 @@
             width: 600px;
             aspect-ratio: 1;
         }
+    .evolution-plot:hover {
+        cursor: pointer;
+    }
 
     #big-rule-number {
         text-decoration: none;
@@ -25,9 +28,7 @@
         text-shadow: white 1px 1px 4px;
         font-size: larger;
     }
-    #big-rule-number:hover,
-    #big-rule-number:focus,
-    #big-rule-number:active {
+    #big-rule-number:hover {
         font-weight: bold;
         cursor: pointer;
     }
@@ -56,7 +57,7 @@
     <article id="close-up"><!-- CLOSE-UP -->
         <span>
           <a id="big-rule-number" onclick="window.location='rules.html'+window.location.search;"></a>
-          <img class="evolution-plot" id="hq-plot">
+          <img class="evolution-plot" id="hq-plot" onclick="window.location='rules.html'+window.location.search;">
         </span>
     </article>
     <footer id="footer"><!-- FOOTER -->
@@ -118,6 +119,7 @@
     
 
     function updateCloseUpPage() {
+        document.getElementById("hq-plot").src = 'style/wait.gif';
         document.getElementById("hq-plot").src = 'images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg';
     }
 
