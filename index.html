@@ -15,6 +15,20 @@
     #home {
         text-align: left;
     }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100%;
+    }
+    a:link, a:visited  {
+      text-decoration: none;
+      /* color: #7A0022; */
+      color: rgb(191.62, 24.9339, 1.61401);
+    }
+    a:hover, a:active {
+      color: rgb(251.323, 149.822, 61.494);
+    }
   </style>
 </head>
 <body>
@@ -42,7 +56,65 @@
     </article>
     <article id="home"><!-- HOME -->
       <h2>Introduction</h2>
-      <!-- <p>Self-reproduction for rule 170 has been proven<sup>[1]</sup></p> -->
+      <p>
+        <b>Cellular Automata</b> are mathematical objects made of a grid whose cells hold states that evolve according to a local and deterministic rule. Their interest comes from the fact that they display very complex behaviour eventhough they can often be described in few sentences only. For this reason, cellular automata have been an central model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short.
+      </p>
+      <img src="images/home/grid.svg" class="center" style="width: 400px;">
+      <p>
+        If we want to keep our TA as simple as possible, we can constrain cells to hold only binary states. Each cell will thus either be:
+        <ul>
+          <li>"alive" and colored purple <img src="/style/triangle-right-purple.svg" style="height:.95em;">, with a state $s=1$</li>
+          <li>"dead" and colored white <img src="/style/triangle-right-white.svg" style="height:.9em;">, with a state $s=0$</li>
+        </ul>
+        We can notice that there are only 8 local configurations possible, so let's give each one a number.
+        <br><br>
+        <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
+          <tr>
+            <th><img src="images/home/configurations/0.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/1.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/2.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/3.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/4.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/5.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/6.svg" style="width: 100%;"></th>
+            <th><img src="images/home/configurations/7.svg" style="width: 100%;"></th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          </tr>
+        </table>
+      </p>
+      <p>
+        A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule.
+      </p>
+      <img src="images/rules/rule-181.svg" class="center" style="width: 400px;">
+      <p>
+        Binary TA can be considered as the 2D counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup> for two reasons:
+        <ul>
+          <li>there are only \(2^8=256\) possible rules</li>
+          <li>the triangle is tiling 2D space with the smallest possible number of neighbors per cell</li>
+        </ul>
+
+      </p>
+      <p>
+        In the following sections, we are going to learn more about TA, see how they can be efficiently implemented using graph theory, find an elegant way to index the rules, and much more. You can choose to first take a look at <a href="gallery.html">the gallery</a> to see how beautifull and intreaging TA are. However, if you prefer to learn more right away, keep reading and buckle up. It's going to be fun!
+      </p>
+      <br>
+      <h2>Graph theory</h2>
+      <p>
+        To help think mathematically and efficiently compute our automata, we are going to use a framework based on graph theory and linear algebra<sup>[x]</sup>.
+      </p>
+      <img src="images/home/layers.svg" class="center" style="height: 250px;">
+      <img src="images/home/graph.svg" class="center" style="height: 250px;">
+      <img src="images/home/cell-indices.svg" class="center" style="height: 300px;">
       <h2>References</h2>
       <div class="csl-bib-body" style="line-height: 1.35; ">
         <div class="csl-entry" style="clear: left; ">
@@ -76,4 +148,18 @@
 </body>
 </html>
 <script src="jquery-3.7.0.min.js"></script>
-<script src="script.js"></script> 
+<script src="script.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    // loader: {load: ["input/tex", "output/svg"]}
+  };
+  </script>
