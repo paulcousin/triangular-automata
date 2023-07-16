@@ -1,3 +1,23 @@
+
+//// Image Loader
+function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
+    // Find image element
+    var imgElement = document.getElementById(imageId);
+
+    // Create a new image element for the light image
+    var lightImg = new Image();
+    lightImg.src = loadingImagePath;
+
+    // Replace the source of the original image with the light image
+    imgElement.src = loadingImagePath;
+
+    // Add a load event listener to the light image
+    lightImg.addEventListener('load', function() {
+        // Replace the source of the original image with the large image
+        imgElement.src = largeImagePath;
+    });
+}
+
 //// Hide part of the header on scroll down for smartphone view
   var didScroll;
   var lastScrollTop = 0;

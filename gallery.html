@@ -27,7 +27,7 @@
       margin-top: 3px;
       margin-left: 5px;
       color: black;
-      text-shadow: white 1px 1px 4px;
+      text-shadow: white 0px 0px 5px, white 0px 0px 5px;
       font-size: large;
   }
   .rule-number:hover {
@@ -53,7 +53,7 @@
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;">Home</a>
             <a onclick="window.location='gallery.html'+window.location.search;" style="text-decoration: underline;">Gallery</a>
-            <a onclick="window.location='rules.html'+window.location.search;">Rules</a>
+            <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
             <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
             &nbsp;
           </p>
@@ -144,10 +144,7 @@ document.getElementById("gallery-content").innerHTML += galleryContent;
 
 function updateGallery() {
     for (let i = 0; i <= 255; i++) {
-      document.getElementById('img'+i.toString()).src='style/wait-small.gif';
-    }
-    for (let i = 0; i <= 255; i++) {
-      document.getElementById('img'+i.toString()).src='images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg';
+      loadLargeImage('img'+i.toString(), 'style/wait-small.gif', 'images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg');
     }
 }
 

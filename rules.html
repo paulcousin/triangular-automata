@@ -9,10 +9,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    #rule {
-        margin-bottom: 0px;
-    }
-
     #rule-plot {
         width: 400px;
         max-width: 84%;
@@ -64,8 +60,8 @@
         <p class="menu">
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;">Home</a>
-            <a onclick="window.location='gallery.html'+window.location.search;">Gallery</a>
-            <a onclick="window.location='rules.html'+window.location.search;" style="text-decoration: underline;">Rules</a>
+            <a onclick="window.location='gallery.html'+window.location.search;" style="text-decoration: underline;">Gallery</a>
+            <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
             <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
             &nbsp;
         </p>
@@ -82,14 +78,22 @@
         <img class="arrow" id="left-arrow" src="style/triangle-left-white.svg">
         <img id="rule-plot" src="images/rules/rule-0.svg">
         <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
-      </p><p>
+      </p>
+      <p>
         <img src="style/wait.gif" class="evolution-plot" id="evolution-plot" onclick="setTime(128);window.location='close-up.html'+window.location.search;">
-      </br>
-        <button type="button" id="button-OneAlive" onclick="setStart('OneAlive')" style="font-weight:bold;">One Alive</button>&nbsp;
-        <button type="button" id="button-TA" onclick="setStart('TA')">Logo TA</button>&nbsp;
-        <button type="button" id="button-Random" onclick="setStart('Random')">Random</button>
       </p>
     </article>
+    <footer id="footer"><!-- FOOTER -->
+      Start :
+      <select id="start-selection" onChange="setStart(this.value);">
+        <option value="OneAlive">One Alive</option>
+        <option value="TA">Logo TA</option>
+        <option value="Random">Random</option>
+      </select>
+      &nbsp;&nbsp;
+      Rule :
+      <input type="number" id="rule-selection" value="181" style="width:45px;" onchange="selectRule(this.value)">
+    </footer>
   </main>
     
 </body>
@@ -120,7 +124,6 @@ function setRule(rule) {
     currentRule = rule;
     urlParams.set('rule', currentRule);
     history.replaceState(null, null, "?"+urlParams.toString());
-
 }
 
 function setTime(time) {
@@ -150,17 +153,23 @@ document.getElementById('right-arrow').addEventListener("click",function(){
 function updateRulePage() {
     document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
     document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
-    document.getElementById("evolution-plot").src = 'style/wait.gif';
-    document.getElementById("evolution-plot").src = 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif';
+    loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+    document.getElementById("rule-selection").value = currentRule;
 }
 
 function showPlot(whatToShow) {
-    document.getElementById("evolution-plot").src = 'style/wait.gif';
-    document.getElementById("evolution-plot").src = 'images/animations/rule-'+currentRule.toString()+'-'+whatToShow+'.gif';
-    document.getElementById('button-OneAlive').style.fontWeight = "normal";
-    document.getElementById('button-TA').style.fontWeight = "normal";
-    document.getElementById('button-Random').style.fontWeight = "normal";
-    document.getElementById('button-'+whatToShow).style.fontWeight = "bold";
+    loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+whatToShow+'.gif');
+}
+
+function selectRule(rule) {
+  if (rule<=0) {
+        setRule(0);
+    } else if (rule>=255) {
+        setRule(255);
+    } else {
+        setRule(Math.floor(rule));
+    };
+  updateRulePage();
 }
 
 updateRulePage()

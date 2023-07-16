@@ -159,11 +159,10 @@ footer {
         margin-right: 10px;
     }
 }
-/* 
-@media screen and (orientation: landscape) {
+
+/* @media screen and (orientation: landscape) {
     .evolution-plot {
-        max-height: 80%;
-        height: 600px;
         width: auto;
+        max-width: none;
     }
   } */

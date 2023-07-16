@@ -25,12 +25,26 @@
         margin-top: 6px;
         margin-left: 10px;
         color: black;
-        text-shadow: white 1px 1px 4px;
+        text-shadow: white 0px 0px 5px, white 0px 0px 5px;
         font-size: larger;
     }
     #big-rule-number:hover {
         font-weight: bold;
         cursor: pointer;
+    }
+
+    #close {
+        position: absolute;
+        margin-top: 11px;
+        margin-left: -27px;
+        width: 14px;
+        filter: drop-shadow(0px 0px 5px white);
+    }
+    #close:hover {
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: -28px;
+        width: 16px;
     }
 </style>
 <body>
@@ -43,7 +57,7 @@
               &nbsp;
               <a onclick="window.location='index.html'+window.location.search;">Home</a>
               <a onclick="window.location='gallery.html'+window.location.search;" style="text-decoration: underline;">Gallery</a>
-              <a onclick="window.location='rules.html'+window.location.search;">Rules</a>
+              <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
               <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
               &nbsp;
           </p>
@@ -58,6 +72,7 @@
         <span>
           <a id="big-rule-number" onclick="window.location='rules.html'+window.location.search;"></a>
           <img src="style/wait.gif" class="evolution-plot" id="hq-plot" onclick="window.location='rules.html'+window.location.search;">
+          <img src="style/close.svg" id="close" onclick="window.location='gallery.html'+window.location.search;">
         </span>
     </article>
     <footer id="footer"><!-- FOOTER -->
@@ -94,8 +109,6 @@
     </footer>
   </main>
     
-</body>
-</html>
 <script src="jquery-3.7.0.min.js"></script> 
 <script src="script.js"></script> 
 <script>
@@ -119,8 +132,9 @@
     
 
     function updateCloseUpPage() {
-        document.getElementById("hq-plot").src = 'style/wait.gif';
-        document.getElementById("hq-plot").src = 'images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg';
+        loadLargeImage('hq-plot', 'style/wait.gif','images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
+        // document.getElementById("hq-plot").src = 'style/wait.gif';
+        // document.getElementById("hq-plot").src = 'images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg';
     }
 
     function setTime(time) {
@@ -142,3 +156,5 @@
     setTime(currentTime);
     setStart(currentStart);
 </script>
+</body>
+</html>
