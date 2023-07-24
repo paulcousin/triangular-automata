@@ -29,10 +29,7 @@
       color: black;
       text-shadow: white 0px 0px 5px, white 0px 0px 5px;
       font-size: large;
-  }
-  .rule-number:hover {
-      font-weight: bold;
-      cursor: pointer;
+      pointer-events: none;
   }
 
   .gallery-element img{
@@ -61,13 +58,13 @@
       <div class="banner"></div>
     </nav>
   </header>
-  <img src="style/triangle-left-white.svg" id="back" onclick="window.location=document.referrer.split('?')[0]+window.location.search">
 
   <main id="main">
     <article id="gallery"  style="display: block;"><!-- GALLERY -->
         <p class="gallery-content" id="gallery-content"></p>
     </article>
     <footer id="footer"><!-- FOOTER -->
+      <p>
       Start :
       <select id="start-selection" onChange="setStart(this.value);">
         <option value="OneAlive" selected>One Alive</option>
@@ -98,6 +95,7 @@
         <option value="127">127</option>
         <option value="128">128</option>
       </select>
+      </p>
     </footer>
   </main>
     
@@ -128,9 +126,7 @@ if (urlParams.get('start')==null) {
 //// GALLERY ////
 var galleryContent = "";
 for (let i = 0; i <= 255; i++) { 
-    galleryContent += `<div class="gallery-element"><a class="rule-number" onclick="setRule(`;
-    galleryContent += i.toString();
-    galleryContent += `);window.location='rules.html'+window.location.search;">`;
+    galleryContent += `<div class="gallery-element"><a class="rule-number">`;
     galleryContent += i.toString();
     galleryContent += `</a><a id="gallery-element-`;
     galleryContent += i.toString();
@@ -138,7 +134,7 @@ for (let i = 0; i <= 255; i++) {
     galleryContent += i.toString();
     galleryContent += `" onclick="setRule(`;
     galleryContent += i.toString();
-    galleryContent += `);window.location='close-up.html'+window.location.search;"></a></div>`;
+    galleryContent += `);window.location='rules.html'+window.location.search;"></a></div>`;
 }
 document.getElementById("gallery-content").innerHTML += galleryContent;
 

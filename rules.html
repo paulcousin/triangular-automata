@@ -69,7 +69,6 @@
       <div class="banner"></div>
     </nav>
   </header>
-  <img src="style/triangle-left-white.svg" id="back" onclick="window.location=document.referrer.split('?')[0]+window.location.search">
 
   <main id="main">
     <article id="rule"> <!-- RULE -->
@@ -83,16 +82,54 @@
         <img src="style/wait.gif" class="evolution-plot" id="evolution-plot" onclick="setTime(128);window.location='close-up.html'+window.location.search;">
       </p>
     </article>
+
     <footer id="footer"><!-- FOOTER -->
+      <img src="style/triangle-left-white.svg" id="back" onclick="window.location='gallery.html'+window.location.search">
+      <p>
+      &nbsp;
+      Rule :
+      <input type="number" id="rule-selection" value="181" style="width:45px;" onchange="selectRule(this.value);updateRulePage();">
+      &nbsp;&nbsp;
       Start :
-      <select id="start-selection" onChange="setStart(this.value);">
+      <select id="start-selection" onChange="setStart(this.value);updateRulePage();">
         <option value="OneAlive">One Alive</option>
         <option value="TA">Logo TA</option>
         <option value="Random">Random</option>
       </select>
+      &nbsp;
+      <a id="jumpLine"></a>
+      &nbsp;
+      Time :
+      <select id="time-selection" onChange="setTime(this.value);updateRulePage();">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="16">16</option>
+        <option value="25">25</option>
+        <option value="32">32</option>
+        <option value="50">50</option>
+        <option value="64">64</option>
+        <option value="75">75</option>
+        <option value="96">96</option>
+        <option value="100">100</option>
+        <option value="125">125</option>
+        <option value="126">126</option>
+        <option value="127">127</option>
+        <option value="128">128</option>
+      </select>
       &nbsp;&nbsp;
-      Rule :
-      <input type="number" id="rule-selection" value="181" style="width:45px;" onchange="selectRule(this.value)">
+      View :
+      <select id="view-selection" onChange="setView(this.value);updateRulePage();">
+        <option value="CloseUp">Close-up</option>
+        <option value="Animation">Animation</option>
+      </select>
+      &nbsp;
+    </p>
     </footer>
   </main>
     
@@ -102,8 +139,17 @@
 <script src="script.js"></script> 
 <script>
 //// NAVIGATION ////
+// Fetch parameters
 var urlParams = new URLSearchParams(window.location.search);
+
 var currentRule = Number(urlParams.get('rule'));
+
+if (urlParams.get('time')==null) {
+        var currentTime=32;
+    } else {
+        var currentTime = Number(urlParams.get('time'));
+        document.getElementById('time-selection').value=Number(currentTime);
+    }
 
 if (urlParams.get('start')==null) {
   var  currentStart='OneAlive';
@@ -111,14 +157,24 @@ if (urlParams.get('start')==null) {
   var currentStart = urlParams.get('start');
 }
 
+if (urlParams.get('view')==null) {
+  var  currentView='CloseUp';
+}  else {
+  var currentView = urlParams.get('view');
+}
+
+// Update functions //
 function setStart(start) {
     currentStart = start;
     urlParams.set('start', currentStart);
     history.replaceState(null, null, "?"+urlParams.toString());
-    showPlot(start)
 }
 
-setStart(currentStart);
+function setView(view) {
+    currentView = view;
+    urlParams.set('view', currentStart);
+    history.replaceState(null, null, "?"+urlParams.toString());
+}
 
 function setRule(rule) {
     currentRule = rule;
@@ -127,39 +183,36 @@ function setRule(rule) {
 }
 
 function setTime(time) {
+    currentTime = time;
     urlParams.set('time', time);
     history.replaceState(null, null, "?"+urlParams.toString());
 }
 
-// Arrows //
-document.getElementById('left-arrow').addEventListener("click",function(){
-    if (currentRule<=0) {
-        setRule(255);
-    } else {
-        setRule(currentRule-1);
-    };
-    updateRulePage()
-});
-document.getElementById('right-arrow').addEventListener("click",function(){
-    if (currentRule>=255) {
-        setRule(0);
-    } else {
-        setRule(currentRule+1);
-    };
-    updateRulePage()
-});
-
-//// RULE PAGE ////
+// Updating the page //
 function updateRulePage() {
     document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
     document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
-    loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+    if (currentView == "CloseUp") {
+      loadLargeImage('evolution-plot', 'style/wait.gif','images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
+    } else if (currentView == "Animation") {
+      loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+    }
+    // Updating selection
     document.getElementById("rule-selection").value = currentRule;
+    document.getElementById("start-selection").value = currentStart;
+    document.getElementById('time-selection').value=Number(currentTime);
 }
 
-function showPlot(whatToShow) {
-    loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+whatToShow+'.gif');
-}
+updateRulePage()
+
+// Arrows //
+document.getElementById('left-arrow').addEventListener("click",function(){
+  selectRule(currentRule-1);
+});
+
+document.getElementById('right-arrow').addEventListener("click",function(){
+    selectRule(currentRule+1);
+});
 
 function selectRule(rule) {
   if (rule<=0) {
@@ -171,7 +224,5 @@ function selectRule(rule) {
     };
   updateRulePage();
 }
-
-updateRulePage()
 
 </script>
