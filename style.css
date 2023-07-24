@@ -182,6 +182,9 @@ footer p {
     #jumpLine {
         display: block;
     }
+    main article {
+        margin-bottom: 80px;
+    }
 }
 
 /* @media screen and (orientation: landscape) {

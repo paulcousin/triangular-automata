@@ -14,17 +14,21 @@
         max-width: 84%;
     }
 
-    .evolution-plot {
+    #rule-title {
+      margin-bottom: -10px;
+    }
+
+    .plot {
         border: solid 1px;
         max-width: 100%;
         width: 600px;
         aspect-ratio: 1;
     }
-    .evolution-plot:hover {
+    .plot:hover {
         cursor: pointer;
     }
 
-    #evolution-plot-OneAlive, #evolution-plot-TA, #evolution-plot-Random {
+    #plot-OneAlive, #plot-TA, #plot-Random {
         display: inline;
     }
 
@@ -42,13 +46,16 @@
         display: inline-block;
         vertical-align: middle;
     }
-    #right-arrow:hover {
-        content:url('style/triangle-right-purple.svg');
-        cursor: pointer;
-    }
-    #left-arrow:hover {
-        content:url('style/triangle-left-purple.svg');
-        cursor: pointer;
+
+    @media (hover: hover) {
+      #right-arrow:hover {
+          content:url('style/triangle-right-purple.svg');
+          cursor: pointer;
+      }
+      #left-arrow:hover {
+          content:url('style/triangle-left-purple.svg');
+          cursor: pointer;
+      }
     }
 </style>
 <body>
@@ -79,19 +86,22 @@
         <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
       </p>
       <p>
-        <img src="style/wait.gif" class="evolution-plot" id="evolution-plot" onclick="setTime(128);window.location='close-up.html'+window.location.search;">
+        <img src="style/wait.gif" class="plot" id="plot">
       </p>
     </article>
 
     <footer id="footer"><!-- FOOTER -->
-      <img src="style/triangle-left-white.svg" id="back" onclick="window.location='gallery.html'+window.location.search">
+      <img  src="style/triangle-left-white.svg" 
+            id="back" 
+            onclick="window.location='gallery.html'+window.location.search"
+          >
       <p>
       &nbsp;
       Rule :
-      <input type="number" id="rule-selection" value="181" style="width:45px;" onchange="selectRule(this.value);updateRulePage();">
+      <input type="number" id="rule-selection" value="181" style="width:45px;" onchange="selectRule(this.value);updatePage();">
       &nbsp;&nbsp;
       Start :
-      <select id="start-selection" onChange="setStart(this.value);updateRulePage();">
+      <select id="start-selection" onChange="setStart(this.value);updatePage();">
         <option value="OneAlive">One Alive</option>
         <option value="TA">Logo TA</option>
         <option value="Random">Random</option>
@@ -100,7 +110,7 @@
       <a id="jumpLine"></a>
       &nbsp;
       Time :
-      <select id="time-selection" onChange="setTime(this.value);updateRulePage();">
+      <select id="time-selection" onChange="setTime(this.value);updatePage();">
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -124,7 +134,7 @@
       </select>
       &nbsp;&nbsp;
       View :
-      <select id="view-selection" onChange="setView(this.value);updateRulePage();">
+      <select id="view-selection" onChange="setView(this.value);updatePage();">
         <option value="CloseUp">Close-up</option>
         <option value="Animation">Animation</option>
       </select>
@@ -138,8 +148,7 @@
 <script src="jquery-3.7.0.min.js"></script> 
 <script src="script.js"></script> 
 <script>
-//// NAVIGATION ////
-// Fetch parameters
+// Fetch parameters //
 var urlParams = new URLSearchParams(window.location.search);
 
 var currentRule = Number(urlParams.get('rule'));
@@ -163,7 +172,7 @@ if (urlParams.get('view')==null) {
   var currentView = urlParams.get('view');
 }
 
-// Update functions //
+// Update parameters //
 function setStart(start) {
     currentStart = start;
     urlParams.set('start', currentStart);
@@ -188,14 +197,14 @@ function setTime(time) {
     history.replaceState(null, null, "?"+urlParams.toString());
 }
 
-// Updating the page //
-function updateRulePage() {
+// Update page //
+function updatePage() {
     document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
     document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
     if (currentView == "CloseUp") {
-      loadLargeImage('evolution-plot', 'style/wait.gif','images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
+      loadLargeImage('plot', 'style/wait.gif','images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
     } else if (currentView == "Animation") {
-      loadLargeImage('evolution-plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+      loadLargeImage('plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
     }
     // Updating selection
     document.getElementById("rule-selection").value = currentRule;
@@ -203,26 +212,30 @@ function updateRulePage() {
     document.getElementById('time-selection').value=Number(currentTime);
 }
 
-updateRulePage()
+updatePage()
 
 // Arrows //
-document.getElementById('left-arrow').addEventListener("click",function(){
+$('#left-arrow').on("touchend click",function(){
+  event.stopPropagation();
+  event.preventDefault();
   selectRule(currentRule-1);
 });
 
-document.getElementById('right-arrow').addEventListener("click",function(){
+$('#right-arrow').on("touchend click",function(){
+    event.stopPropagation();
+    event.preventDefault();
     selectRule(currentRule+1);
 });
 
 function selectRule(rule) {
-  if (rule<=0) {
-        setRule(0);
-    } else if (rule>=255) {
+  if (rule<0) {
         setRule(255);
+    } else if (rule>255) {
+        setRule(0);
     } else {
         setRule(Math.floor(rule));
     };
-  updateRulePage();
+  updatePage();
 }
 
 </script>
