@@ -63,7 +63,7 @@
         <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
       </h2>
       <p>
-        This website is about <b>Cellular Automata</b> in the triangular grid, or <b>Triangular Automata</b> (TA) for short. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. In the <a href="gallery.html">gallery</a>, all elementary TA can be explored in many ways. Use the control panel at the bottom of the page and let your curiosity guide you toward what you find intriguing or beautiful. You can learn more about how these results have been computed, and play with the <b>Mathematica</b> package yourself by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
+        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. In the <a href="gallery.html">gallery</a>, all elementary TA can be explored in many ways. Use the control panel at the bottom of the page and let your curiosity guide you toward what you find intriguing or beautiful. You can learn more about how these results have been computed, and play with the <b>Mathematica</b> package yourself by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
       </p>
 
 
@@ -71,16 +71,21 @@
         <a href="rules.html?rule=45&time=16" target="_blank"><img src="style/rule-45-time-16.svg"></a> Introduction
       </h2>
       <p>
-        <b>Cellular Automata</b> are mathematical objects composed of two elements: a grid whose cells hold states defined at time $t=0$, and a local and deterministic rule iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$. Their interest comes from the fact that they display complex behavior eventhough they can often be described in few sentences only. For this reason, cellular automata have been an key model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. 
+        <b>Cellular Automata</b> are mathematical objects composed of two elements: 
+        <ul>
+          <li>a <b>grid</b> whose cells hold states defined at time $t=0$</li>
+          <li>a local and deterministic <b>rule</b> iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$</li>
+        </ul>
+        Their interest comes from the fact that they display complex behavior eventhough they can often be described in few sentences only. For this reason, cellular automata have been a key model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. We will focus on the simplest type of TA called <b>Elementary Triangular Automata</b> (ETA).
       </p>
       <img src="images/home/grid.svg" class="center" style="width: 400px;">
       <p>
-        We are going to look in particular at <b>Elementary TA</b>, which is the simplest type. Elementary TA grid cells hold only binary states. Each cell will thus either be:
+        ETA's grid cells hold only binary states. Each cell will thus either be:
         <ul>
           <li>‟alive” and colored purple <img src="style/triangle-right-purple.svg" style="height:.95em;vertical-align:middle;">, with a state $s=1$</li>
           <li>‟dead” and colored white <img src="style/triangle-right-white.svg" style="height:.9em;vertical-align:middle;">, with a state $s=0$</li>
         </ul>
-        We can notice that there are only 8 local configurations possible, so let's give each one a number.
+        ETA's rules determine the future state of a cell based on its present state and the state of its neighbors, regardless of their orientation. We can notice that there are only 8 local configurations possible, so let's give each one a number.
         <br><br>
         <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
           <tr>
@@ -109,18 +114,25 @@
       <p>
         A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule.
       </p>
-      <img src="images/rules/rule-181.svg" class="center" style="width: 400px;">
+      <a href="rules.html?rule=181&view=Animation" target="_blank"><img src="images/rules/rule-181.svg" class="center" style="width: 400px;"></a>
       <p>
-        Binary TA can be considered as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup> for two reasons:
-        <ul>
-          <li>there are only $2^8=256$ possible rules</li>
-          <li>the triangle is tiling 2D space with the smallest possible number of neighbors per cell</li>
-        </ul>
+        Because there are only $2^8=256$ possible ETA rules, they can be considered as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup>. Furthermore, the triangle is tiling 2D space with the smallest possible number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this regard.
+      </p>
+      <p>
+        In the following sections, we are going to find an elegant way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory,  and much more.
+      </p>
 
-      </p>
-      <p>
-        In the following sections, we are going to learn more about TA, see how they can be efficiently implemented using graph theory, find an elegant way to index the rules, and much more.
-      </p>
+
+      <h2> <!-- RULES -->
+        <a href="rules.html?rule=182&time=8" target="_blank"><img src="style/rule-182-time-8.svg"></a> 
+        Rules
+      </h2>
+
+
+      <h2> <!-- BEHAVIOR -->
+        <a href="rules.html?rule=67&time=10" target="_blank"><img src="style/rule-67-time-10.svg"></a> 
+        Behavior
+      </h2>
 
 
       <h2> <!-- GRAPH THEORY -->

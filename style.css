@@ -169,8 +169,8 @@ footer p {
     
     main article {
         margin-top: 125px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
@@ -179,11 +179,18 @@ footer p {
         margin-top: -4px;
         margin-bottom: -4px;
     } 
+
     #jumpLine {
         display: block;
     }
+
     main article {
         margin-bottom: 80px;
+    }
+    
+    main article {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
 
