@@ -63,11 +63,11 @@
         <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
       </h2>
       <p>
-        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. In the <a href="gallery.html">gallery</a>, all elementary TA can be explored in many ways. Use the control panel at the bottom of the page and let your curiosity guide you toward what you find intriguing or beautiful. You can learn more about how these results have been computed, and play with the <b>Mathematica</b> package yourself by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
+        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. In the <a href="gallery.html">gallery</a>, all elementary TA can be explored in many ways. Use the control panel at the bottom of the page and let your curiosity guide you toward what you find intriguing or beautiful. You can learn more about how these results have been computed and download the <b>Mathematica</b> package by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
       </p>
 
 
-      <h2> <!-- INTRODUCTION -->
+      <h2 id="Introduction"> <!-- INTRODUCTION -->
         <a href="rules.html?rule=45&time=16" target="_blank"><img src="style/rule-45-time-16.svg"></a> Introduction
       </h2>
       <p>
@@ -80,64 +80,91 @@
       </p>
       <img src="images/home/grid.svg" class="center" style="width: 400px;">
       <p>
-        ETA's grid cells hold only binary states. Each cell will thus either be:
+        ETA grid cells hold only binary states. Each cell will thus either be:
         <ul>
           <li>‟alive” and colored purple <img src="style/triangle-right-purple.svg" style="height:.95em;vertical-align:middle;">, with a state $s=1$</li>
           <li>‟dead” and colored white <img src="style/triangle-right-white.svg" style="height:.9em;vertical-align:middle;">, with a state $s=0$</li>
         </ul>
-        ETA's rules determine the future state of a cell based on its present state and the state of its neighbors, regardless of their orientation. We can notice that there are only 8 local configurations possible, so let's give each one a number.
-        <br><br>
-        <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
-          <tr>
-            <th><img src="images/home/configurations/0.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/1.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/2.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/3.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/4.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/5.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/6.svg" style="width: 100%;"></th>
-            <th><img src="images/home/configurations/7.svg" style="width: 100%;"></th>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
-          </tr>
-        </table>
+        ETA rules determine the future state of a cell based on its present state and the state of its neighbors, regardless of their orientation. Notice that there are only 8 possible local configurations.
       </p>
+      <table class="center" style="text-align: center; width:400px; max-width:100%;">
+        <tr>
+          <th><img src="images/home/configurations/0.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/1.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/2.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/3.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/4.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/5.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/6.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/7.svg" style="width:100%;vertical-align:middle;"></th>
+        </tr>
+      </table>
       <p>
-        A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule.
+        A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule (click on it to see what it does to a single alive cell):
       </p>
       <a href="rules.html?rule=181&view=Animation" target="_blank"><img src="images/rules/rule-181.svg" class="center" style="width: 400px;"></a>
       <p>
         Because there are only $2^8=256$ possible ETA rules, they can be considered as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup>. Furthermore, the triangle is tiling 2D space with the smallest possible number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this regard.
       </p>
       <p>
-        In the following sections, we are going to find an elegant way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory,  and much more.
+        In the following sections, we are going to find a way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory,  and much more.
       </p>
 
 
-      <h2> <!-- RULES -->
-        <a href="rules.html?rule=182&time=8" target="_blank"><img src="style/rule-182-time-8.svg"></a> 
+      <h2 id="Rules"> <!-- RULES -->
+        <a href="rules.html?rule=61&time=10" target="_blank"><img src="style/rule-61-time-10.svg"></a> 
         Rules
       </h2>
+      <p>
+        In this section, our goal will be to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code<sup>[x]</sup> style. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of alive neighbors it has, plus 4 if itself is alive.
+      </p>
+      <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
+        <tr>
+          <th><img src="images/home/configurations/0.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/1.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/2.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/3.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/4.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/5.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/6.svg" style="width:100%;vertical-align:middle;"></th>
+          <th><img src="images/home/configurations/7.svg" style="width:100%;vertical-align:middle;"></th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+        </tr>
+      </table>
+      <p>
+        A <b>rule</b> $R$ tells us what the state of a cell will become depending on its local configuration. It is thus a map from <b>configuration space</b> to <b>state space</b>.
+        $$R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}$$
+      </p>
+      <p>
+        Like in the Wolfram Code, we can use rule numbers such that in their binary form, they display the behavior of the rule.
+        $$n=\sum_{c=0}^7 2^c R(c)$$
+        Starting from the right, a <b>rule number</b>'s binary digits indicate the future state for each configuration as they have been ordered. For example, if a cell is in configuration $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if it is in configuration $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
+      </p>
+      <a href="rules.html?rule=131&view=Animation" target="_blank">
+        <img src="images/rules/rule-131.svg" class="center" style="width: 400px;">
+      </a>
+      <p>
+        The number of this rule is $10000011_2=131$. If you didn't guess it, do you see now where it appears in the plot above?
+      </p>
 
-
-      <h2> <!-- BEHAVIOR -->
+      <h2 id="Behavior"> <!-- BEHAVIOR -->
         <a href="rules.html?rule=67&time=10" target="_blank"><img src="style/rule-67-time-10.svg"></a> 
         Behavior
       </h2>
 
 
-      <h2> <!-- GRAPH THEORY -->
+      <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
         <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
-        Graph theory
+        Graph Theory
       </h2>
       <p>
         To think mathematically about TA and implement them effisciently, we are going to use a framework based on graph theory and linear algebra<sup>[x]</sup>.
@@ -147,7 +174,7 @@
       <img src="images/home/cell-indices.svg" class="center" style="height: 300px;">
       
       
-      <h2> <!-- REFERENCES -->
+      <h2 id="References"> <!-- REFERENCES -->
         <a href="rules.html?rule=75&time=8" target="_blank"><img src="style/rule-75-time-8.svg"></a> 
         References
       </h2>
