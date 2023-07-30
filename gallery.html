@@ -9,6 +9,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <style>
+  /* Making the anchor links lend to the right place */
+  .anchor{
+      display:inline-block;
+      height:260px; /* height of the header */
+      margin-top:-260px; /* negative value of the height of the header */
+      visibility:hidden;
+      width: 0px;
+      /* background-color: aqua;
+      border: solid 1px; */
+      vertical-align: middle;
+  }
+
+  main article {
+    height: 100%;
+    margin-top: 110px;
+    margin-bottom: 30px;
+    margin-left:2%;
+    width:96%;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+  }
+  
   .gallery-content {
       text-align: center;
   }
@@ -38,6 +62,53 @@
   }
   .gallery-element img:hover{
     cursor: pointer;
+  }
+    
+  /* Footer */
+  footer {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    overflow: hidden;
+    background-color:  rgb(50% 0% 50%);
+    color: white;
+    border-top: solid 1px;
+    padding: 10px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    z-index: 10;
+  }
+  footer p {
+    margin: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+  }
+
+  #jumpLine {
+    display: none;
+  }
+
+  #back {
+    position: absolute;
+    overflow: hidden;
+    height: 25px;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 10px;
+    filter: drop-shadow(2px 4px 4px rgba(100, 0, 100, 0.8));
+    z-index: 100;
+  }
+  #back:hover {
+    cursor: pointer;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 850px) {
+    main article {
+        margin-top: 125px;
+    }
   }
 </style>
 <body>
@@ -135,6 +206,9 @@ for (let i = 0; i <= 255; i++) {
     galleryContent += `" onclick="setRule(`;
     galleryContent += i.toString();
     galleryContent += `);window.location='rules.html'+window.location.search;"></a></div>`;
+    galleryContent += `<div class="anchor" id="rule-`;
+    galleryContent += i.toString();
+    galleryContent += `"></div>`;
 }
 document.getElementById("gallery-content").innerHTML += galleryContent;
 
