@@ -232,8 +232,8 @@
         $$n=\sum_{c=0}^7 2^c R(c)$$
         Starting from the right, a <b>rule number</b>'s binary digits indicate the future state for each configuration as they have been ordered. For example, if a cell is in configuration $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if it is in configuration $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
       </p>
-      <a href="rules.html?rule=131&view=Animation" target="_blank">
-        <img src="images/rules/rule-131.svg" class="center" style="width: 400px;">
+      <a href="rules.html?rule=210&view=Animation" target="_blank">
+        <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
       </a>
       <p>
         The number of this rule is $10000011_2=131$. If you didn't guess it, do you see now where it appears in the plot above?
@@ -410,7 +410,7 @@
         <div class="anchor"></div>
         Identity
       </h3>
-      Just to quickly mention it, there also is an <b>identity</b> rule which let any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
+      Just to quickly mention it, there also is an <b>identity</b> rule which lets any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
       <br><br>
       <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
         <img src="images/rules/rule-240.svg" class="center" style="width: 400px;">
@@ -436,15 +436,15 @@
       <p>
         The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of vertices which are adjacent to it. We thus have:
           $$
-          \begin{array}{ccc}
-              \mathcal{A}_{ij}=
+          \begin{align*}
+              \mathcal{A}_{ij}&=
               \begin{cases}
                   1 & \text{ if } v_i\in N(v_j) \\
                   0 & \text{ otherwise}
               \end{cases}
-          &\hspace{1cm}&
-              \mathcal{S}_i=s(v_i)\in\{0,1\}
-          \end{array}
+          \\
+              \mathcal{S}_i&=s(v_i)\in\{0,1\}
+          \end{align*}
           $$
         
         The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
@@ -534,7 +534,7 @@
         <a href="rules.html?rule=154&time=8" target="_blank"><img src="style/rule-154-time-8.svg"></a> 
         Cite This Website
       </h2>
-      <p style="font-family: 'Courier New', Courier, monospace;color: gray;">
+      <p style="width: 100%;word-wrap: break-word;font-family: 'Courier New', Courier, monospace;color: gray;">
         @misc{TriangularAutomata,<br>
           &emsp;&emsp;title = {Triangular Automata},<br>
           &emsp;&emsp;author = {Paul Cousin},<br>
@@ -571,9 +571,9 @@
   loadLargeImage("beauty4", "style/wait.gif", "images/home/beauty/rule-62-time-256-OneAlive.svg")
   loadLargeImage("chaos1", "style/wait.gif", "images/home/chaos/chaos-1-2.svg")
   loadLargeImage("chaos2", "style/wait.gif", "images/home/chaos/chaos-2-2.svg")
-  loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
-  loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.svg")
-  loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.svg")
+  loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.jpg")
+  loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.jpg")
+  loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
   loadLargeImage("selfreproduction","style/wait.gif","images/animations/rule-170-TA.gif")
-  loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-1024-noise.svg")
+  loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-1024-noise.jpg")
 </script>
