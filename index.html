@@ -8,13 +8,45 @@
   <link rel="icon" type="image/x-icon" href="style/icon.svg">
   <link rel="stylesheet" href="style.css">
   <style>
-    #home h2 {
+    /* Making the anchor links lend to the right place */
+    .anchor{
+        display:block;
+        height:110px; /* height of the header */
+        margin-top:-110px; /* negative value of the height of the header */
+        visibility:hidden;
+    }
+
+    main article {
+        height: 100%;
+        margin-top: 110px;
+        margin-bottom: 50px;
+        margin-left:3%;
+        width:94%;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        text-align: center;
+    }
+
+    main article p {
+        width: 100%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    h2 {
     text-align: left;
     }
 
-    #home h2 img {
+    h2 img {
       width: 1.8em;
       vertical-align: middle;
+    }
+
+    h3 {
+      text-decoration: underline;
     }
 
     #home {
@@ -33,6 +65,13 @@
     }
     a:hover, a:active {
       color: rgb(251.323, 149.822, 61.494);
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 850px) {
+        main article {
+            margin-top: 125px;
+        }
     }
   </style>
 </head>
@@ -59,15 +98,45 @@
     <article id="home">
 
 
-      <h2> <!-- ABSTRACT -->
+      <h2 id="Abstract"> <!-- ABSTRACT -->
+        <div class="anchor"></div>
         <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
       </h2>
       <p>
-        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. In the <a href="gallery.html">gallery</a>, all elementary TA can be explored in many ways. Use the control panel at the bottom of the page and let your curiosity guide you toward what you find intriguing or beautiful. You can learn more about how these results have been computed and download the <b>Mathematica</b> package by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
+        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. Most pictures here are clickable. In the <a href="gallery.html">gallery</a>, all <b>Elementary Triangular Automata</b> (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stromboscopic so, <b style="color: red;">if you are epilleptic, avoid animations.</b> You can learn more about how these results have been computed and download the <b>Mathematica</b> package by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
       </p>
+      <a  class="center" 
+          style="text-align:center;width:300px;max-width:100%;border:solid black 1px;"
+          href="rules.html?rule=181&time=128"
+          target="_blank">
+        <img id="demo1" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+      </a>
+
+
+      <h2 id="TableOfContents"> <!-- TABLE OF CONTENT -->
+        <div class="anchor"></div>
+        <a href="rules.html?rule=218&time=8" target="_blank"><img src="style/rule-218-time-8.svg"></a> Table Of Contents
+      </h2>
+      <ul>
+        <li><a href="#Introduction">Introduction</a></li>
+        <li><a href="#Rules">Rules</a></li>
+        <li><a href="#Behavior">Behavior</a></li>
+        <ul>
+          <li><a href="#Beauty">Beauty</a></li>
+          <li><a href="#Chaos">Chaos</a></li>
+          <li><a href="#Fractals">Fractals</a></li>
+          <li><a href="#SelfReproduction">Self-Reproduction</a></li>
+          <li><a href="#Identity">Identity</a></li>
+        </ul>
+        <li><a href="#GraphTheory">Graph Theory</a></li>
+        <li><a href="#FinalThoughts">Final Thoughts</a></li>
+        <li><a href="#References">References</a></li>
+        <li><a href="#CiteThisWebsite">Cite This Website</a></li>
+      </ul>
 
 
       <h2 id="Introduction"> <!-- INTRODUCTION -->
+        <div class="anchor"></div>
         <a href="rules.html?rule=45&time=16" target="_blank"><img src="style/rule-45-time-16.svg"></a> Introduction
       </h2>
       <p>
@@ -76,7 +145,7 @@
           <li>a <b>grid</b> whose cells hold states defined at time $t=0$</li>
           <li>a local and deterministic <b>rule</b> iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$</li>
         </ul>
-        Their interest comes from the fact that they display complex behavior eventhough they can often be described in few sentences only. For this reason, cellular automata have been a key model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. We will focus on the simplest type of TA called <b>Elementary Triangular Automata</b> (ETA).
+        Their interest comes from the fact that they display complex behavior eventhough they can often be described in few sentences only. For this reason, cellular automata have become a key model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. We will focus on the simplest type of TA called <b>Elementary Triangular Automata</b> (ETA).
       </p>
       <img src="images/home/grid.svg" class="center" style="width: 400px;">
       <p>
@@ -85,7 +154,7 @@
           <li>‟alive” and colored purple <img src="style/triangle-right-purple.svg" style="height:.95em;vertical-align:middle;">, with a state $s=1$</li>
           <li>‟dead” and colored white <img src="style/triangle-right-white.svg" style="height:.9em;vertical-align:middle;">, with a state $s=0$</li>
         </ul>
-        ETA rules determine the future state of a cell based on its present state and the state of its neighbors, regardless of their orientation. Notice that there are only 8 possible local configurations.
+        ETA rules determine the future state of a cell based on its present state and the ones of its neighbors, regardless of their orientation. Notice that there are only 8 possible local configurations.
       </p>
       <table class="center" style="text-align: center; width:400px; max-width:100%;">
         <tr>
@@ -102,21 +171,22 @@
       <p>
         A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule (click on it to see what it does to a single alive cell):
       </p>
-      <a href="rules.html?rule=181&view=Animation" target="_blank"><img src="images/rules/rule-181.svg" class="center" style="width: 400px;"></a>
+      <a href="rules.html?rule=218&view=Animation" target="_blank"><img src="images/rules/rule-218.svg" class="center" style="width: 400px;"></a>
       <p>
         Because there are only $2^8=256$ possible ETA rules, they can be considered as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup>. Furthermore, the triangle is tiling 2D space with the smallest possible number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this regard.
       </p>
       <p>
-        In the following sections, we are going to find a way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory,  and much more.
+        In the following sections, we are going to find a way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory, and much more.
       </p>
 
 
       <h2 id="Rules"> <!-- RULES -->
-        <a href="rules.html?rule=61&time=10" target="_blank"><img src="style/rule-61-time-10.svg"></a> 
+        <div class="anchor"></div>
+        <a href="rules.html?rule=86&time=8" target="_blank"><img src="style/rule-86-time-8.svg"></a> 
         Rules
       </h2>
       <p>
-        In this section, our goal will be to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code<sup>[x]</sup> style. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of alive neighbors it has, plus 4 if itself is alive.
+        In this section, our goal will be to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code<sup>[x]</sup> style. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
       </p>
       <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
         <tr>
@@ -157,25 +227,337 @@
       </p>
 
       <h2 id="Behavior"> <!-- BEHAVIOR -->
+        <div class="anchor"></div>
         <a href="rules.html?rule=67&time=10" target="_blank"><img src="style/rule-67-time-10.svg"></a> 
         Behavior
       </h2>
+      <p>
+        Now for the fun part! Let's look at what these automata do. What is especially interesting, is to see what happens under ETA rules to a single alive cell. So, unless specified otherwise, images that follow come from this starting point.
+      </p>
+      <h3 id="Beauty"> <!-- Beauty -->
+        <div class="anchor"></div>
+        Beauty
+      </h3>
+      One of the most striking aspect of these automata is their beauty. So let's simply enjoy some neat examples first.
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/beauty/rule-89-time-200-OneAlive.svg"
+            target="_blank">
+          <img id="beauty1" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=89&view=Animation" target="_blank">rule 89</a> at $t=200$
+      </p>
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/beauty/rule-73-time-256-OneAlive.svg"
+            target="_blank">
+          <img id="beauty2" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=73&view=Animation" target="_blank">rule 73</a> at $t=256$
+      </p>
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/beauty/rule-57-time-320-OneAlive.svg"
+            target="_blank">
+          <img id="beauty3" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=57&view=Animation" target="_blank">rule 57</a> at $t=320$
+      </p>
 
+      <h3 id="Chaos"> <!-- Chaos -->
+        <div class="anchor"></div>
+        Chaos
+      </h3>
+      <b>Chaos</b> is one of the key features of complex systems. In mathematics, chaos is a term used to characterize dynamical systems with a strong dependance on initial conditions. This means that small difference in the initial conditions is going to get amplified to the point that you end up with very differents results. For instance, here are two random starting grids completely similar except for the central cell which is alive in (1) and dead in (2).
+      <br>
+        <table class="center" style="text-align: center; width:400px; max-width:100%;">
+          <tr>
+            <th><a href="images/home/chaos/chaos-1-1.svg" target="_blank">
+              <img src="images/home/chaos/chaos-1-1.svg" style="width:100%;vertical-align:middle;"></a></th>
+            <th><a href="images/home/chaos/chaos-1-1.svg" target="_blank">
+              <img src="images/home/chaos/chaos-2-1.svg" style="width:100%;vertical-align:middle;"></a></th>
+          </tr>
+          <tr>
+            <td>(1) at $t=0$</td>
+            <td>(2) at $t=0$</td>
+          </tr>
+        </table>
+      <br>
+      After 512 time steps of evolution with <a href="rules.html?rule=53&view=Animation&start=Random" target="_blank">rule 53</a>, eventhough they started looking almost indistinguishable, they have become completely different. Don't they look a bit like Antarctica?
+      <br>
+        <table class="center" style="text-align: center; width:400px; max-width:100%;">
+          <tr>
+            <th><a href="images/home/chaos/chaos-1-2.svg" target="_blank">
+              <img id="chaos1" style="width:100%;vertical-align:middle;"></a></th>
+          </tr>
+          <tr>
+            <td>(1) at $t=512$</td>
+          </tr>
+          <tr>
+            <th><a href="images/home/chaos/chaos-2-2.svg" target="_blank">
+              <img id="chaos2" style="width:100%;vertical-align:middle;"></a></th>
+          </tr>
+          <tr>
+            <td>(2) at $t=512$</td>
+          </tr>
+        </table>
+      <br>
+
+      <h3 id="Fractals"> <!-- Fractals -->
+        <div class="anchor"></div>
+        Fractals
+      </h3>
+      Some rules produce similar structures across space, time and, more interestingly, scale. Self-similarity across scales is a common property of <b>fractals</b> and complex systems more generally. We call these structures <b>scale-free</b>. In the following examples, you can see the same pattern repeated at different scales around the origin.
+      <!-- <table class="center" style="text-align: center; width:1000px; max-width:100%;">
+        <tr>
+          <td>
+            <a href="images/home/fractals/rule-65-time-2-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-2-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-4-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-4-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-8-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-8-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-16-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-16-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/homefractals//rule-65-time-32-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-32-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-64-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-64-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-128-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-128-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-256-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-256-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-65-time-512-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-65-time-512-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>4</td>
+          <td>8</td>
+          <td>16</td>
+          <td>32</td>
+          <td>64</td>
+          <td>128</td>
+          <td>256</td>
+          <td>512</td>
+        </tr>
+      </table>
+      <p style="text-align: center;">
+        <a href="rules.html?rule=65&view=Animation" target="_blank">rule 65</a>
+      </p>
+
+
+      <table class="center" style="text-align: center; width:1000px; max-width:100%;">
+        <tr>
+          <td>
+            <a href="images/home/fractals/rule-250-time-2-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-2-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-5-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-5-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-11-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-11-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-23-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-23-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/homefractals//rule-250-time-47-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-47-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-95-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-95-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-191-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-191-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+          <td>
+            <a href="images/home/fractals/rule-250-time-383-OneAlive.svg" target="_blank">
+              <img src="images/home/fractals/rule-250-time-383-OneAlive.svg" style="width:100%;vertical-align:middle;"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>5</td>
+          <td>11</td>
+          <td>23</td>
+          <td>47</td>
+          <td>95</td>
+          <td>191</td>
+          <td>383</td>
+        </tr>
+      </table>
+      <p style="text-align: center;">
+        <a href="rules.html?rule=250&view=Animation" target="_blank">rule 250</a>
+      </p> -->
+
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/fractals/rule-65-time-512-OneAlive.svg"
+            target="_blank">
+          <img id="fractal1" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=65&view=Animation" target="_blank">rule 65</a> at $t=512$
+      </p>
+
+      <p style="text-align: center;">
+          <a  class="center" 
+              style="text-align:center;width:500px;max-width:100%;"
+              href="images/home/fractals/rule-106-time-510-OneAlive.svg"
+              target="_blank">
+            <img id="fractal2" style="width:100%;vertical-align:middle;">
+          </a>
+          <a href="rules.html?rule=106&view=Animation" target="_blank">rule 106</a> at $t=510$
+      </p>
+
+      <p style="text-align: center;">
+          <a  class="center" 
+              style="text-align:center;width:500px;max-width:100%;"
+              href="images/home/fractals/rule-50-time-352-OneAlive.svg"
+              target="_blank">
+            <img id="fractal3" style="width:100%;vertical-align:middle;">
+          </a>
+          <a href="rules.html?rule=50&view=Animation" target="_blank">rule 50</a> at $t=352$
+      </p>
+
+      <h3 id="SelfReproduction"> <!-- Self-Reproduction -->
+        <div class="anchor"></div>
+        Self-Reproduction
+      </h3>
+      <p>
+        One of the initial motivations for comming up with cellular automata, was to create mathematical models of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. A proof<sup>[x]</sup> of self-reproduction base on path-counting already exists for rule <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
+      </p>
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
+            href="rules.html?rule=170&view=Animation"
+            target="_blank">
+          <img id="selfreproduction" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=170&start=TA&time=96" style="text-align:center;" target="_blank">rule 170</a> from a recognizable starting point
+    </p>
+
+
+      <h3 id="Identity"> <!-- Identity -->
+        <div class="anchor"></div>
+        Identity
+      </h3>
+      Just to quickly mention it, there also is an <b>identity</b> rule which let any grid unchanged: rule number 240. 
+      <br><br>
+      <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
+        <img src="images/rules/rule-240.svg" class="center" style="width: 400px;">
+      </a>
 
       <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
+        <div class="anchor"></div>
         <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
         Graph Theory
       </h2>
       <p>
-        To think mathematically about TA and implement them effisciently, we are going to use a framework based on graph theory and linear algebra<sup>[x]</sup>.
+        Did you wonder why most of the previous results have an hexagonal shape? The answer is quite simple: the region of influence of single cell expands hexagonlly. In physics terms, in the trianguar grid, light cones are hexagonaol pyramids. The following plot shows the time at which the different layers will be impacted by the center cell.
       </p>
       <img src="images/home/layers.svg" class="center" style="height: 250px;">
+      <p>
+        To think mathematically about TA and implement them effisciently, we are going to use a framework based on graph theory and linear algebra devellopped in a previous work<sup>[x]</sup>. In this framework, the triangular grid is thought of as a growing graph. This graph will be expanded with this hexagonal shape at each time step to mimic an infinite grid.
+      </p>
       <img src="images/home/graph.svg" class="center" style="height: 250px;">
+      <p>
+        Here is how the cells are going to be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
+      </p>
       <img src="images/home/cell-indices.svg" class="center" style="height: 300px;">
+      <p>
+        The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of vertices which are adjacent to it. We thus have:
+          $$
+          \begin{array}{ccc}
+              \mathcal{A}_{ij}=
+              \begin{cases}
+                  1 & \text{ if } v_i\in N(v_j) \\
+                  0 & \text{ otherwise}
+              \end{cases}
+          &\hspace{1cm}&
+              \mathcal{S}_i=s(v_i)\in\{0,1\}
+          \end{array}
+          $$
+        
+        The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
+          $$ c(v)=4\times s(v)+\sum_{i\in N(v)} s(i)$$
+
+        Each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
+          $$
+          \begin{aligned}
+          & R: [[0,7]]\rightarrow\{0,1\}\\  
+          & R\big(c_t(v)\big)=s_{t+1}\big(v\big)
+          \end{aligned}
+          $$
+        Evolving the state of the grid is where this framework pays off the most. The environment will be simulated by using two layers around the region of the influence of our initial structure. The computed grid will thus contain $t+2$ layers.
+
+        Updating the state of the grid will come in four steps.
+          <ol>
+            <li>
+              First, a layer is added with the same state as the last vertex (both the grid/adjacency matrix and the state vector must be updated).
+            </li>
+            <li>
+              Second, a <b>configuration vector</b> $\mathcal{C}$ is computed ($o$ is the order of the graph here).
+              $$
+                \mathcal{C}=
+                \begin{pmatrix} c(v_1) \\ \vdots \\ c(v_o) \end{pmatrix}
+                =4\times\mathcal{S}+\mathcal{A}\cdot\mathcal{S}
+              $$
+            </li>
+            <li>
+              The state vector $\mathcal{S}$ is then updated as follows. @ will be an operator applying a function to every element of a vector.
+                $$
+                    \mathcal{S}=R\,\text{@}\,\mathcal{C}
+                $$
+            </li>
+            <li>
+              Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
+            </li>
+        </ol>
+        
+        I would like to bring your attention to step 2 of this process. This is where graph theory is so usefull to work with cellular automata. Multiplying the adjacency matrix of a graph to its state vector give a vector with the number of alive neighbors of each cell. This is how the parallel nature of computing cellular automata can be fully embraced. Indeeed, linear algebra is something which is at the core and very well managed by computers. 
+      </p>
+      
+
+
+
+      <h2 id="FinalThoughts"> <!-- FINAL THOUGHTS -->
+        <div class="anchor"></div>
+        <a href="rules.html?rule=58&time=8" target="_blank"><img src="style/rule-58-time-8.svg"></a> 
+        Final Thoughts
+      </h2>
       
       
       <h2 id="References"> <!-- REFERENCES -->
-        <a href="rules.html?rule=75&time=8" target="_blank"><img src="style/rule-75-time-8.svg"></a> 
+        <div class="anchor"></div>
+        <a href="rules.html?rule=45&time=8" target="_blank"><img src="style/rule-45-time-8.svg"></a> 
         References
       </h2>
       <div class="csl-bib-body" style="line-height: 1.35; ">
@@ -204,6 +586,20 @@
         </div>
         <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20in%20the%20Triangular%20Tessellation&amp;rft.aufirst=Carter&amp;rft.aulast=Bays&amp;rft.au=Carter%20Bays&amp;rft.date=1994"></span>
       </div>
+
+
+      <h2 id="CiteThisWebsite"> <!-- CITE THIS WEBSITE -->
+        <div class="anchor"></div>
+        <a href="rules.html?rule=154&time=8" target="_blank"><img src="style/rule-154-time-8.svg"></a> 
+        Cite This Website
+      </h2>
+      <p style="font-family: 'Courier New', Courier, monospace;color: gray;">
+        @misc{TriangularAutomata,<br>
+          &emsp;&emsp;title = {Triangular Automata},<br>
+          &emsp;&emsp;author = {Paul Cousin},<br>
+          &emsp;&emsp;url = {https://paulcousin.github.io/triangular-automata}<br>
+        }
+      </p>
     </article>
   </main>
     
@@ -225,4 +621,16 @@
     }
     // loader: {load: ["input/tex", "output/svg"]}
   };
-  </script>
+</script>
+<script>
+  loadLargeImage("demo1", "style/wait.gif", "images/animations/rule-181-OneAlive.gif")
+  loadLargeImage("beauty1", "style/wait.gif", "images/home/beauty/rule-89-time-200-OneAlive.svg")
+  loadLargeImage("beauty2", "style/wait.gif", "images/home/beauty/rule-73-time-256-OneAlive.svg")
+  loadLargeImage("beauty3", "style/wait.gif", "images/home/beauty/rule-57-time-320-OneAlive.svg")
+  loadLargeImage("chaos1", "style/wait.gif", "images/home/chaos/chaos-1-2.svg")
+  loadLargeImage("chaos2", "style/wait.gif", "images/home/chaos/chaos-2-2.svg")
+  loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
+  loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.svg")
+  loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.svg")
+  loadLargeImage("selfreproduction","style/wait.gif","images/animations/rule-170-TA.gif")
+</script>
