@@ -147,7 +147,9 @@
   <header>
     <nav>
       <div class="purple">
-      <h1 onclick="window.location='index.html'+window.location.search;">TRIANGULAR AUTOMATA</h1>
+        <h1>
+          <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
+        </h1>
         <p class="menu">
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;">Home</a>
@@ -169,7 +171,9 @@
         <img id="rule-plot" src="images/rules/rule-0.svg">
         <img class="arrow" id="right-arrow" src="style/triangle-right-white.svg">
       </p>
-      <img src="style/wait.gif" class="plot" id="plot">
+      <!-- <div id="plot-container"> -->
+        <img src="style/wait.gif" class="plot" id="plot">
+      <!-- </div> -->
     </article>
 
     <footer id="footer"><!-- FOOTER -->
@@ -217,8 +221,9 @@
       &nbsp;&nbsp;
       View :
       <select id="view-selection" onChange="setView(this.value);updatePage();">
-        <option value="CloseUp">Close-up</option>
+        <option value="Instant">Instant</option>
         <option value="Animation">Animation</option>
+        <option value="SpaceTime">Space-Time</option>
       </select>
       &nbsp;
     </p>
@@ -249,7 +254,7 @@ if (urlParams.get('start')==null) {
 }
 
 if (urlParams.get('view')==null) {
-  var  currentView='CloseUp';
+  var  currentView='Instant';
 }  else {
   var currentView = urlParams.get('view');
 }
@@ -283,10 +288,12 @@ function setTime(time) {
 function updatePage() {
     document.getElementById("rule-title").innerHTML = 'Rule '+currentRule.toString();
     document.getElementById("rule-plot").src = 'images/rules/rule-'+currentRule.toString()+'.svg';
-    if (currentView == "CloseUp") {
-      loadLargeImage('plot', 'style/wait.gif','images/steps-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
+    if (currentView == "Instant") {
+      loadLargeImage('plot', 'style/wait.gif','images/instant-hq/rule-'+currentRule.toString()+'-time-'+currentTime.toString()+'-'+currentStart+'.svg');
     } else if (currentView == "Animation") {
       loadLargeImage('plot', 'style/wait.gif', 'images/animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+    } else if (currentView == "SpaceTime") {
+      loadLargeImage('plot', 'style/wait.gif', 'images/space-time/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.png');
     }
     // Updating selection
     document.getElementById("rule-selection").value = currentRule;

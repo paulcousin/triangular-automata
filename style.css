@@ -39,21 +39,24 @@ header {
     margin-top: -6px;
     pointer-events: none;
 }
-    
+
 h1 {
     position: static;
     overflow: hidden;
     text-align: left;
     margin-top: 12px;
-    margin-left: 15px;
     width: 100%;
+}
+    
+#title {
+    position: static;
     font-family: Triangle;
     font-size: xx-large;
     color: white;
     z-index: 1000;
 }
-h1:hover {
-    cursor: pointer;
+#title:hover {
+    text-decoration: none;
 }
     
 nav p {
@@ -98,9 +101,11 @@ nav a:visited {
 
     h1 {
         text-align: center;
+        margin-top: 6px;
+    }
+
+    #title {
         font-size: x-large;
-        margin-left: 0px;
-        margin-top: 10px;
     }
     
     nav p {

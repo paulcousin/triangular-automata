@@ -128,7 +128,9 @@
   <header>
     <nav>
       <div class="purple">
-      <h1 onclick="window.location='index.html'+window.location.search;">TRIANGULAR AUTOMATA</h1>
+        <h1>
+          <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
+        </h1>
           <p class="menu">
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;">Home</a>
@@ -226,7 +228,7 @@ document.getElementById("gallery-content").innerHTML += galleryContent;
 
 function updateGallery() {
     for (let i = 0; i <= 255; i++) {
-      loadLargeImage('img'+i.toString(), 'style/wait-small.gif', 'images/steps-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg');
+      loadLargeImage('img'+i.toString(), 'style/wait-small.gif', 'images/instant-lq/rule-'+i.toString()+'-time-'+currentTime+'-'+currentStart+'.jpg');
     }
 }
 

@@ -92,7 +92,9 @@
   <header>
     <nav>
       <div class="purple">
-      <h1 onclick="window.location='index.html'+window.location.search;">TRIANGULAR AUTOMATA</h1>
+      <h1>
+        <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
+      </h1>
         <p class="menu">
             &nbsp;
             <a onclick="window.location='index.html'+window.location.search;" style="text-decoration: underline;">Home</a>
@@ -140,6 +142,7 @@
           <li><a href="#SelfReproduction">Self-Reproduction</a></li>
           <li><a href="#Noise">Noise</a></li>
           <li><a href="#Identity">Identity</a></li>
+          <li><a href="#RegionOfInfluence">Region Of Influence</a></li>
         </ul>
         <li><a href="#GraphTheory">Graph Theory</a></li>
         <li><a href="#FinalThoughts">Final Thoughts</a></li>
@@ -236,7 +239,7 @@
         <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
       </a>
       <p>
-        The number of this rule is $10000011_2=131$. If you didn't guess it, do you see now where it appears in the plot above?
+        The number of this rule is $11010010_2=210$. If you didn't guess it, do you see now where it appears in the plot above?
       </p>
 
       <h2 id="Behavior"> <!-- BEHAVIOR -->
@@ -368,7 +371,7 @@
         Self-Reproduction
       </h3>
       <p>
-        One of the initial motivations for comming up with cellular automata, was to create mathematical models of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. A proof<sup>[x]</sup> of self-reproduction base on path-counting already exists for rule <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
+        One of the initial motivations<sup>[x]</sup> for comming up with cellular automata, was to create mathematical models of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. A proof<sup>[x]</sup> of self-reproduction base on path-counting already exists for rule <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
       </p>
       <p style="text-align: center;">
         <a  class="center" 
@@ -385,7 +388,7 @@
         <div class="anchor"></div>
         Noise
       </h3>
-      So rule seem to generate a pretty good noise. For example, if we pick a simple starting point without symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding circle with a raondom looking interior.
+      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point without symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding circle with a random looking interior.
       <p style="text-align: center;">
         <a  class="center" 
             style="text-align:center;padding:30px;width:80px;max-width:100%;"
@@ -410,29 +413,45 @@
         <div class="anchor"></div>
         Identity
       </h3>
-      Just to quickly mention it, there also is an <b>identity</b> rule which lets any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
+      There also is an <b>identity</b> rule which lets any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
       <br><br>
       <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
         <img src="images/rules/rule-240.svg" class="center" style="width: 400px;">
       </a>
+
+
+      <h3 id="RegionOfInfluence"> <!-- Region Of Influence -->
+        <div class="anchor"></div>
+        Region Of Influence
+      </h3>
+      <p>
+        Did you wonder why most of the previous results have an hexagonal shape? The answer is quite simple: the region of influence of single cell expands hexagonlly. In physics terms, in the trianguar grid, light cones are hexagonaol pyramids.
+      </p>
+      <p style="text-align: center;">
+        <a href="rules.html?rule=254&view=SpaceTime">
+          <img src="images/space-time/rule-254-OneAlive.png" class="center" style="width: 400px;">
+        </a>
+        Light cone displayed by <a href="rules.html?rule=254&view=Animation">rule 254</a> in space-time view
+      </p>
+      <p>
+         The following plot shows the time at which the different layers will be impacted by the center cell.
+      </p>
+      <img src="images/home/layers.svg" class="center" style="width: 250px;">
 
       <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
         <div class="anchor"></div>
         <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
         Graph Theory
       </h2>
+     
       <p>
-        Did you wonder why most of the previous results have an hexagonal shape? The answer is quite simple: the region of influence of single cell expands hexagonlly. In physics terms, in the trianguar grid, light cones are hexagonaol pyramids. The following plot shows the time at which the different layers will be impacted by the center cell.
+        To think mathematically about TA and implement them effisciently, we are going to use a framework based on graph theory and linear algebra, devellopped in a previous work<sup>[x]</sup>. In this framework, the triangular grid is thought of as a growing graph. This graph will be expanded with along the region of influence at each time step to mimic an infinite grid.
       </p>
-      <img src="images/home/layers.svg" class="center" style="height: 250px;">
-      <p>
-        To think mathematically about TA and implement them effisciently, we are going to use a framework based on graph theory and linear algebra devellopped in a previous work<sup>[x]</sup>. In this framework, the triangular grid is thought of as a growing graph. This graph will be expanded with this hexagonal shape at each time step to mimic an infinite grid.
-      </p>
-      <img src="images/home/graph.svg" class="center" style="height: 250px;">
+      <img src="images/home/graph.svg" class="center" style="width: 250px;">
       <p>
         Here is how the cells are going to be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
       </p>
-      <img src="images/home/cell-indices.svg" class="center" style="height: 300px;">
+      <img src="images/home/cell-indices.svg" class="center" style="width: 300px;">
       <p>
         The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of vertices which are adjacent to it. We thus have:
           $$
@@ -450,7 +469,7 @@
         The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
           $$ c(v)=4\times s(v)+\sum_{i\in N(v)} s(i)$$
 
-        Each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
+        As explained earlier, each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
           $$
           \begin{aligned}
           & R: [[0,7]]\rightarrow\{0,1\}\\  
@@ -462,7 +481,7 @@
         Updating the state of the grid will come in four steps.
           <ol>
             <li>
-              First, a layer is added with the same state as the last vertex (both the grid/adjacency matrix and the state vector must be updated).
+              First, a layer is added with the same state as the last vertex.
             </li>
             <li>
               Second, a <b>configuration vector</b> $\mathcal{C}$ is computed ($o$ is the order of the graph here).
@@ -473,7 +492,7 @@
               $$
             </li>
             <li>
-              The state vector $\mathcal{S}$ is then updated as follows. @ will be an operator applying a function to every element of a vector.
+              @ being the operator applying a function to every element of a vector, the state vector $\mathcal{S}$ is then updated as follows:
                 $$
                     \mathcal{S}=R\,\text{@}\,\mathcal{C}
                 $$
@@ -483,7 +502,7 @@
             </li>
         </ol>
         
-        I would like to bring your attention to step 2 of this process. This is where graph theory is so usefull to work with cellular automata. Multiplying the adjacency matrix of a graph to its state vector give a vector with the number of alive neighbors of each cell. This is how the parallel nature of computing cellular automata can be fully embraced. Indeeed, linear algebra is something which is at the core and very well managed by computers. 
+        I would like to bring your attention to step 2 of this process. This is where graph theory is so usefull to work with cellular automata. Multiplying the adjacency matrix of a graph to its state vector give a vector with the number of alive neighbors of each cell. This is how the parallel nature of computing cellular automata can be fully embraced. Indeeed, linear algebra is at the core and very well managed by computers. 
       </p>
       
 
@@ -571,7 +590,7 @@
   loadLargeImage("beauty4", "style/wait.gif", "images/home/beauty/rule-62-time-256-OneAlive.svg")
   loadLargeImage("chaos1", "style/wait.gif", "images/home/chaos/chaos-1-2.svg")
   loadLargeImage("chaos2", "style/wait.gif", "images/home/chaos/chaos-2-2.svg")
-  loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.jpg")
+  loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
   loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.jpg")
   loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
   loadLargeImage("selfreproduction","style/wait.gif","images/animations/rule-170-TA.gif")
