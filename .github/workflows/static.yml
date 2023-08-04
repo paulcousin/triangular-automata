@@ -24,6 +24,7 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -33,13 +34,7 @@ jobs:
         uses: easimon/maximize-build-space@v7
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+          folder: '.' # The folder the action should deploy.
