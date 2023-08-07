@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: './image/space-time/'
+          path: './images/space-time/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
