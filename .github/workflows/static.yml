@@ -29,15 +29,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          # Upload entire repository
-          path: '.'
       - name: Maximize build disk space
         uses: easimon/maximize-build-space@v7
         with:
@@ -46,6 +37,15 @@ jobs:
           remove-haskell: true
           remove-codeql: true
           remove-docker-images: true
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: './image/space-time/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
