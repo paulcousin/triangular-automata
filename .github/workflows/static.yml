@@ -45,14 +45,12 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with: # path: '.' # Upload entire repository
           name: my-artifact-1
-          path: |
-            'images/home/'
+          path: 'images/home/'
       - name: Upload artifact 2
         uses: actions/upload-pages-artifact@v2
         with: # path: '.' # Upload entire repository
           name: my-artifact-2
-          path: |
-            'images/instant-lq/'
+          path: 'images/instant-lq/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
