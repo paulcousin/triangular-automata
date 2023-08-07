@@ -31,12 +31,12 @@ jobs:
     steps:
       - name: Maximize build disk space
         uses: easimon/maximize-build-space@v7
-        with:
-          remove-dotnet: true
-          remove-android: true
-          remove-haskell: true
-          remove-codeql: true
-          remove-docker-images: true
+        # with:
+        #   remove-dotnet: true
+        #   remove-android: true
+        #   remove-haskell: true
+        #   remove-codeql: true
+        #   remove-docker-images: true
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
@@ -44,8 +44,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload entire repository
-          path: './images/space-time/'
+          ## Upload entire repository
+          # path: '.'
+          path: |
+            .
+            !images/animations
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: images/animations
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
