@@ -40,8 +40,6 @@ jobs:
         with:
           # Upload entire repository
           path: '.'
-      - name: Maximize build disk space
-        uses: easimon/maximize-build-space@v7
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
