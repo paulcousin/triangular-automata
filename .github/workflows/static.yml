@@ -43,16 +43,16 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Upload artifact 1
         uses: actions/upload-pages-artifact@v2
-        with:
-          # path: '.' # Upload entire repository
+        with: # path: '.' # Upload entire repository
+          name: my-artifact-1
           path: |
-            '.'
-            '!./images/animations/'
+            .
+            !images/animations/
       - name: Upload artifact 2
         uses: actions/upload-pages-artifact@v2
         with:
-          path: |
-            './images/animation/'
+          name: my-artifact-2
+          path: images/animation/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
