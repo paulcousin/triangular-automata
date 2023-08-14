@@ -114,14 +114,17 @@
         <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
       </h2>
       <p>
-        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. Most pictures here are clickable. In the <a href="gallery.html">gallery</a>, each <b>Elementary Triangular Automata</b> (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stromboscopic so, <b style="color: red;">if you are subject to epilepsy, avoid animations.</b> You can learn more about how these results have been computed and download the <b>Mathematica</b> package by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
+        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, starting from the basics and building up to some more advanced concepts. Most of the images here are clickable. In the <a href="gallery.html">gallery</a>, each <b>Elementary Triangular Automata</b> (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stroboscopic so, <b style="color: red;">if you suffer from epilepsy, avoid animations</b>. You can learn more about how these results were computed and download the <b>Mathematica</b> package by clicking on <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a>. Do not hesitate to <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">contact</a> me if you want to know more about this project.
       </p>
-      <a  class="center" 
-          style="text-align:center;width:300px;max-width:100%;border:solid black 1px;"
-          href="rules.html?rule=181&time=128"
-          target="_blank">
-        <img id="demo1" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-      </a>
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
+            href="rules.html?rule=170&view=Animation"
+            target="_blank">
+            <img id="demo" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=181&view=Animation" style="text-align:center;" target="_blank">rule 181</a>
+      </p>
 
 
       <h2 id="TableOfContents"> <!-- TABLE OF CONTENT -->
@@ -136,10 +139,11 @@
           <li><a href="#Beauty">Beauty</a></li>
           <li><a href="#Chaos">Chaos</a></li>
           <li><a href="#Fractals">Fractals</a></li>
+          <li><a href="#SpaceTime">Space Time</a></li>
           <li><a href="#SelfReproduction">Self-Reproduction</a></li>
           <li><a href="#Noise">Noise</a></li>
-          <li><a href="#Identity">Identity</a></li>
-          <li><a href="#RegionOfInfluence">Region Of Influence</a></li>
+          <li><a href="#BoringRules">Boring Rules</a></li>
+          <li><a href="#Twins">Twins</a></li>
         </ul>
         <li><a href="#GraphTheory">Graph Theory</a></li>
         <li><a href="#FinalThoughts">Final Thoughts</a></li>
@@ -153,12 +157,12 @@
         <a href="rules.html?rule=45&time=16" target="_blank"><img src="style/rule-45-time-16.svg"></a> Introduction
       </h2>
       <p>
-        <b>Cellular Automata</b> are mathematical objects composed of two elements: 
+        A <b>Cellular Automaton</b> (CA) is a mathematical object composed of two elements: 
         <ul>
           <li>a <b>grid</b> whose cells hold states defined at time $t=0$</li>
           <li>a local and deterministic <b>rule</b> iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$</li>
         </ul>
-        Their interest comes from the fact that they display complex behavior even though they can often be described in a few sentences only. For this reason, cellular automata have become a key model to gain insight into real world <b>complex systems</b>. Here, we are going to look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. We will focus on the simplest type of TA called <b>Elementary Triangular Automata</b> (ETA).
+        The interest of CA comes from the complex behavior they sometimes exhibit despite the simplicity of their definition: they can often be fully described in just a few sentences. For this reason, CA have become a key model for gaining insight into real-world <b>complex systems</b>. Here, we will look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. We will focus on the simplest type of TA called <b>Elementary Triangular Automata</b> (ETA).
       </p>
       <img src="images/home/grid.svg" class="center" style="width: 400px;">
       <p>
@@ -167,7 +171,7 @@
           <li>‟alive” and colored purple <img src="style/triangle-right-purple.svg" style="height:.95em;vertical-align:middle;">, with a state $s=1$</li>
           <li>‟dead” and colored white <img src="style/triangle-right-white.svg" style="height:.9em;vertical-align:middle;">, with a state $s=0$</li>
         </ul>
-        ETA rules determine the future state of a cell based on its present state and the ones of its neighbors, regardless of their orientation. Notice that there are only 8 possible local configurations.
+        ETA rules determine the future state of a cell based on its current state and the states of its neighbors, regardless of their orientation. Note that there are only 8 possible local configurations.
       </p>
       <table class="center" style="text-align: center; width:400px; max-width:100%;">
         <tr>
@@ -182,14 +186,14 @@
         </tr>
       </table>
       <p>
-        A rule must specify for each of these configurations if the cell will be alive or dead at the next time step. Here is an example of such a rule (click on it to see what it does to a single alive cell):
+        For each of these configurations, a rule must specify whether the cell will be alive or dead at the next time step. Here is an example of such a rule (click on it to see what it does to a single alive cell):
       </p>
       <a href="rules.html?rule=218&view=Animation" target="_blank"><img src="images/rules/rule-218.svg" class="center" style="width: 400px;"></a>
       <p>
-        Because there are only $2^8=256$ possible ETA rules, they can be considered as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[x]</sup>. Furthermore, the triangle is tiling 2D space with the smallest possible number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this regard.
+        Since there are only $2^8=256$ possible ETA rules, they can be seen as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a><sup>[<a href="#References">1</a>]</sup>. Furthermore, the triangle is tiling 2D space with the smallest possible number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this respect.
       </p>
       <p>
-        In the following sections, we are going to find a way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory, and much more.
+        In the following sections, we will find a way to index the rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory, and much more.
       </p>
 
 
@@ -199,7 +203,7 @@
         Rules
       </h2>
       <p>
-        In this section, our goal will be to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code<sup>[x]</sup> style. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
+        In this section, our goal will be to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code<sup>[<a href="#References">2</a>]</sup> style. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
       </p>
       <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
         <tr>
@@ -228,7 +232,7 @@
         $$R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}$$
       </p>
       <p>
-        Like in the Wolfram Code, we can use rule numbers such that in their binary form, they display the behavior of the rule.
+        Like in the Wolfram Code, we can use rule numbers such that, in binary, they display the behavior of the rule.
         $$n=\sum_{c=0}^7 2^c R(c)$$
         Starting from the right, a <b>rule number</b>'s binary digits indicate the future state for each configuration as they have been ordered. For example, if a cell's configuration is $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if its configuration is $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
       </p>
@@ -245,13 +249,13 @@
         Behavior
       </h2>
       <p>
-        Now comes the fun part! Let's look at what these automata do. It is particularly interesting to see what happens under ETA rules to a single alive cell. So, unless specified otherwise, images that follow come from this starting point.
+        Now comes the fun part! Let's see what these automata do.  It is particularly interesting to see what happens to a <b>single alive cell</b> under different ETA rules.  So, unless otherwise noted, the following pictures come from this starting point.
       </p>
       <h3 id="Beauty"> <!-- Beauty -->
         <div class="anchor"></div>
         Beauty
       </h3>
-      One of the most striking aspect of these automata is their beauty. Let's simply enjoy some neat examples first.
+      One of the most striking aspects of these automata is their beauty. Let's simply enjoy some neat examples first.
       
       <p style="text-align: center;">
         <a  class="center" 
@@ -294,7 +298,7 @@
         <div class="anchor"></div>
         Chaos
       </h3>
-      <b>Chaos</b> is one of the key features of complex systems. In mathematics, chaos is a term used to characterize dynamical systems with a strong dependance on initial conditions. This means that a small difference in the initial conditions is going to get amplified to the point of producing very different results. For instance, here are two random starting grids completely similar except for the central cell which is alive in (1) and dead in (2).
+      <b>Chaos</b> is one of the key features of complex systems. In mathematics, "chaos" is a term used to characterize dynamical systems with a strong dependence on initial conditions. This means that a small difference in initial conditions will be amplified to the point of producing very different results. For example, here are two random starting grids that are completely similar except for the central cell, which is alive in (1) and dead in (2).
       <br>
         <table class="center" style="text-align: center; width:400px; max-width:100%;">
           <tr>
@@ -309,7 +313,7 @@
           </tr>
         </table>
       <br>
-      After 512 time steps of evolution with <a href="rules.html?rule=53&view=Animation&start=Random" target="_blank">rule 53</a>, even though they started looking almost indistinguishable, they have become completely different. Don't they look a bit like Antarctica?
+      After 512 time steps of evolution with <a href="rules.html?rule=53&view=Animation&start=Random" target="_blank">rule 53</a>, even though they looked almost indistinguishable at first, they have become completely different. Don't they look a little like Antarctica?
       <br>
         <table class="center" style="text-align: center; width:400px; max-width:100%;">
           <tr>
@@ -333,7 +337,7 @@
         <div class="anchor"></div>
         Fractals
       </h3>
-      Some rules produce similar structures across space, time and, more interestingly, scale. Self-similarity across scales is a common property of <b>fractals</b> and complex systems more generally. We call these structures <b>scale-free</b>. In the following examples, you can see the same pattern repeated at different scales around the origin.
+      Some rules produce similar structures across space, time and, more interestingly, scale. Self-similarity across scales is a common property of <b>fractals</b> and complex systems in general. We call these structures <b>scale-free</b>. In the following examples, you can see the same pattern repeated at different scales around the origin.
       <p style="text-align: center;">
         <a  class="center" 
             style="text-align:center;width:500px;max-width:100%;"
@@ -364,12 +368,31 @@
           <a href="rules.html?rule=50&view=Animation" target="_blank">rule 50</a> at $t=352$
       </p>
 
+      <h3 id="SpaceTime"> <!-- Space Time -->
+        <div class="anchor"></div>
+        Space Time
+      </h3>
+
+      <p>
+        Similar to the way <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a> are most often represented, we can display the behavior of an ETA in one single plot. Since, an instant is two-dimensional here, adding the dimension of time creates a 3D structure. In these space-time plots, time flows downward. The successive grids are stacked beneath each other, starting from the initial conditions at the top. The space-time plots that you will find on this website show only the cells that have the opposite state to the environment. A lot of information is therefore lost. We don't see the internal structure and we can't know the state of the environment. Nevertheless, this representation can help us visualize some properties of ETA that are difficult to see otherwise. For example, certain rules create 3D space-time fractals.
+      </p>
+
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/space-time/rule-50-upto-256-OneAlive.png"
+            target="_blank">
+          <img id="space-time" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=50&view=SpaceTime" target="_blank">rule 50</a> in space-time view
+      </p>
+
       <h3 id="SelfReproduction"> <!-- Self-Reproduction -->
         <div class="anchor"></div>
         Self-Reproduction
       </h3>
       <p>
-        One of the initial motivations<sup>[x]</sup> for coming up with cellular automata, was to create mathematical models of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. A proof<sup>[x]</sup> of self-reproduction base on path-counting already exists for rule <a href="rules.html?rule=170&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
+        As mentioned in [<a href="#References">3</a>], one of the original motivations for the development of cellular automata was to create a mathematical model of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&start=TA&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&start=TA&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&start=TA&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. A proof<sup>[<a href="#References">3</a>]</sup> of self-reproduction based on path counting already exists for rule <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
       </p>
       <p style="text-align: center;">
         <a  class="center" 
@@ -386,7 +409,7 @@
         <div class="anchor"></div>
         Noise
       </h3>
-      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point without symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding circle with a random looking interior.
+      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point with no symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding circle with a random-looking interior.
       <p style="text-align: center;">
         <a  class="center" 
             style="text-align:center;padding:30px;width:80px;max-width:100%;"
@@ -407,49 +430,95 @@
       </p>
 
 
-      <h3 id="Identity"> <!-- Identity -->
+      <h3 id="BoringRules"> <!-- Boring Rules -->
         <div class="anchor"></div>
-        Identity
+        Boring Rules
       </h3>
-      There also is an <b>identity</b> rule which leaves any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
-      <br><br>
+      <p>
+        There is an <b>identity</b> rule which leaves any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
+      </p>
       <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
         <img src="images/rules/rule-240.svg" class="center" style="width: 400px;">
       </a>
+      <p>
+        And a <b>negative</b> rule that swaps alive and dead states: <a href="rules.html?rule=15&start=Random&view=Animation" target="_blank">rule 15</a>. 
+      </p>
+      <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
+        <img src="images/rules/rule-15.svg" class="center" style="width: 400px;">
+      </a>
 
 
-      <h3 id="RegionOfInfluence"> <!-- Region Of Influence -->
+      <h3 id="Twins"> <!-- Twins -->
         <div class="anchor"></div>
-        Region Of Influence
+        Twins
       </h3>
       <p>
-        Did you wonder why most of the previous results have an hexagonal shape? The answer is quite simple: the region of influence of single cell expands hexagonlly. In physics terms, in the trianguar grid, light cones are hexagonal pyramids.
+        A simple procedure can be followed to find the evil twin of a rule. This twin has the same effect but in the negative world where all states have been swapped. You just need to take the number in its binary form (including the leading zeros if needed for the number to be 8 digits long), swap one and zeros and read it backward. Let's take rule 122 as an example. First, find the binary form of the rule number. 
+        $$
+          214=11010110_2
+        $$
+        Then swap ones and zeros.
+        $$
+          00101001_2
+        $$
+        And finally reverse it.
+        $$
+          10010100_2=148
+        $$
       </p>
       <p style="text-align: center;">
-        <a href="rules.html?rule=254&view=SpaceTime">
-          <img src="images/space-time/rule-254-OneAlive.png" class="center" style="width: 400px;">
+        <a  class="center" 
+            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
+            href="images/home/negative/rule-214-OneAlive.gif"
+            target="_blank">
+          <img id="twin1" src="style/wait.gif" style="width:100%;vertical-align:middle;">
         </a>
-        Light cone displayed by <a href="rules.html?rule=254&view=Animation">rule 254</a> in space-time view
+        <a href="rules.html?rule=214&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 214</a> from one alive cell
       </p>
-      <p>
-         The following plot shows the time at which the different layers will be impacted by the center cell.
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
+            href="images/home/negative/rule-148-OneDead.gif"
+            target="_blank">
+          <img id="twin2" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        <a href="rules.html?rule=148&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 148</a> from one dead cell
       </p>
-      <img src="images/home/layers.svg" class="center" style="width: 250px;">
+
+
+      <!-- <h3 id="RegionOfInfluence">
+        <div class="anchor"></div>
+        Region Of Influence
+      </h3> -->
 
       <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
         <div class="anchor"></div>
         <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
         Graph Theory
       </h2>
-     
+
       <p>
-        To think mathematically about TA and implement them efficiently, we are going to use a framework based on graph theory and linear algebra, developed in a previous work<sup>[x]</sup>. In this framework, the triangular grid is thought of as a graph. This graph will be expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
+        This section will be a bit more technical, but should only require a basic knowledge of graph theory and linear algebra. It introduces some of the tricks used to efficiently compute everything you have seen so far.
       </p>
-      <img src="images/home/graph.svg" class="center" style="width: 250px;">
+
       <p>
-        Here is how the cells are going to be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
+        Have you wondered why most of the previous results have a hexagonal shape? The answer is quite simple: the region of influence of a single cell expands hexagonlly. In physics terms, light cones are hexagonal pyramids in the triangular grid.
       </p>
-      <img src="images/home/cell-indices.svg" class="center" style="width: 300px;">
+      <p style="text-align: center;">
+        <a href="rules.html?rule=254&view=SpaceTime">
+          <img src="images/space-time/rule-254-OneAlive.png" class="center" style="width: 400px;">
+        </a>
+        Region of influence of a single cell <br> displayed by <a href="rules.html?rule=254&view=Animation">rule 254</a> in space-time view
+      </p>
+      <p>
+          The following plot shows the time at which the different layers are affected by the center cell.
+      </p>
+      <img src="images/home/layers.svg" class="center" style="width: 220px;">
+
+      </p>  
+        We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a><sup>[<a href="#References">4</a>]</sup>. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
+      </p>
+      <img src="images/home/graph.svg" class="center" style="width: 220px;">
       <p>
         The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of its adjacent vertices. We thus have:
           $$
@@ -460,7 +529,7 @@
                   0 & \text{ otherwise}
               \end{cases}
           \\
-              \mathcal{S}_i&=s(v_i)\in\{0,1\}
+              \mathcal{S}_i&=s(v_i)
           \end{align*}
           $$
         
@@ -474,9 +543,11 @@
           & R\big(c_t(v)\big)=s_{t+1}\big(v\big)
           \end{aligned}
           $$
-        Evolving the state of the grid is where this framework pays off the most. The environment will be simulated by using two layers around the region of the influence of our initial structure. The computed grid will thus contain $t+2$ layers.
-
-        Updating the state of the grid will come in four steps.
+        The environment will be simulated by using two layers around the region of the influence of our initial structure. Here is how the cells are going to be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
+      </p>
+      <img src="images/home/cell-indices.svg" class="center" style="width: 250px;">
+      <p>
+        Evolving the state of the grid is where this framework pays off the most. Updating the state of the grid will come in four steps.
           <ol>
             <li>
               First, a layer is added with the same state as the last vertex.
@@ -499,18 +570,17 @@
               Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
             </li>
         </ol>
-        
-        I would like to bring your attention to step 2 of this process. This is where graph theory is so usefull to work with cellular automata. Multiplying the adjacency matrix of a graph to its state vector gives a vector with the number of alive neighbors of each cell. This is how the parallel nature of computing cellular automata can be fully embraced. Indeeed, linear algebra is at the core and very well managed by computers. 
+        I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as has been done Graph-Rewriting Automata<sup>[<a href="#References">4</a>]</sup>.
       </p>
-      
-
-
 
       <h2 id="FinalThoughts"> <!-- FINAL THOUGHTS -->
         <div class="anchor"></div>
         <a href="rules.html?rule=58&time=8" target="_blank"><img src="style/rule-58-time-8.svg"></a> 
         Final Thoughts
       </h2>
+      <p>
+        What you have seen on this website is the fruit of my summer 2023 research projet. Most of it is new and not yet published. It was built on the ideas develloped in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a>. I am currently working on a article that will soon be available on the arXiv. In it, I plan to give more details on how I have achieved this particular implementation of ETA and further results. With it, you will be able to implement TA yourself in your programming language of choice. Follow me on <a href="https://www.researchgate.net/profile/Paul-Cousin-2" target="_blank">Research Gate</a> if you want to stay tuned.
+      </p>
       
       
       <h2 id="References"> <!-- REFERENCES -->
@@ -518,31 +588,20 @@
         <a href="rules.html?rule=45&time=8" target="_blank"><img src="style/rule-45-time-8.svg"></a> 
         References
       </h2>
-      <div class="csl-bib-body" style="line-height: 1.35; ">
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
+      
+      <div class="csl-bib-body" style="line-height: 1.35; "></div>
+        <div class="csl-entry" style="clear: left;">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">E. W. Weisstein, “Elementary Cellular Automaton”, [Online]. Available: <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">https://mathworld.wolfram.com/ElementaryCellularAutomaton.html</a></div>
         </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Copy%20Machines%20-%20Self-reproduction%20with%202%20States%20on%20Archimedean%20Tilings&amp;rft.aufirst=Mohammad%20Reza&amp;rft.aulast=Saadat&amp;rft.au=Mohammad%20Reza%20Saadat&amp;rft.au=Nagy%20Benedek&amp;rft.date=2023"></span>
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. R. Saadat and B. Nagy, “Generating Patterns on the Triangular Grid by Cellular Automata including Alternating Use of Two Rules,” in <i>2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)</i>, Zagreb, Croatia: IEEE, Sep. 2021, pp. 253–258. doi: <a href="https://doi.org/10.1109/ISPA52656.2021.9552107">10.1109/ISPA52656.2021.9552107</a>.</div>
+        <div class="csl-entry" style="clear: left;">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">S. Wolfram and others, <i>A New Kind Of Science</i>, vol. 5. Wolfram media Champaign, IL, 2002.</div>
         </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FISPA52656.2021.9552107&amp;rft_id=urn%3Aisbn%3A978-1-66542-639-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Generating%20Patterns%20on%20the%20Triangular%20Grid%20by%20Cellular%20Automata%20including%20Alternating%20Use%20of%20Two%20Rules&amp;rft.btitle=2021%2012th%20International%20Symposium%20on%20Image%20and%20Signal%20Processing%20and%20Analysis%20(ISPA)&amp;rft.place=Zagreb%2C%20Croatia&amp;rft.publisher=IEEE&amp;rft.aufirst=Mohammad%20Reza&amp;rft.aulast=Saadat&amp;rft.au=Mohammad%20Reza%20Saadat&amp;rft.au=Benedek%20Nagy&amp;rft.date=2021-09-13&amp;rft.pages=253-258&amp;rft.spage=253&amp;rft.epage=258&amp;rft.isbn=978-1-66542-639-8"></span>
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">S. Annadurai, “A Game of Life on a Pythagorean Tessellation,” in <i>2021 International Conference on Recent Trends on Electronics, Information, Communication &amp; Technology (RTEICT)</i>, Bangalore, India: IEEE, Aug. 2021, pp. 829–834. doi: <a href="https://doi.org/10.1109/RTEICT52294.2021.9573855">10.1109/RTEICT52294.2021.9573855</a>.</div>
+        <div class="csl-entry" style="clear: left;">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
         </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FRTEICT52294.2021.9573855&amp;rft_id=urn%3Aisbn%3A978-1-66543-559-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=A%20Game%20of%20Life%20on%20a%20Pythagorean%20Tessellation&amp;rft.btitle=2021%20International%20Conference%20on%20Recent%20Trends%20on%20Electronics%2C%20Information%2C%20Communication%20%26%20Technology%20(RTEICT)&amp;rft.place=Bangalore%2C%20India&amp;rft.publisher=IEEE&amp;rft.aufirst=Soorya&amp;rft.aulast=Annadurai&amp;rft.au=Soorya%20Annadurai&amp;rft.date=2021-08-27&amp;rft.pages=829-834&amp;rft.spage=829&amp;rft.epage=834&amp;rft.isbn=978-1-66543-559-8"></span>
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. Saadat and B. Nagy, “Cellular Automata Approach to Mathematical Morphology in the Triangular Grid,” <i>ACTA POLYTECH HUNG</i>, vol. 15, no. 6, pp. 45–62, 2018, doi: <a href="https://doi.org/10.12700/APH.15.6.2018.6.3">10.12700/APH.15.6.2018.6.3</a>.</div>
+        <div class="csl-entry" style="clear: left;">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">P. Cousin and A. Maignan, “Organic Structures Emerging From Bio-Inspired Graph-Rewriting Automata,” in <i>2022 24th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC)</i>, Hagenberg / Linz, Austria: IEEE, Sep. 2022, pp. 293–296. doi: <a href="https://doi.org/10.1109/SYNASC57785.2022.00053">10.1109/SYNASC57785.2022.00053</a>.</div>
         </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.12700%2FAPH.15.6.2018.6.3&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20Approach%20to%20Mathematical%20Morphology%20in%20the%20Triangular%20Grid&amp;rft.jtitle=Acta%20Polytechnica%20Hungarica&amp;rft.stitle=ACTA%20POLYTECH%20HUNG&amp;rft.volume=15&amp;rft.issue=6&amp;rft.aufirst=MohammadReza&amp;rft.aulast=Saadat&amp;rft.au=MohammadReza%20Saadat&amp;rft.au=Benedek%20Nagy&amp;rft.date=2018&amp;rft.pages=45-62&amp;rft.spage=45&amp;rft.epage=62&amp;rft.issn=17858860%2C%2020642687"></span>
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">B. Nagy, “Finding shortest path with neighbourhood sequences in triangular grids,” in <i>ISPA 2001. Proceedings of the 2nd International Symposium on Image and Signal Processing and Analysis. In conjunction with 23rd International Conference on Information Technology Interfaces (IEEE Cat. No.01EX480)</i>, Pula, Croatia: Univ. Zagreb, 2001, pp. 55–60. doi: <a href="https://doi.org/10.1109/ISPA.2001.938603">10.1109/ISPA.2001.938603</a>.</div>
-        </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FISPA.2001.938603&amp;rft_id=urn%3Aisbn%3A978-953-96769-4-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Finding%20shortest%20path%20with%20neighbourhood%20sequences%20in%20triangular%20grids&amp;rft.btitle=ISPA%202001.%20Proceedings%20of%20the%202nd%20International%20Symposium%20on%20Image%20and%20Signal%20Processing%20and%20Analysis.%20In%20conjunction%20with%2023rd%20International%20Conference%20on%20Information%20Technology%20Interfaces%20(IEEE%20Cat.%20No.01EX480)&amp;rft.place=Pula%2C%20Croatia&amp;rft.publisher=Univ.%20Zagreb&amp;rft.aufirst=B.&amp;rft.aulast=Nagy&amp;rft.au=B.%20Nagy&amp;rft.date=2001&amp;rft.pages=55-60&amp;rft.spage=55&amp;rft.epage=60&amp;rft.isbn=978-953-96769-4-8"></span>
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">C. Bays, “Cellular Automata in the Triangular Tessellation,” 1994.</div>
-        </div>
-        <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Cellular%20Automata%20in%20the%20Triangular%20Tessellation&amp;rft.aufirst=Carter&amp;rft.aulast=Bays&amp;rft.au=Carter%20Bays&amp;rft.date=1994"></span>
       </div>
 
 
@@ -581,7 +640,7 @@
   };
 </script>
 <script>
-  loadLargeImage("demo1", "style/wait.gif", "images/home/animations/rule-181-OneAlive.gif")
+  loadLargeImage("demo", "style/wait.gif", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
   loadLargeImage("beauty1", "style/wait.gif", "images/home/beauty/rule-89-time-200-OneAlive.svg")
   loadLargeImage("beauty2", "style/wait.gif", "images/home/beauty/rule-73-time-256-OneAlive.svg")
   loadLargeImage("beauty3", "style/wait.gif", "images/home/beauty/rule-57-time-320-OneAlive.svg")
@@ -591,6 +650,9 @@
   loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
   loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.jpg")
   loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
+  loadLargeImage("twin1","style/wait.gif","images/home/negative/rule-214-OneAlive.gif")
+  loadLargeImage("twin2","style/wait.gif","images/home/negative/rule-148-OneDead.gif")
+  loadLargeImage("space-time","style/wait.gif","images/home/space-time/rule-50-upto-256-OneAlive-small.jpg")
   loadLargeImage("selfreproduction","style/wait.gif","images/home/animations/rule-170-TA.gif")
   loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-1024-noise.jpg")
 </script>
