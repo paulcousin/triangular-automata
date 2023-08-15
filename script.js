@@ -21,7 +21,7 @@ function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
 //// Hide part of the header on scroll down for smartphone view
   var didScroll;
   var lastScrollTop = 0;
-  var delta = 5;
+  var delta = 20;
   var navbarHeight = $('header').outerHeight();
 
   $(window).scroll(function(event){
