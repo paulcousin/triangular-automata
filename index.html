@@ -171,6 +171,7 @@
           <li><a href="#SpaceTime">Space Time</a></li>
           <li><a href="#SelfReproduction">Self-Reproduction</a></li>
           <li><a href="#Noise">Noise</a></li>
+          <li><a href="#Textures">Textures</a></li>
           <li><a href="#BoringRules">Boring Rules</a></li>
           <li><a href="#Twins">Twins</a></li>
         </ul>
@@ -397,7 +398,7 @@
       </h3>
 
       <p>
-        Similar to the way <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html" target="_blank">Elementary Cellular Automata</a> are most often represented, we can display the behavior of an ETA in one single plot. Since, an instant is two-dimensional here, adding the dimension of time creates a 3D structure. In these space-time plots, time flows downward. The successive grids are stacked beneath each other, starting from the initial conditions at the top. The space-time plots that you will find on this website show only the cells that have the opposite state to the environment. A lot of information is therefore lost. We don't see the internal structure and we can't know the state of the environment. Nevertheless, this representation can help us visualize some properties of ETA that are difficult to notice otherwise. For example, certain rules create 3D space-time fractals.
+        Similar to the way <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html" target="_blank">Elementary Cellular Automata</a> are most often represented, we can display the behavior of an ETA in one single plot. Since, an instant is two-dimensional here, adding the dimension of time creates a 3D structure. In these space-time plots, time flows downward. The successive grids are stacked beneath each other, starting from the initial conditions at the top. The space-time plots that you will find on this website show only the cells that have the opposite state to the environment. A lot of information is therefore lost. We don't see the most of the internal structure and we can't know the state of the environment. Nevertheless, this representation can help us visualize some properties of ETA that are difficult to notice otherwise. For example, certain rules create 3D space-time fractals.
       </p>
 
       <p style="text-align: center;">
@@ -432,24 +433,70 @@
         <div class="anchor"></div>
         Noise
       </h3>
-      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point with no symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding circle with a random-looking interior.
+      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point with no symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding disk with a random-looking interior.
       <p style="text-align: center;">
         <a  class="center" 
-            style="text-align:center;padding:30px;width:80px;max-width:100%;"
-            href="images/home/noise/rule-37-time-0-noise.svg"
+            style="text-align:center;padding:30px;width:50px;max-width:100%;"
+            href="images/home/noise/rule-37-time-0-asymmetric.svg"
             target="_blank">
-          <img src="images/home/noise/rule-37-time-0-noise.svg" style="width:100%;vertical-align:middle;">
+          <img src="images/home/noise/rule-37-time-0-asymmetric.svg" style="width:100%;vertical-align:middle;">
         </a>
         Simple asymmetric starting point
       </p>
       <p style="text-align: center;">
         <a  class="center" 
             style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/noise/rule-37-time-1024-noise.svg"
+            href="images/home/noise/rule-37-time-512-asymmetric.svg"
             target="_blank">
           <img id="noise" src="style/wait.gif" style="width:100%;vertical-align:middle;">
         </a>
-        Result at $t=1024$ with <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a>
+        Result at $t=512$ with <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a>
+      </p>
+
+
+      <h3 id="Textures"> <!-- Textures -->
+        <div class="anchor"></div>
+        Textures
+      </h3>
+      We can obtain interesting organic textures by applying other rules to this pseudorandom grid.
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/textures/rule-204-time-32-noise.svg"
+            target="_blank">
+          <img id="texture1" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        Result at $t=32$ with <a href="rules.html?rule=204&start=Random&view=Animation" target="_blank">rule 204</a>
+      </p>
+
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/textures/rule-252-time-32-noise.svg"
+            target="_blank">
+          <img id="texture2" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        Result at $t=32$ with <a href="rules.html?rule=252&start=Random&view=Animation" target="_blank">rule 252</a>
+      </p>
+
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/textures/rule-100-time-64-noise.svg"
+            target="_blank">
+          <img id="texture3" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        Result at $t=64$ with <a href="rules.html?rule=100&start=Random&view=Animation" target="_blank">rule 100</a>
+      </p>
+
+      <p style="text-align: center;">
+        <a  class="center" 
+            style="text-align:center;width:500px;max-width:100%;"
+            href="images/home/textures/rule-108-time-512-noise.svg"
+            target="_blank">
+          <img id="texture4" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+        </a>
+        Result at $t=512$ with <a href="rules.html?rule=108&start=Random&view=Animation" target="_blank">rule 108</a>
       </p>
 
 
@@ -726,6 +773,10 @@
   loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
   loadLargeImage("space-time","style/wait.gif","images/home/space-time/rule-10-OneAlive.gif")
   loadLargeImage("self-reproduction","style/wait.gif","images/home/animations/rule-170-TA.gif")
+  loadLargeImage("texture1","style/wait.gif","images/home/textures/rule-204-time-32-noise.svg")
+  loadLargeImage("texture2","style/wait.gif","images/home/textures/rule-252-time-32-noise.svg")
+  loadLargeImage("texture3","style/wait.gif","images/home/textures/rule-100-time-64-noise.svg")
+  loadLargeImage("texture4","style/wait.gif","images/home/textures/rule-108-time-512-noise.svg")
   loadLargeImage("region-of-influence","style/wait.gif","images/home/space-time/rule-254-OneAlive.gif")
-  loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-1024-noise.jpg")
+  loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-512-asymmetric.svg")
 </script>
