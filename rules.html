@@ -315,11 +315,7 @@ function updatePage() {
     } else if (currentView == "Animation") {
       loadLargeImage('plot', 'style/wait.gif', 'https://paulcousin.github.io/triangular-automata-animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
     } else if (currentView == "SpaceTime") {
-      if (currentStart != "Random") {
-        loadLargeImage('plot', 'style/wait.gif', 'https://files.paulcousin.net/triangular-automata/space-time/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
-      } else {
-        loadLargeImage('plot', 'style/wait.gif', 'images/space-time/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.png');
-      }
+      loadLargeImage('plot', 'style/wait.gif', 'https://files.paulcousin.net/triangular-automata/space-time/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
     }
     // Updating selection
     document.getElementById("rule-selection").value = currentRule;
