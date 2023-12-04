@@ -191,7 +191,7 @@
           <li>a <b>grid</b> whose cells hold states defined at time $t=0$</li>
           <li>a local and deterministic <b>rule</b> iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$</li>
         </ul>
-        CA are interesting because they can exhibit complex behavior, yet need only a few sentences to be fully described. For this reason, CA have become a key model for gaining insight into real-world <b>complex systems</b>. On this website, we will look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. TA have already been studied in a few papers [<a href="#References">1-15</a>]. Here, we will focus on the simplest type of TA, which we will call <b>Elementary Triangular Automata</b> (ETA).
+        CA are interesting because they can exhibit complex behavior, yet need only a few sentences to be fully described. For this reason, CA have become a key model for gaining insight into real-world <b>complex systems</b>. On this website, we will look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. TA have already been studied in a few papers [<a href="#References">1-17</a>]. Here, we will focus on the simplest type of TA, which we will call <b>Elementary Triangular Automata</b> (ETA).
       </p>
       <img src="images/home/grid.svg" class="center" style="width: 400px;">
       <p>
@@ -219,7 +219,7 @@
       </p>
       <a href="rules.html?rule=218&view=Animation" target="_blank"><img src="images/rules/rule-218.svg" class="center" style="width: 400px;"></a>
       <p>
-        Since there are only $2^8=256$ possible ETA rules, they can be seen as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a> [<a href="#References">16</a>]. Furthermore, the triangle is the the regular polygon tiling 2D space with the smallest number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this respect.
+        Since there are only $2^8=256$ possible ETA rules, they can be seen as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a> [<a href="#References">18</a>]. Furthermore, the triangle is the the regular polygon tiling 2D space with the smallest number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this respect.
       </p>
       <p>
         In the following sections, we will find a way to index rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory, and much more.
@@ -232,7 +232,7 @@
         Rules
       </h2>
       <p>
-        Our goal here is to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code [<a href="#References">17</a>] style. We will use the same numbering system as in [<a href="#References">7</a>] and [<a href="#References">18</a>]. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
+        Our goal here is to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code [<a href="#References">19</a>] style. We will use the same numbering system as in [<a href="#References">9</a>] and [<a href="#References">20</a>]. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
       </p>
       <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
         <tr>
@@ -425,7 +425,7 @@
         Self-Reproduction
       </h3>
       <p>
-        As mentioned in [<a href="#References">15</a>], one of the original motivations for the development of cellular automata was to create a mathematical model of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&start=TA&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&start=TA&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&start=TA&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. A proof of self-reproduction [<a href="#References">15</a>] based on path counting already exists for rule <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
+        As mentioned in [<a href="#References">17</a>], one of the original motivations for the development of cellular automata was to create a mathematical model of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&start=TA&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&start=TA&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&start=TA&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. A proof of self-reproduction [<a href="#References">17</a>] based on path counting already exists for rule <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
       </p>
       <p style="text-align: center;">
         <a  class="center" 
@@ -588,7 +588,7 @@
       <img src="images/home/layers.svg" class="center" style="width: 220px;">
 
       </p>  
-        We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="#References">18</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
+        We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="#References">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
       </p>
       <img src="images/home/graph.svg" class="center" style="width: 220px;">
       <p>
@@ -642,7 +642,7 @@
               Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
             </li>
         </ol>
-        I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="#References">18</a>].
+        I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="#References">20</a>].
       </p>
 
       <h2 id="FinalThoughts"> <!-- FINAL THOUGHTS -->
@@ -663,77 +663,84 @@
       <p>
       <div class="csl-bib-body" style="line-height: 1.35; ">
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in the Triangular Tessellation,” 1994.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">R. W. Gerling, “Classification of triangular and honeycomb cellular automata,” <i>Physica A: Statistical Mechanics and its Applications</i>, vol. 162, no. 2, pp. 196–209, Jan. 1990, doi: <a href="https://doi.org/10.1016/0378-4371(90)90438-X">10.1016/0378-4371(90)90438-X</a>.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">L. Naumov, “Generalized coordinates for cellular automata grids,” in <i>International Conference on Computational Science</i>, Springer, 2003, pp. 869–878.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in the Triangular Tessellation,” 1994.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in Triangular, Pentagonal and Hexagonal Tessellations,” in <i>Encyclopedia of Complexity and Systems Science</i>, 2009, pp. 892–900.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">K. Imai and K. Morita, “A computation-universal two-dimensional 8-state triangular reversible cellular automaton,” <i>Theoretical Computer Science</i>, vol. 231, no. 2, pp. 181–191, Jan. 2000, doi: <a href="https://doi.org/10.1016/S0304-3975(99)00099-7">10.1016/S0304-3975(99)00099-7</a>.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">Y. Lin, A. Mynett, and Q. Chen, “Application of Unstructured Cellular Automata on Ecological Modelling,” in <i>Advances in Water Resources and Hydraulic Engineering</i>, Berlin, Heidelberg: Springer Berlin Heidelberg, 2009, pp. 624–629. doi: <a href="https://doi.org/10.1007/978-3-540-89465-0_108">10.1007/978-3-540-89465-0_108</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">L. Naumov, “Generalized coordinates for cellular automata grids,” in <i>International Conference on Computational Science</i>, Springer, 2003, pp. 869–878.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “The game of life in non-square environments,” in <i>Game of Life Cellular Automata</i>, Springer, 2010, pp. 319–329.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in Triangular, Pentagonal and Hexagonal Tessellations,” in <i>Encyclopedia of Complexity and Systems Science</i>, 2009, pp. 892–900.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">B. Breckling, G. Pe’er, and Y. G. Matsinos, “Cellular automata in ecological modelling,” in <i>Modelling Complex Ecological Dynamics: An Introduction into Ecological Modelling for Students, Teachers &amp; Scientists</i>, Springer, 2011, pp. 105–117.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">Y. Lin, A. Mynett, and Q. Chen, “Application of Unstructured Cellular Automata on Ecological Modelling,” in <i>Advances in Water Resources and Hydraulic Engineering</i>, Berlin, Heidelberg: Springer Berlin Heidelberg, 2009, pp. 624–629. doi: <a href="https://doi.org/10.1007/978-3-540-89465-0_108">10.1007/978-3-540-89465-0_108</a>.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Zawidzki, “Application of Semitotalistic 2D Cellular Automata on a Triangulated 3D Surface,” <i>Int. J. DNE</i>, vol. 6, no. 1, pp. 34–51, Jan. 2011, doi: <a href="https://doi.org/10.2495/DNE-V6-N1-34-51">10.2495/DNE-V6-N1-34-51</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “The game of life in non-square environments,” in <i>Game of Life Cellular Automata</i>, Springer, 2010, pp. 319–329.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. M. Ortigoza, A. Lorandi, and I. Neri, “ACFUEGOS: An Unstructured Triangular Cellular Automata for Modelling Forest Fire Propagation,” in <i>High Performance Computer Applications</i>, I. Gitler and J. Klapp, Eds., in Communications in Computer and Information Science, vol. 595. Cham: Springer International Publishing, 2016, pp. 132–143. doi: <a href="https://doi.org/10.1007/978-3-319-32243-8_9">10.1007/978-3-319-32243-8_9</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">B. Breckling, G. Pe’er, and Y. G. Matsinos, “Cellular automata in ecological modelling,” in <i>Modelling Complex Ecological Dynamics: An Introduction into Ecological Modelling for Students, Teachers &amp; Scientists</i>, Springer, 2011, pp. 105–117.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat, “Cellular Automata in the Triangular Grid,” 2016.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Zawidzki, “Application of Semitotalistic 2D Cellular Automata on a Triangulated 3D Surface,” <i>Int. J. DNE</i>, vol. 6, no. 1, pp. 34–51, Jan. 2011, doi: <a href="https://doi.org/10.2495/DNE-V6-N1-34-51">10.2495/DNE-V6-N1-34-51</a>.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">S. Uguz, S. Redjepov, E. Acar, and H. Akin, “Structure and reversibility of 2D von Neumann cellular automata over triangular lattice,” <i>International Journal of Bifurcation and Chaos</i>, vol. 27, p. 1750083, 2017.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. M. Ortigoza, A. Lorandi, and I. Neri, “ACFUEGOS: An Unstructured Triangular Cellular Automata for Modelling Forest Fire Propagation,” in <i>High Performance Computer Applications</i>, I. Gitler and J. Klapp, Eds., in Communications in Computer and Information Science, vol. 595. Cham: Springer International Publishing, 2016, pp. 132–143. doi: <a href="https://doi.org/10.1007/978-3-319-32243-8_9">10.1007/978-3-319-32243-8_9</a>.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat and B. Nagy, “Cellular Automata Approach to Mathematical Morphology in the Triangular Grid,” <i>ACTA POLYTECH HUNG</i>, vol. 15, no. 6, pp. 45–62, 2018, doi: <a href="https://doi.org/10.12700/APH.15.6.2018.6.3">10.12700/APH.15.6.2018.6.3</a>.</div>
-        </div>
-
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[12]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. A. Wainer, “An introduction to cellular automata models with cell-DEVS,” in <i>2019 Winter Simulation Conference (WSC)</i>, IEEE, 2019, pp. 1534–1548.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat, “Cellular Automata in the Triangular Grid,” 2016.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[13]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">A. V. Pavlova, S. E. Rubtsov, and I. S. Telyatnikov, “Using cellular automata in modelling of the fire front propagation through rough terrain,” <i>IOP Conf. Ser.: Earth Environ. Sci.</i>, vol. 579, no. 1, p. 012104, Oct. 2020, doi: <a href="https://doi.org/10.1088/1755-1315/579/1/012104">10.1088/1755-1315/579/1/012104</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[12]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">S. Uguz, S. Redjepov, E. Acar, and H. Akin, “Structure and reversibility of 2D von Neumann cellular automata over triangular lattice,” <i>International Journal of Bifurcation and Chaos</i>, vol. 27, p. 1750083, 2017.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[14]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and B. Nagy, “Generating Patterns on the Triangular Grid by Cellular Automata including Alternating Use of Two Rules,” in <i>2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)</i>, Zagreb, Croatia: IEEE, Sep. 2021, pp. 253–258. doi: <a href="https://doi.org/10.1109/ISPA52656.2021.9552107">10.1109/ISPA52656.2021.9552107</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[13]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat and B. Nagy, “Cellular Automata Approach to Mathematical Morphology in the Triangular Grid,” <i>ACTA POLYTECH HUNG</i>, vol. 15, no. 6, pp. 45–62, 2018, doi: <a href="https://doi.org/10.12700/APH.15.6.2018.6.3">10.12700/APH.15.6.2018.6.3</a>.</div>
+        </div>
+
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[14]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. A. Wainer, “An introduction to cellular automata models with cell-DEVS,” in <i>2019 Winter Simulation Conference (WSC)</i>, IEEE, 2019, pp. 1534–1548.</div>
         </div>
 
         <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[15]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[15]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">A. V. Pavlova, S. E. Rubtsov, and I. S. Telyatnikov, “Using cellular automata in modelling of the fire front propagation through rough terrain,” <i>IOP Conf. Ser.: Earth Environ. Sci.</i>, vol. 579, no. 1, p. 012104, Oct. 2020, doi: <a href="https://doi.org/10.1088/1755-1315/579/1/012104">10.1088/1755-1315/579/1/012104</a>.</div>
+        </div>
+
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[16]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and B. Nagy, “Generating Patterns on the Triangular Grid by Cellular Automata including Alternating Use of Two Rules,” in <i>2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)</i>, Zagreb, Croatia: IEEE, Sep. 2021, pp. 253–258. doi: <a href="https://doi.org/10.1109/ISPA52656.2021.9552107">10.1109/ISPA52656.2021.9552107</a>.</div>
+        </div>
+
+        <div class="csl-entry" style="clear: left; ">
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[17]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
         </div>
 
         <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[16]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">E. W. Weisstein, “Elementary Cellular Automaton”, [Online]. Available: <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">https://mathworld.wolfram.com/ElementaryCellularAutomaton.html</a></div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[18]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">E. W. Weisstein, “Elementary Cellular Automaton”, [Online]. Available: <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">https://mathworld.wolfram.com/ElementaryCellularAutomaton.html</a></div>
         </div>
 
         <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[17]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">S. Wolfram and others, <i>A New Kind Of Science</i>, vol. 5. Wolfram media Champaign, IL, 2002.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[19]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">S. Wolfram and others, <i>A New Kind Of Science</i>, vol. 5. Wolfram media Champaign, IL, 2002.</div>
         </div>
 
         <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[18]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">P. Cousin and A. Maignan, “Organic Structures Emerging From Bio-Inspired Graph-Rewriting Automata,” in <i>2022 24th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC)</i>, Hagenberg / Linz, Austria: IEEE, Sep. 2022, pp. 293–296. doi: <a href="https://doi.org/10.1109/SYNASC57785.2022.00053">10.1109/SYNASC57785.2022.00053</a>.</div>
+          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[20]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">P. Cousin and A. Maignan, “Organic Structures Emerging From Bio-Inspired Graph-Rewriting Automata,” in <i>2022 24th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC)</i>, Hagenberg / Linz, Austria: IEEE, Sep. 2022, pp. 293–296. doi: <a href="https://doi.org/10.1109/SYNASC57785.2022.00053">10.1109/SYNASC57785.2022.00053</a>.</div>
         </div>
       </p>
-
 
       <h2 id="CiteThisWebsite"> <!-- CITE THIS WEBSITE -->
         <div class="anchor"></div>
