@@ -103,6 +103,44 @@
       color: rgb(251.323, 149.822, 61.494);
     }
 
+    .gallery-element {
+        display: inline-block;
+        text-align: center;
+        max-width: 100%;
+        border: solid 1px;
+        width: 245px;
+        height: 245px;
+        margin: 5px;
+    }
+
+    .gallery-element img{
+        width: 245px;
+        height: 245px;
+    }
+
+    .rule-number {
+        text-decoration: none;
+        position: absolute;
+        margin-top: 3px;
+        margin-left: 5px;
+        color: black;
+        text-shadow: white 0px 0px 5px, white 0px 0px 5px;
+        font-size: large;
+        pointer-events: none;
+    }
+
+    .step-number {
+        text-decoration: none;
+        text-align: right;
+        position: absolute;
+        margin-top: 3px;
+        width: 240px;
+        color: black;
+        text-shadow: white 0px 0px 5px, white 0px 0px 5px;
+        font-size: large;
+        pointer-events: none;
+    }
+
     /* Responsive */
     @media screen and (max-width: 850px) {
         main article {
@@ -142,7 +180,7 @@
         <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
       </h2>
       <p>
-        This website is about <b>Triangular Automata</b> (TA), which stands for <b>cellular automata</b> in the <b>triangular grid</b>. On this page, you will find an introduction to TA, building up from the basics to more advanced concepts. If math expressions do not display correctly, try Chrome or Firefox. In the <a href="gallery.html">gallery</a>, each <b>Elementary Triangular Automata</b> (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stroboscopic so, <b style="color: red;">if you suffer from epilepsy, avoid animations</b>. Read the related <a href="https://arxiv.org/abs/2309.15795" target="_blank">paper</a> to delve deeper into the mathematics behind this work. Look at the <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a> section to learn about how these results were computed and download the Mathematica package. <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a> me if you want to know more about this project.
+        This website is about Triangular Automata (TA), which stands for cellular automata in the triangular grid. On this page, you will find an introduction to TA, building up from the basics to more advanced concepts. A <b>new section</b> has been added with <a href="#LongerTimeScale">longer time scale</a> computations. If math expressions do not display correctly, try Chrome or Firefox. In the <a href="gallery.html">gallery</a>, each Elementary Triangular Automata (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stroboscopic so, <b style="color: red;">if you suffer from epilepsy, avoid animations</b>. Read the related <a href="https://arxiv.org/abs/2309.15795" target="_blank">paper</a> to delve deeper into the mathematics behind this work. Look at the <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a> section to learn about how these results were computed and download the Mathematica package. <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a> me if you want to know more about this project.
       </p>
       <p style="text-align: center;">
         <a  class="center" 
@@ -173,6 +211,7 @@
           <li><a href="#Textures">Textures</a></li>
           <li><a href="#BoringRules">Boring Rules</a></li>
           <li><a href="#Twins">Twins</a></li>
+          <li><a href="#LongerTimeScale">Longer Time Scale</a></li>
         </ul>
         <li><a href="#GraphTheory">Graph Theory</a></li>
         <li><a href="#FinalThoughts">Final Thoughts</a></li>
@@ -478,7 +517,7 @@
         Result at $t=32$ with <a href="rules.html?rule=204&start=Random&view=Animation" target="_blank">rule 204</a>
       </p>
 
-      <p style="text-align: center;">
+      <!--<p style="text-align: center;">
         <a  class="center" 
             style="text-align:center;width:500px;max-width:100%;"
             href="images/home/textures/rule-252-time-32-noise.svg"
@@ -486,7 +525,7 @@
           <img id="texture2" src="style/wait.gif" style="width:100%;vertical-align:middle;">
         </a>
         Result at $t=32$ with <a href="rules.html?rule=252&start=Random&view=Animation" target="_blank">rule 252</a>
-      </p>
+      </p>-->
 
       <p style="text-align: center;">
         <a  class="center" 
@@ -560,6 +599,164 @@
         <b>right</b>: <a href="rules.html?rule=148&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 148</a> from one dead cell
       </p>
     </p>
+
+
+      <h3 id="LongerTimeScale"> <!-- Longer Time Scale -->
+        <div class="anchor"></div>
+        Longer Time Scale
+      </h3>
+
+      <p>
+        Here is a selection of a few ETA computed in a longer time scale, starting from one alive cell. The rule number is indicated in the top-left corner, the time step in the top-right corner. Click on it to see the details. Not all softwares allow you to zoom a lot on pdf files, Firefox is the best bowser to do so that I have tried.
+      </p>
+
+      <div style="width:100%;text-align: center;">
+
+      <p style="text-align: left;">
+        <b><a href="rules.html?rule=210&view=Animation" target="_blank">Rule 210</a>: Order and Chaos</b><br>
+        This is my favorite rule. It is easy to describe: "change the state of cells who have one neighboor alive". It makes structures at larger scales as time goes on and is very intriguing. In particular there is a battle between several types of structure on three sides of the hexagon: chaos slowly eats beautifully order patterns created on the edge.
+      </p>
+      <p>
+        <img src="images/home/long-time-scale/rule-210-time-2048-crop.jpg" alt="" style="width:600px;max-width:100%;">
+        <br><a href="rules.html?rule=210&view=Animation" target="_blank">Rule 210</a> at $t=2048$
+      </p>
+        <div class="gallery-element">
+          <a class="rule-number">210</a><a class="step-number">256</a>
+          <a href="images/home/long-time-scale/rule-210-time-256.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-210-time-256.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">210</a><a class="step-number">512</a>
+          <a href="images/home/long-time-scale/rule-210-time-512.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-210-time-512.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">210</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-210-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-210-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">210</a><a class="step-number">2048</a>
+          <a href="images/home/long-time-scale/rule-210-time-2048.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-210-time-2048.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">210</a><a class="step-number">2049</a>
+          <a href="images/home/long-time-scale/rule-210-time-2049.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-210-time-2049.jpg">
+          </a>
+        </div>
+        <br><br>
+
+        <p style="text-align: left;">
+          <b><a href="rules.html?rule=218&view=Animation" target="_blank">Rule 218</a>: The Beast</b><br>
+          This rule creates a stable pattern of a few dead spots on a fully alive background. At time 1024 a nice pareidolia appears. I augmented the constrat to make it clearer. What do you see?
+        </p>
+        <p style="text-align: center;">
+          <a  class="center" 
+              href="images/home/long-time-scale/rule-218-time-1024-crop.png" target="_blank"
+              style="text-align:center;width:200px;max-width:100%;"
+              target="_blank">
+            <img id="twins" src="images/home/long-time-scale/rule-218-time-1024-crop-small.png" style="width:100%;vertical-align:middle;">
+          </a>
+          <br><a href="rules.html?rule=218&view=Animation" target="_blank">Rule 218</a> at $t=1024$
+        </p>
+        <div class="gallery-element">
+          <a class="rule-number">218</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-218-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-218-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">218</a><a class="step-number">2048</a>
+          <a href="images/home/long-time-scale/rule-218-time-2048.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-218-time-2048.jpg">
+          </a>
+        </div><br>
+        <br><br>
+    
+        <p style="text-align: left;">
+          <b>The stars: rules <a href="rules.html?rule=54&view=Animation" target="_blank">54</a>, <a href="rules.html?rule=62&view=Animation" target="_blank">62</a> and <a href="rules.html?rule=131&view=Animation" target="_blank">131</a></b>
+        </p>
+        <div class="gallery-element">
+          <a class="rule-number">54</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-54-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-54-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">62</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-62-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-62-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">131</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-131-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-131-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">131</a><a class="step-number">2048</a>
+          <a href="images/home/long-time-scale/rule-131-time-2048.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-131-time-2048.jpg">
+          </a>
+        </div>
+        <br><br>
+
+        <p style="text-align: left;">
+          <b>Miscellaneous</b>
+        </p>
+        <div class="gallery-element">
+          <a class="rule-number">37</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-37-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-37-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">57</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-57-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-57-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">65</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-65-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-65-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">73</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-73-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-73-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">99</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-99-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-99-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">101</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-101-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-101-time-1024.jpg">
+          </a>
+        </div>
+        <div class="gallery-element">
+          <a class="rule-number">186</a><a class="step-number">1024</a>
+          <a href="images/home/long-time-scale/rule-186-time-1024.pdf" target="_blank">
+            <img src="images/home/long-time-scale/rule-186-time-1024.jpg">
+          </a>
+        </div>
+        <br><br>
+
+      </div>
+      
 
       <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
         <div class="anchor"></div>
@@ -791,7 +988,7 @@
   loadLargeImage("space-time","style/wait.gif","images/home/space-time/rule-10-OneAlive-perspective.jpg")
   loadLargeImage("self-reproduction","style/wait.gif","images/home/animations/rule-170-TA.gif")
   loadLargeImage("texture1","style/wait.gif","images/home/textures/rule-204-time-32-noise.svg")
-  loadLargeImage("texture2","style/wait.gif","images/home/textures/rule-252-time-32-noise.svg")
+  // loadLargeImage("texture2","style/wait.gif","images/home/textures/rule-252-time-32-noise.svg")
   loadLargeImage("texture3","style/wait.gif","images/home/textures/rule-100-time-64-noise.svg")
   loadLargeImage("texture4","style/wait.gif","images/home/textures/rule-108-time-512-noise.svg")
   loadLargeImage("region-of-influence","style/wait.gif","images/home/space-time/rule-254-OneAlive.gif")
