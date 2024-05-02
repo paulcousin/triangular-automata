@@ -238,6 +238,7 @@
         <option value="126">126</option>
         <option value="127">127</option>
         <option value="128">128</option>
+        <option value="more" id="more">more</option>
       </select>
       &nbsp;&nbsp;
       View :
@@ -300,9 +301,14 @@ function setRule(rule) {
 }
 
 function setTime(time) {
-    currentTime = time;
-    urlParams.set('time', time);
-    history.replaceState(null, null, "?"+urlParams.toString());
+    if (time == "more") {
+      window.open('https://files.paulcousin.net/triangular-automata/pdf/rule-'+currentRule.toString()+'.pdf',"_self");
+    }
+    else {
+      currentTime = time;
+      urlParams.set('time', time);
+      history.replaceState(null, null, "?"+urlParams.toString());
+    }
 }
 
 // Update page //
@@ -315,6 +321,11 @@ function updatePage() {
       loadLargeImage('plot', 'style/wait.gif', 'https://paulcousin.github.io/triangular-automata-animations/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
     } else if (currentView == "SpaceTime") {
       loadLargeImage('plot', 'style/wait.gif', 'https://files.paulcousin.net/triangular-automata/space-time/rule-'+currentRule.toString()+'-'+currentStart.toString()+'.gif');
+    }
+    if (currentStart == "OneAlive") {
+      document.getElementById('time-selection').innerHTML = '<option value="0">0</option><option value="1">1</option><option value="2">2</option> <option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="8">8</option><option value="10">10</option><option value="16">16</option><option value="25">25</option><option value="32">32</option><option value="50">50</option><option value="64">64</option><option value="75">75</option><option value="96">96</option><option value="100">100</option><option value="125">125</option><option value="126">126</option><option value="127">127</option><option value="128">128</option><option value="more" id="more">more</option>';
+    } else {
+      document.getElementById('time-selection').innerHTML = '<option value="0">0</option><option value="1">1</option><option value="2">2</option> <option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="8">8</option><option value="10">10</option><option value="16">16</option><option value="25">25</option><option value="32">32</option><option value="50">50</option><option value="64">64</option><option value="75">75</option><option value="96">96</option><option value="100">100</option><option value="125">125</option><option value="126">126</option><option value="127">127</option><option value="128">128</option>';
     }
     // Updating selection
     document.getElementById("rule-selection").value = currentRule;
