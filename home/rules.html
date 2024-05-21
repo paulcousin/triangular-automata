@@ -1,0 +1,46 @@
+<!-- RULES -->
+<h2 id="Rules">
+    <div class="anchor"></div>
+    <a href="rules.html?rule=86&time=8" target="_blank"><img src="style/rule-86-time-8.svg"></a> 
+    Rules
+  </h2>
+  <p>
+    Our goal here is to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code [<a href="?page=references">19</a>] style. We will use the same numbering system as in [<a href="?page=references">9</a>] and [<a href="?page=references">20</a>]. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
+  </p>
+  <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
+    <tr>
+      <th><img src="images/home/configurations/0.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/1.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/2.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/3.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/4.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/5.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/6.svg" style="width:100%;vertical-align:middle;"></th>
+      <th><img src="images/home/configurations/7.svg" style="width:100%;vertical-align:middle;"></th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </table>
+  <p>
+    A <b>rule</b> $R$ tells us what the state of a cell will become at the next time step depending on its local configuration. It is thus a map from <b>configuration space</b> to <b>state space</b>.
+    $$R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}$$
+  </p>
+  <p>
+    Like in the Wolfram Code, we can use rule numbers such that, in binary, they display the behavior of the rule.
+    $$n=\sum_{c=0}^7 2^c R(c)$$
+    Starting from the right, the binary digits of a <b>rule number</b> show the future state associated with all configurations as we ordered them. For example, if a cell's configuration is $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if its configuration is $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
+  </p>
+  <a href="rules.html?rule=210&view=Animation" target="_blank">
+    <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
+  </a>
+  <p>
+    The number of this rule is $11010010_2=210_{10}$. If you didn't guess, can you see now where it appears in the plot above?
+  </p>

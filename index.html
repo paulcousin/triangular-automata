@@ -53,7 +53,7 @@
     main article {
         height: 100%;
         margin-top: 110px;
-        margin-bottom: 50px;
+        margin-bottom: 35px;
         margin-left: 50%;
         transform: translateX(-50%);
         width:94%;
@@ -141,8 +141,67 @@
         pointer-events: none;
     }
 
+    /* Footer */
+    footer {
+      text-align: center;  
+      display: inline-block;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      position: fixed;
+      overflow: hidden;
+      background-color:  rgb(50% 0% 50%);
+      color: white;
+      border-top: solid 1px;
+      padding: 10px;
+      left: 0px;
+      width: 100%;
+      height: .4em;
+      bottom: 0px;
+      z-index: 10;
+    }
+    footer a {
+      margin-top: -8px;
+      margin-bottom: -8px;
+      z-index: 100;
+    }
+    footer a:any-link {
+      color: white;
+    }
+    footer a:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    footer img {
+      height: 1em;
+      margin-left: 10px;
+      margin-right: 10px;
+      transform: translateY(20%);
+      filter: drop-shadow(2px 4px 4px rgba(100, 0, 100, 0.8));
+    }
+
+    #left {
+      display: none;
+      float: left;
+      margin-left: -10px;
+    }
+    #right {
+      display: none;
+      float: right;
+      margin-right: 10px;
+    }
+    #down {
+      position:absolute;
+      left: 0px;
+      width: 100%;
+      z-index: -10;
+    }
+
+    #jumpLine {
+      display: none;
+    }
+
     /* Responsive */
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 950px) {
         main article {
             margin-top: 125px;
         }
@@ -150,15 +209,16 @@
   </style>
 </head>
 <body>
-  <header>
+
+  <header id="header">
     <nav>
       <div class="purple">
       <h1>
         <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
       </h1>
         <p class="menu">
-            <a onclick="window.location='index.html'+window.location.search;" style="text-decoration: underline;">Home</a>
-            <a onclick="window.location='gallery.html'+window.location.search;">Gallery</a>
+            <a href="index.html" style="text-decoration: underline;">Home</a>
+            <a href="gallery.html">Gallery</a>
             <a href="https://arxiv.org/abs/2309.15795" target="_blank">Paper</a>
             <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
             <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
@@ -173,864 +233,104 @@
     <img src="style/wait.gif" style="display: none;">
     <img src="style/wait-small.gif" style="display: none;">
 
-    <article id="home">
+    <article id="home"></article>
 
-      <h2 id="Abstract"> <!-- ABSTRACT -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=57&time=16" target="_blank"><img src="style/rule-57-time-16.svg"></a> Abstract
-      </h2>
-      <p>
-        This website is about Triangular Automata (TA), which stands for cellular automata in the triangular grid. On this page, you will find an introduction to TA, building up from the basics to more advanced concepts. A <b>new section</b> has been added with <a href="#LongerTimeScale">longer time scale</a> computations. If math expressions do not display correctly, try Chrome or Firefox. In the <a href="gallery.html">gallery</a>, each Elementary Triangular Automata (ETA) can be explored in many ways. Use the control panel at the bottom of the page and follow your curiosity. Some rules are stroboscopic so, <b style="color: red;">if you suffer from epilepsy, avoid animations</b>. Read the related <a href="https://arxiv.org/abs/2309.15795" target="_blank">paper</a> to delve deeper into the mathematics behind this work. Look at the <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">code</a> section to learn about how these results were computed and download the Mathematica package. <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a> me if you want to know more about this project.
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
-            href="images/home/abstract/rule-181-upto-256-OneAlive.gif"
-            target="_blank">
-            <img id="demo" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=181&time=128" style="text-align:center;" target="_blank">rule 181</a>
-      </p>
-
-
-      <h2 id="TableOfContents"> <!-- TABLE OF CONTENT -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=218&time=8" target="_blank"><img src="style/rule-218-time-8.svg"></a> Table Of Contents
-      </h2>
-      <ul>
-        <li><a href="#Introduction">Introduction</a></li>
-        <li><a href="#Rules">Rules</a></li>
-        <li><a href="#Behavior">Behavior</a></li>
-        <ul>
-          <li><a href="#Beauty">Beauty</a></li>
-          <li><a href="#Chaos">Chaos</a></li>
-          <li><a href="#Fractals">Fractals</a></li>
-          <li><a href="#SpaceTime">Space Time</a></li>
-          <li><a href="#SelfReproduction">Self-Reproduction</a></li>
-          <li><a href="#Noise">Noise</a></li>
-          <li><a href="#Textures">Textures</a></li>
-          <li><a href="#BoringRules">Boring Rules</a></li>
-          <li><a href="#Twins">Twins</a></li>
-          <li><a href="#LongerTimeScale">Longer Time Scale</a></li>
-        </ul>
-        <li><a href="#GraphTheory">Graph Theory</a></li>
-        <li><a href="#FinalThoughts">Final Thoughts</a></li>
-        <li><a href="#References">References</a></li>
-        <li><a href="#CiteThisWebsite">Cite This Website</a></li>
-      </ul>
-
-
-      <h2 id="Introduction"> <!-- INTRODUCTION -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=45&time=16" target="_blank"><img src="style/rule-45-time-16.svg"></a> Introduction
-      </h2>
-      <p>
-        A <b>Cellular Automaton</b> (CA) is a mathematical object composed of two elements: 
-        <ul>
-          <li>a <b>grid</b> whose cells hold states defined at time $t=0$</li>
-          <li>a local and deterministic <b>rule</b> iteratively applied to evolve the grid to any discrete time step $t\in\mathbb{N}$</li>
-        </ul>
-        CA are interesting because they can exhibit complex behavior, yet need only a few sentences to be fully described. For this reason, CA have become a key model for gaining insight into real-world <b>complex systems</b>. On this website, we will look at cellular automata in the triangular grid, or <b>Triangular Automata</b> (TA) for short. TA have already been studied in a few papers [<a href="#References">1-17</a>]. Here, we will focus on the simplest type of TA, which we will call <b>Elementary Triangular Automata</b> (ETA).
-      </p>
-      <img src="images/home/grid.svg" class="center" style="width: 400px;">
-      <p>
-        ETA grid cells hold only binary states. Each cell will either be:
-        <ul>
-          <li>‟alive” and colored purple <img src="style/triangle-right-purple.svg" style="height:.95em;vertical-align:middle;">, with a state $s=1$</li>
-          <li>‟dead” and colored white <img src="style/triangle-right-white.svg" style="height:.9em;vertical-align:middle;">, with a state $s=0$</li>
-        </ul>
-        ETA rules determine the future state of a cell based on its current state and the states of its neighbors, regardless of their orientation. This results in a limited number of only 8 possible local configurations.
-      </p>
-      <table class="center" style="text-align: center; width:400px; max-width:100%;">
-        <tr>
-          <th><img src="images/home/configurations/0.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/1.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/2.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/3.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/4.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/5.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/6.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/7.svg" style="width:100%;vertical-align:middle;"></th>
-        </tr>
-      </table>
-      <p>
-        For each of these configurations, a rule must specify whether the cell will be dead or alive at the next time step. Here is an example of such a rule (click on the plot to see what it does to a single living cell):
-      </p>
-      <a href="rules.html?rule=218&view=Animation" target="_blank"><img src="images/rules/rule-218.svg" class="center" style="width: 400px;"></a>
-      <p>
-        Since there are only $2^8=256$ possible ETA rules, they can be seen as the two-dimensional counterpart to Wolfram’s <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a> [<a href="#References">18</a>]. Furthermore, the triangle is the the regular polygon tiling 2D space with the smallest number of neighbors per cell. ETA are thus the most basic 2D cellular automata and have a fundamental aspect in this respect.
-      </p>
-      <p>
-        In the following sections, we will find a way to index rules, learn more about ETA and their behavior, see how they can be efficiently implemented using graph theory, and much more.
-      </p>
-
-
-      <h2 id="Rules"> <!-- RULES -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=86&time=8" target="_blank"><img src="style/rule-86-time-8.svg"></a> 
-        Rules
-      </h2>
-      <p>
-        Our goal here is to index all 256 rules by a unique <b>rule number</b> $n$, in the Wolfram Code [<a href="#References">19</a>] style. We will use the same numbering system as in [<a href="#References">9</a>] and [<a href="#References">20</a>]. First, let's give every local configuration a number. The <b>configuration number</b> of a cell will be the number of its alive neighbors, plus 4 if itself is alive.
-      </p>
-      <table class="center" style="text-align: center; width:400px; max-width:100%;border:solid 1px;">
-        <tr>
-          <th><img src="images/home/configurations/0.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/1.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/2.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/3.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/4.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/5.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/6.svg" style="width:100%;vertical-align:middle;"></th>
-          <th><img src="images/home/configurations/7.svg" style="width:100%;vertical-align:middle;"></th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-        </tr>
-      </table>
-      <p>
-        A <b>rule</b> $R$ tells us what the state of a cell will become at the next time step depending on its local configuration. It is thus a map from <b>configuration space</b> to <b>state space</b>.
-        $$R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}$$
-      </p>
-      <p>
-        Like in the Wolfram Code, we can use rule numbers such that, in binary, they display the behavior of the rule.
-        $$n=\sum_{c=0}^7 2^c R(c)$$
-        Starting from the right, the binary digits of a <b>rule number</b> show the future state associated with all configurations as we ordered them. For example, if a cell's configuration is $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if its configuration is $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
-      </p>
-      <a href="rules.html?rule=210&view=Animation" target="_blank">
-        <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
-      </a>
-      <p>
-        The number of this rule is $11010010_2=210_{10}$. If you didn't guess, can you see now where it appears in the plot above?
-      </p>
-
-      <h2 id="Behavior"> <!-- BEHAVIOR -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=67&time=10" target="_blank"><img src="style/rule-67-time-10.svg"></a> 
-        Behavior
-      </h2>
-      <p>
-        Now comes the fun part! Let's take a look at what these automata do.  It is particularly interesting to see what happens to a <b>single living cell</b> under different ETA rules.  So, unless otherwise noted, the following pictures come from this starting point.
-      </p>
-      <h3 id="Beauty"> <!-- Beauty -->
-        <div class="anchor"></div>
-        Beauty
-      </h3>
-      One of the most striking aspects of these automata is their beauty. Let's simply enjoy some neat examples first.
-      
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/beauty/rule-89-time-200-OneAlive.svg"
-            target="_blank">
-          <img id="beauty1" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=89&view=Animation" target="_blank">rule 89</a> at $t=200$
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/beauty/rule-73-time-256-OneAlive.svg"
-            target="_blank">
-          <img id="beauty2" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=73&view=Animation" target="_blank">rule 73</a> at $t=256$
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/beauty/rule-57-time-320-OneAlive.svg"
-            target="_blank">
-          <img id="beauty3" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=57&view=Animation" target="_blank">rule 57</a> at $t=320$
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/beauty/rule-62-time-256-OneAlive.svg"
-            target="_blank">
-          <img id="beauty4" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=62&view=Animation" target="_blank">rule 62</a> at $t=256$
-      </p>
-
-      <h3 id="Chaos"> <!-- Chaos -->
-        <div class="anchor"></div>
-        Chaos
-      </h3>
-      <b>Chaos</b> is one of the key features of complex systems. In mathematics, "chaos" is a term used to characterize dynamical systems with a strong dependence on initial conditions. This means that a small difference in initial grid will be amplified to the point of producing very different results. For example, here are two randomly generated grids that are completely similar except for the central cell, which is alive in (1) and dead in (2).
-      <br>
-        <table class="center" style="text-align: center; width:400px; max-width:100%;">
-          <tr>
-            <th><a href="images/home/chaos/chaos-1-1.svg" target="_blank">
-              <img src="images/home/chaos/chaos-1-1.svg" style="width:100%;vertical-align:middle;"></a></th>
-            <th><a href="images/home/chaos/chaos-2-1.svg" target="_blank">
-              <img src="images/home/chaos/chaos-2-1.svg" style="width:100%;vertical-align:middle;"></a></th>
-          </tr>
-          <tr>
-            <td>(1) at $t=0$</td>
-            <td>(2) at $t=0$</td>
-          </tr>
-        </table>
-      <br>
-      After 512 time steps of evolution with <a href="rules.html?rule=53&view=Animation&start=Random" target="_blank">rule 53</a>, even though they looked almost indistinguishable at first, they have become completely different. Don't they look a little like Antarctica?
-      <table class="center" style="text-align: center; width:800px; max-width:100%;">
-        <tr>
-          <th><a href="images/home/chaos/chaos-1-2.svg" target="_blank">
-            <img id="chaos1" style="width:100%;vertical-align:middle;"></a></th>
-          <th><a href="images/home/chaos/chaos-2-2.svg" target="_blank">
-            <img id="chaos2" style="width:100%;vertical-align:middle;"></a></th>
-        </tr>
-        <tr>
-          <td>(1) at $t=512$</td>
-          <td>(2) at $t=512$</td>
-        </tr>
-      </table>
-
-      <h3 id="Fractals"> <!-- Fractals -->
-        <div class="anchor"></div>
-        Fractals
-      </h3>
-      Some rules produce similar structures across space, time and, more interestingly, scales. Self-similarity across scales is what defines <b>fractals</b>. We call these structures <b>scale-free</b>. In the following examples, you can see the same pattern repeated at different scales around the origin.
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/fractals/rule-65-time-512-OneAlive.svg"
-            target="_blank">
-          <img id="fractal1" src="images/home/fractals/rule-65-time-512-OneAlive.jpg" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=65&view=Animation" target="_blank">rule 65</a> at $t=512$
-      </p>
-
-      <p style="text-align: center;">
-          <a  class="center" 
-              style="text-align:center;width:500px;max-width:100%;"
-              href="images/home/fractals/rule-106-time-510-OneAlive.svg"
-              target="_blank">
-            <img id="fractal2" src="images/home/fractals/rule-106-time-510-OneAlive.jpg" style="width:100%;vertical-align:middle;">
-          </a>
-          <a href="rules.html?rule=106&view=Animation" target="_blank">rule 106</a> at $t=510$
-      </p>
-
-      <p style="text-align: center;">
-          <a  class="center" 
-              style="text-align:center;width:500px;max-width:100%;"
-              href="images/home/fractals/rule-50-time-352-OneAlive.svg"
-              target="_blank">
-            <img id="fractal3" src="images/home/fractals/rule-50-time-352-OneAlive.jpg" style="width:100%;vertical-align:middle;">
-          </a>
-          <a href="rules.html?rule=50&view=Animation" target="_blank">rule 50</a> at $t=352$
-      </p>
-
-      <h3 id="SpaceTime"> <!-- Space Time -->
-        <div class="anchor"></div>
-        Space Time
-      </h3>
-
-      <p>
-        Similar to the way <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html" target="_blank">Elementary Cellular Automata</a> are most often represented, we can display the behavior of an ETA in one single plot. Since, an instant is two-dimensional here, adding the dimension of time creates a 3D structure. In these space-time plots, time flows downward. The successive grids are stacked beneath each other, starting from the initial conditions at the top. The space-time plots that you will find on this website show only the cells that have the opposite state to the environment. A lot of information is therefore lost. We don't see the most of the internal structure and we can't know the state of the environment. Nevertheless, this representation can help us visualize some properties of ETA that are difficult to notice otherwise. For example, certain rules create 3D space-time fractals.
-      </p>
-
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;border:solid black 1px;"
-            href="images/home/space-time/rule-10-OneAlive.gif"
-            target="_blank">
-          <img id="space-time-animation" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=10&view=SpaceTime" target="_blank">rule 10</a> in space-time view
-      </p>
-      <br>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:600px;max-width:100%;"
-            href="images/home/space-time/rule-10-OneAlive-perspective.jpg"
-            target="_blank">
-          <img id="space-time" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=10&view=SpaceTime" target="_blank">rule 10</a> in space-time view (rendered in <a href="https://www.blender.org/" target="_blank">Blender</a>)
-      </p>
-
-      <h3 id="SelfReproduction"> <!-- Self-Reproduction -->
-        <div class="anchor"></div>
-        Self-Reproduction
-      </h3>
-      <p>
-        As mentioned in [<a href="#References">17</a>], one of the original motivations for the development of cellular automata was to create a mathematical model of <b>self-reproduction</b>. Interestingly, 4 of the 256 ETA rules naturally reproduce any finite pattern given as initial condition: rules <a href="rules.html?rule=85&start=TA&view=Animation" target="_blank">85</a>, <a href="rules.html?rule=90&start=TA&view=Animation" target="_blank">90</a>, <a href="rules.html?rule=165&start=TA&view=Animation" target="_blank">165</a> and <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. A proof of self-reproduction [<a href="#References">17</a>] based on path counting already exists for rule <a href="rules.html?rule=170&start=TA&view=Animation" target="_blank">170</a>. Similarly spirited proofs could probably be proposed for the others.
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:400px;max-width:100%;border:solid black 1px;"
-            href="rules.html?rule=170&view=Animation"
-            target="_blank">
-          <img id="self-reproduction" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        <a href="rules.html?rule=170&start=TA&time=96" style="text-align:center;" target="_blank">rule 170</a> from a recognizable starting point
-      </p>
-
-
-      <h3 id="Noise"> <!-- Noise -->
-        <div class="anchor"></div>
-        Noise
-      </h3>
-      Some rules seem to generate a pretty good noise. For example, if we pick a simple starting point with no symmetries, <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a> will usually turn it into an expanding disk with a random-looking interior.
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;padding:30px;width:50px;max-width:100%;"
-            href="images/home/noise/rule-37-time-0-asymmetric.svg"
-            target="_blank">
-          <img src="images/home/noise/rule-37-time-0-asymmetric.svg" style="width:100%;vertical-align:middle;">
-        </a>
-        Simple asymmetric starting point
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/noise/rule-37-time-512-asymmetric.svg"
-            target="_blank">
-          <img id="noise" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        Result at $t=512$ with <a href="rules.html?rule=37&start=Random&view=Animation" target="_blank">rule 37</a>
-      </p>
-
-
-      <h3 id="Textures"> <!-- Textures -->
-        <div class="anchor"></div>
-        Textures
-      </h3>
-      We can obtain interesting organic textures by applying other rules to this pseudorandom grid.
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/textures/rule-204-time-32-noise.svg"
-            target="_blank">
-          <img id="texture1" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        Result at $t=32$ with <a href="rules.html?rule=204&start=Random&view=Animation" target="_blank">rule 204</a>
-      </p>
-
-      <!--<p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/textures/rule-252-time-32-noise.svg"
-            target="_blank">
-          <img id="texture2" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        Result at $t=32$ with <a href="rules.html?rule=252&start=Random&view=Animation" target="_blank">rule 252</a>
-      </p>-->
-
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/textures/rule-100-time-64-noise.svg"
-            target="_blank">
-          <img id="texture3" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        Result at $t=64$ with <a href="rules.html?rule=100&start=Random&view=Animation" target="_blank">rule 100</a>
-      </p>
-
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;"
-            href="images/home/textures/rule-108-time-512-noise.svg"
-            target="_blank">
-          <img id="texture4" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        Result at $t=512$ with <a href="rules.html?rule=108&start=Random&view=Animation" target="_blank">rule 108</a>
-      </p>
-
-
-      <h3 id="BoringRules"> <!-- Boring Rules -->
-        <div class="anchor"></div>
-        Boring Rules
-      </h3>
-      <p>
-        There is an <b>identity</b> rule which leaves any grid unchanged: <a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">rule 240</a>. 
-      </p>
-      <a href="rules.html?rule=240&view=Animation&start=Random" target="_blank">
-        <img src="images/rules/rule-240.svg" class="center" style="width: 400px;">
-      </a>
-      <p>
-        And a <b>negative</b> rule that swaps alive and dead states: <a href="rules.html?rule=15&start=Random&view=Animation" target="_blank">rule 15</a>. 
-      </p>
-      <a href="rules.html?rule=15&view=Animation&start=Random" target="_blank">
-        <img src="images/rules/rule-15.svg" class="center" style="width: 400px;">
-      </a>
-
-
-      <h3 id="Twins"> <!-- Twins -->
-        <div class="anchor"></div>
-        Twins
-      </h3>
-      <p>
-        A simple procedure can be followed to find the evil twin of a rule. This twin has the same effect but in the negative world where all states have been swapped. To find it, take the number in its binary form (including the leading zeros needed for the number to be 8 digits long), swap ones and zeros and read backwards. Let's take <a href="rules.html?rule=214&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 214</a> as an example.
-      </p>
-      <p>
-        First, find the binary form of the rule number. 
-        $$
-          214=11010110_2
-        $$
-        Then swap ones and zeros.
-        $$
-          00101001_2
-        $$
-        And finally reverse it.
-        $$
-          10010100_2=148
-        $$
-        Did it work?
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:700px;max-width:100%;"
-            href="images/home/negative.gif"
-            target="_blank">
-          <img id="twins" src="images/home/negative.gif" style="width:100%;vertical-align:middle;">
-        </a>
-        <b>left</b>: <a href="rules.html?rule=214&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 214</a> from one alive cell <br>
-        <b>right</b>: <a href="rules.html?rule=148&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 148</a> from one dead cell
-      </p>
-    </p>
-
-
-      <h3 id="LongerTimeScale"> <!-- Longer Time Scale -->
-        <div class="anchor"></div>
-        Longer Time Scale
-      </h3>
-
-      <p>
-        Here is a selection of a few ETA computed in a longer time scale, starting from one alive cell. The rule number is indicated in the top-left corner, the time step in the top-right corner. Click on it to see the details.
-      </p>
-
-      <div style="width:100%;text-align: center;">
-
-      <p style="text-align: left;">
-        <b><a href="rules.html?rule=210&view=Animation" target="_blank">Rule 210</a></b><br>
-        This is my favorite rule. It is easy to describe: "change the state of cells who have one neighbor alive". It makes structures at larger scales as time goes on and is very intriguing. In particular, there is a battle between several types of structure on three sides of the hexagon. I urge you to take a look at the longest computations (if your computer allows you to), it is magnificent.
-      </p>
-      <p>
-        <img src="images/home/long-time-scale/rule-210-time-2048-crop.jpg" alt="" style="width:600px;max-width:100%;">
-        <br><a href="rules.html?rule=210&view=Animation" target="_blank">Rule 210</a> at $t=2048$
-      </p>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">256</a>
-          <a href="images/home/long-time-scale/rule-210-time-256.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-256.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">257</a>
-          <a href="images/home/long-time-scale/rule-210-time-257.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-257.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">512</a>
-          <a href="images/home/long-time-scale/rule-210-time-512.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-512.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">513</a>
-          <a href="images/home/long-time-scale/rule-210-time-513.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-513.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-210-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">1025</a>
-          <a href="images/home/long-time-scale/rule-210-time-1025.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-1025.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-210-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-2048.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">2049</a>
-          <a href="images/home/long-time-scale/rule-210-time-2049.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-2049.jpg">
-          </a>
-        </div>
-        <!--<div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">3072</a>
-          <a href="images/home/long-time-scale/rule-210-time-3072.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-3072.jpg">
-          </a>
-        </div>-->
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">4096</a>
-          <a href="https://files.paulcousin.net/triangular-automata/long-time-scale/rule-210-time-4096.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-4096.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">210</a><a class="step-number">4097</a>
-          <a href="https://files.paulcousin.net/triangular-automata/long-time-scale/rule-210-time-4097.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-210-time-4097.jpg">
-          </a>
-        </div>
-        <br><br>
-
-        <p style="text-align: left;">
-          <b><a href="rules.html?rule=218&view=Animation" target="_blank">Rule 218</a></b><br>
-          This rule creates a stable pattern of a few dead spots on a fully alive background. From around $t=1024$, a nice pareidolia appears. I augmented the constrat to make it clearer. What do you see?
-        </p>
-        <p style="text-align: center;">
-          <a  class="center" 
-              href="images/home/long-time-scale/rule-218-time-1024-crop.png" target="_blank"
-              style="text-align:center;width:200px;max-width:100%;"
-              target="_blank">
-            <img id="twins" src="images/home/long-time-scale/rule-218-time-1024-crop-small.png" style="width:100%;vertical-align:middle;">
-          </a>
-          <br><b>The Beast</b>: <a href="rules.html?rule=218&view=Animation" target="_blank">Rule 218</a> at $t=1024$
-        </p>
-        <div class="gallery-element">
-          <a class="rule-number">218</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-218-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-218-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">218</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-218-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-218-time-2048.jpg">
-          </a>
-        </div><br>
-        <br><br>
-    
-        <p style="text-align: left;">
-          <b>The stars: rules <a href="rules.html?rule=54&view=Animation" target="_blank">54</a>, <a href="rules.html?rule=62&view=Animation" target="_blank">62</a> and <a href="rules.html?rule=131&view=Animation" target="_blank">131</a></b>
-        </p>
-        <div class="gallery-element">
-          <a class="rule-number">54</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-54-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-54-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">62</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-62-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-62-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">131</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-131-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-131-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">131</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-131-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-131-time-2048.jpg">
-          </a>
-        </div>
-        <br><br>
-
-        <p style="text-align: left;">
-          <b>Variations on the Sierpiński triangle</b>
-        </p>
-        <div class="gallery-element">
-          <a class="rule-number">65</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-65-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-65-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">73</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-73-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-73-time-1024.jpg">
-          </a>
-        </div>
-        <br><br>
-
-        <p style="text-align: left;">
-          <b>Miscellaneous</b>
-        </p>
-        <div class="gallery-element">
-          <a class="rule-number">37</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-37-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-37-time-2048.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">57</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-57-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-57-time-2048.jpg">
-          </a>
-        </div><div class="gallery-element">
-          <a class="rule-number">99</a><a class="step-number">2048</a>
-          <a href="images/home/long-time-scale/rule-99-time-2048.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-99-time-2048.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">101</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-101-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-101-time-1024.jpg">
-          </a>
-        </div>
-        <div class="gallery-element">
-          <a class="rule-number">186</a><a class="step-number">1024</a>
-          <a href="images/home/long-time-scale/rule-186-time-1024.pdf" target="_blank">
-            <img src="images/home/long-time-scale/rule-186-time-1024.jpg">
-          </a>
-        </div>
-        <br><br>
-
-      </div>
-      
-
-      <h2 id="GraphTheory"> <!-- GRAPH THEORY -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
-        Graph Theory
-      </h2>
-
-      <p>
-        This section introduces some of the tricks used to efficiently compute everything you have seen so far.
-      </p>
-      <p>
-        Have you wondered why most of the previous results have a hexagonal shape? The answer is quite simple: the region of influence of a single cell expands hexagonlly. In physics terms, light cones are hexagonal pyramids in the triangular grid.
-      </p>
-      <p style="text-align: center;">
-        <a  class="center" 
-            style="text-align:center;width:500px;max-width:100%;border:solid black 1px;"
-            href="images/home/space-time/rule-254-OneAlive.gif"
-            target="_blank">
-          <img id="region-of-influence" style="width:100%;vertical-align:middle;">
-        </a>
-        Region of influence of a single cell <br> displayed by <a href="rules.html?rule=254&view=Animation" target="_blank">rule 254</a> in space-time view
-      </p>
-      <p>
-          The following plot shows the time at which the different layers are affected by the state of the centeral cell.
-      </p>
-      <img src="images/home/layers.svg" class="center" style="width: 220px;">
-
-      </p>  
-        We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="#References">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
-      </p>
-      <img src="images/home/graph.svg" class="center" style="width: 220px;">
-      <p>
-        The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of its adjacent vertices. We thus have:
-          $$
-          \begin{align*}
-              \mathcal{A}_{ij}&=
-              \begin{cases}
-                  1 & \text{ if } v_i\in N(v_j) \\
-                  0 & \text{ otherwise}
-              \end{cases}
-          \\
-              \mathcal{S}_i&=s(v_i)
-          \end{align*}
-          $$
-        
-        The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
-          $$ c(v)=4\times s(v)+\sum_{i\in N(v)} s(i)$$
-
-        As explained earlier, each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
-          $$
-          \begin{aligned}
-          & R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}\\  
-          & R\big(c_t(v)\big)=s_{t+1}\big(v\big)
-          \end{aligned}
-          $$
-        The environment will be simulated with two layers around the region of the influence of our initial structure. Here is how the cells are going to be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
-      </p>
-      <img src="images/home/cell-indices.svg" class="center" style="width: 250px;">
-      <p>
-        Evolving the state of a grid is where this framework pays off the most. It will be done in four steps.
-          <ol>
-            <li>
-              First, a layer is added with the same state as the last vertex.
-            </li>
-            <li>
-              Second, a <b>configuration vector</b> $\mathcal{C}$ is computed ($o$ is the order of the graph here).
-              $$
-                \mathcal{C}=
-                \begin{pmatrix} c(v_1) \\ \vdots \\ c(v_o) \end{pmatrix}
-                =4\times\mathcal{S}+\mathcal{A}\cdot\mathcal{S}
-              $$
-            </li>
-            <li>
-              @ being the operator applying a function to every element of a vector, the state vector $\mathcal{S}$ is then updated as follows:
-                $$
-                    \mathcal{S}=R\,\text{@}\,\mathcal{C}
-                $$
-            </li>
-            <li>
-              Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
-            </li>
-        </ol>
-        I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="#References">20</a>].
-      </p>
-
-      <h2 id="FinalThoughts"> <!-- FINAL THOUGHTS -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=58&time=8" target="_blank"><img src="style/rule-58-time-8.svg"></a> 
-        Final Thoughts
-      </h2>
-      <p>
-        What you have seen on this website is the fruit of my summer 2023 research projet. I hope you enjoyed it! Follow me on <a href="https://www.researchgate.net/profile/Paul-Cousin-2">ResearchGate</a> to stay tuned.
-      </p>
-      
-      
-      <h2 id="References"> <!-- REFERENCES -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=45&time=8" target="_blank"><img src="style/rule-45-time-8.svg"></a> 
-        References
-      </h2>
-      <p>
-      <div class="csl-bib-body" style="line-height: 1.35; ">
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">R. W. Gerling, “Classification of triangular and honeycomb cellular automata,” <i>Physica A: Statistical Mechanics and its Applications</i>, vol. 162, no. 2, pp. 196–209, Jan. 1990, doi: <a href="https://doi.org/10.1016/0378-4371(90)90438-X">10.1016/0378-4371(90)90438-X</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in the Triangular Tessellation,” 1994.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">K. Imai and K. Morita, “A computation-universal two-dimensional 8-state triangular reversible cellular automaton,” <i>Theoretical Computer Science</i>, vol. 231, no. 2, pp. 181–191, Jan. 2000, doi: <a href="https://doi.org/10.1016/S0304-3975(99)00099-7">10.1016/S0304-3975(99)00099-7</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">L. Naumov, “Generalized coordinates for cellular automata grids,” in <i>International Conference on Computational Science</i>, Springer, 2003, pp. 869–878.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “Cellular Automata in Triangular, Pentagonal and Hexagonal Tessellations,” in <i>Encyclopedia of Complexity and Systems Science</i>, 2009, pp. 892–900.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">Y. Lin, A. Mynett, and Q. Chen, “Application of Unstructured Cellular Automata on Ecological Modelling,” in <i>Advances in Water Resources and Hydraulic Engineering</i>, Berlin, Heidelberg: Springer Berlin Heidelberg, 2009, pp. 624–629. doi: <a href="https://doi.org/10.1007/978-3-540-89465-0_108">10.1007/978-3-540-89465-0_108</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">C. Bays, “The game of life in non-square environments,” in <i>Game of Life Cellular Automata</i>, Springer, 2010, pp. 319–329.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">B. Breckling, G. Pe’er, and Y. G. Matsinos, “Cellular automata in ecological modelling,” in <i>Modelling Complex Ecological Dynamics: An Introduction into Ecological Modelling for Students, Teachers &amp; Scientists</i>, Springer, 2011, pp. 105–117.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Zawidzki, “Application of Semitotalistic 2D Cellular Automata on a Triangulated 3D Surface,” <i>Int. J. DNE</i>, vol. 6, no. 1, pp. 34–51, Jan. 2011, doi: <a href="https://doi.org/10.2495/DNE-V6-N1-34-51">10.2495/DNE-V6-N1-34-51</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. M. Ortigoza, A. Lorandi, and I. Neri, “ACFUEGOS: An Unstructured Triangular Cellular Automata for Modelling Forest Fire Propagation,” in <i>High Performance Computer Applications</i>, I. Gitler and J. Klapp, Eds., in Communications in Computer and Information Science, vol. 595. Cham: Springer International Publishing, 2016, pp. 132–143. doi: <a href="https://doi.org/10.1007/978-3-319-32243-8_9">10.1007/978-3-319-32243-8_9</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat, “Cellular Automata in the Triangular Grid,” 2016.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[12]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">S. Uguz, S. Redjepov, E. Acar, and H. Akin, “Structure and reversibility of 2D von Neumann cellular automata over triangular lattice,” <i>International Journal of Bifurcation and Chaos</i>, vol. 27, p. 1750083, 2017.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[13]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. Saadat and B. Nagy, “Cellular Automata Approach to Mathematical Morphology in the Triangular Grid,” <i>ACTA POLYTECH HUNG</i>, vol. 15, no. 6, pp. 45–62, 2018, doi: <a href="https://doi.org/10.12700/APH.15.6.2018.6.3">10.12700/APH.15.6.2018.6.3</a>.</div>
-        </div>
-
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[14]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">G. A. Wainer, “An introduction to cellular automata models with cell-DEVS,” in <i>2019 Winter Simulation Conference (WSC)</i>, IEEE, 2019, pp. 1534–1548.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[15]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">A. V. Pavlova, S. E. Rubtsov, and I. S. Telyatnikov, “Using cellular automata in modelling of the fire front propagation through rough terrain,” <i>IOP Conf. Ser.: Earth Environ. Sci.</i>, vol. 579, no. 1, p. 012104, Oct. 2020, doi: <a href="https://doi.org/10.1088/1755-1315/579/1/012104">10.1088/1755-1315/579/1/012104</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[16]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and B. Nagy, “Generating Patterns on the Triangular Grid by Cellular Automata including Alternating Use of Two Rules,” in <i>2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)</i>, Zagreb, Croatia: IEEE, Sep. 2021, pp. 253–258. doi: <a href="https://doi.org/10.1109/ISPA52656.2021.9552107">10.1109/ISPA52656.2021.9552107</a>.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left; ">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[17]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word">M. R. Saadat and N. Benedek, “Copy Machines - Self-reproduction with 2 States on Archimedean Tilings,” 2023.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[18]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">E. W. Weisstein, “Elementary Cellular Automaton”, [Online]. Available: <a href="https://mathworld.wolfram.com/ElementaryCellularAutomaton.html">https://mathworld.wolfram.com/ElementaryCellularAutomaton.html</a></div>
-        </div>
-
-        <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[19]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">S. Wolfram and others, <i>A New Kind Of Science</i>, vol. 5. Wolfram media Champaign, IL, 2002.</div>
-        </div>
-
-        <div class="csl-entry" style="clear: left;">
-          <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[20]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;word-wrap: break-word;">P. Cousin and A. Maignan, “Organic Structures Emerging From Bio-Inspired Graph-Rewriting Automata,” in <i>2022 24th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC)</i>, Hagenberg / Linz, Austria: IEEE, Sep. 2022, pp. 293–296. doi: <a href="https://doi.org/10.1109/SYNASC57785.2022.00053">10.1109/SYNASC57785.2022.00053</a>.</div>
-        </div>
-      </p>
-
-      <h2 id="CiteThisWebsite"> <!-- CITE THIS WEBSITE -->
-        <div class="anchor"></div>
-        <a href="rules.html?rule=154&time=8" target="_blank"><img src="style/rule-154-time-8.svg"></a> 
-        Cite This Website
-      </h2>
-      <p style="width: 100%;word-wrap: break-word;font-family: 'Courier New', Courier, monospace;color: gray;">
-        @misc{TriangularAutomata,<br>
-          &emsp;&emsp;title = {Triangular Automata},<br>
-          &emsp;&emsp;author = {Paul Cousin},<br>
-          &emsp;&emsp;url = {https://paulcousin.github.io/triangular-automata}<br>
-        }
-      </p>
-    </article>
   </main>
+
+  <footer id="footer"><!-- FOOTER -->
+      <a id="left">
+        <img src="style/triangle-left-white.svg" ><div id="leftTitle"></div>
+      </a>
+      <a id="down" href="?page=table-of-contents">
+        <img src="style/triangle-down-white.svg" >
+      </a>
+      <a id="right">
+        <div id="rightTitle"></div><img src="style/triangle-right-white.svg" >
+      </a>
+  </footer>
     
 </body>
 </html>
+
 <script src="jquery-3.7.0.min.js"></script>
 <script src="script.js"></script>
-
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="load-mathjax.js" async></script>
+
 <script>
-  MathJax = {
-    jax: ["input/TeX","output/SVG"],
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    },
-    svg: {
-      fontCache: 'global'
-    }
-    // loader: {load: ["input/tex", "output/svg"]}
-  };
-</script>
-<script>
-  loadLargeImage("demo", "style/wait.gif", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
-  loadLargeImage("beauty1", "style/wait.gif", "images/home/beauty/rule-89-time-200-OneAlive.svg")
-  loadLargeImage("beauty2", "style/wait.gif", "images/home/beauty/rule-73-time-256-OneAlive.svg")
-  loadLargeImage("beauty3", "style/wait.gif", "images/home/beauty/rule-57-time-320-OneAlive.svg")
-  loadLargeImage("beauty4", "style/wait.gif", "images/home/beauty/rule-62-time-256-OneAlive.svg")
-  loadLargeImage("chaos1", "style/wait.gif", "images/home/chaos/chaos-1-2.svg")
-  loadLargeImage("chaos2", "style/wait.gif", "images/home/chaos/chaos-2-2.svg")
-  // loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
-  // loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.jpg")
-  // loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
-  loadLargeImage("space-time-animation","style/wait.gif","images/home/space-time/rule-10-OneAlive.gif")
-  loadLargeImage("space-time","style/wait.gif","images/home/space-time/rule-10-OneAlive-perspective.jpg")
-  loadLargeImage("self-reproduction","style/wait.gif","images/home/animations/rule-170-TA.gif")
-  loadLargeImage("texture1","style/wait.gif","images/home/textures/rule-204-time-32-noise.svg")
-  // loadLargeImage("texture2","style/wait.gif","images/home/textures/rule-252-time-32-noise.svg")
-  loadLargeImage("texture3","style/wait.gif","images/home/textures/rule-100-time-64-noise.svg")
-  loadLargeImage("texture4","style/wait.gif","images/home/textures/rule-108-time-512-noise.svg")
-  loadLargeImage("region-of-influence","style/wait.gif","images/home/space-time/rule-254-OneAlive.gif")
-  loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-512-asymmetric.svg")
+
+  const pages = [
+    'abstract', 
+    'table-of-contents', 
+    'introduction', 
+    'rules',
+    'behavior',
+    'beauty',
+    'chaos',
+    'fractals',
+    'space-time',
+    'self-reproduction',
+    'noise',
+    'textures',
+    'boring-rules',
+    'twins',
+    'longer-timescale',
+    'graph-theory', 
+    'final-thoughts',
+    'references',
+    'cite-this-website'
+  ]
+
+  // Fetch parameters //
+  var urlParams = new URLSearchParams(window.location.search);
+  var page = urlParams.get('page');
+  var index = pages.indexOf(page);
+
+  if ( !(0 < index && index < pages.length) ) {
+    page = 'abstract'
+    index = 0
+  }
+  if ( 0 < index && index < pages.length ) {
+    $( "#left" ).attr("href", "?page="+pages[index-1] )
+    $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
+    $( "#left" ).show()
+  }
+  if ( 0 <= index && index < pages.length-1 ) {
+    $( "#right" ).attr("href", "?page="+pages[index+1] )
+    $( "#rightTitle" ).replaceWith( titleCase(pages[index+1]) )
+    $( "#right" ).show()
+  }
+
+  $(document).ready(function(){
+
+    $( "#home" ).load( "home/"+page+".html",  function() {
+
+        (function () {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+            script.async = true;
+            document.head.appendChild(script);
+          })()
+
+        if("#demo".length){$("#demo").attr("src", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif" )}
+        if("#beauty1".length){$( "#beauty1" ).attr("src", "images/home/beauty/rule-89-time-200-OneAlive.svg" )}
+        if("#beauty2".length){$( "#beauty2" ).attr("src", "images/home/beauty/rule-73-time-256-OneAlive.svg" )}
+        if("#beauty3".length){$( "#beauty3" ).attr("src", "images/home/beauty/rule-57-time-320-OneAlive.svg" )}
+        if("#beauty4".length){$( "#beauty4" ).attr("src", "images/home/beauty/rule-62-time-256-OneAlive.svg" )}
+        if("#chaos1".length){$( "#chaos1" ).attr("src", "images/home/chaos/chaos-1-2.svg" )}
+        if("#chaos2".length){$( "#chaos2" ).attr("src", "images/home/chaos/chaos-2-2.svg" )}
+        if("#space-time-animation".length){$( "#space-time-animation" ).attr("src", "images/home/space-time/rule-10-OneAlive.gif" )}
+        if("#space-time".length){$( "#space-time" ).attr("src", "images/home/space-time/rule-10-OneAlive-perspective.jpg" )}
+        if("#self-reproduction".length){$( "#self-reproduction" ).attr("src", "images/home/animations/rule-170-TA.gif" )}
+        if("#texture1".length){$( "#texture1" ).attr("src", "images/home/textures/rule-204-time-32-noise.svg" )}
+        if("#texture3".length){$( "#texture3" ).attr("src", "images/home/textures/rule-100-time-64-noise.svg" )}
+        if("#texture4".length){$( "#texture4" ).attr("src", "images/home/textures/rule-108-time-512-noise.svg" )}
+        // if("#twins".length){$( "#twins" ).attr("src", "images/home/negative.gif" )}
+        if("#region-of-influence".length){$( "#region-of-influence" ).attr("src", "images/home/space-time/rule-254-OneAlive.gif" )}
+        if("#noise".length){$( "#noise" ).attr("src", "images/home/noise/rule-37-time-512-asymmetric.svg" )}
+
+      });
+
+    }); 
+    
 </script>
