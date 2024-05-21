@@ -284,21 +284,26 @@
   // Fetch parameters //
   var urlParams = new URLSearchParams(window.location.search);
   var page = urlParams.get('page');
-  var index = pages.indexOf(page);
 
-  if ( !(0 < index && index < pages.length) ) {
-    page = 'abstract'
-    index = 0
-  }
-  if ( 0 < index && index < pages.length ) {
-    $( "#left" ).attr("href", "?page="+pages[index-1] )
-    $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
-    $( "#left" ).show()
-  }
-  if ( 0 <= index && index < pages.length-1 ) {
-    $( "#right" ).attr("href", "?page="+pages[index+1] )
-    $( "#rightTitle" ).replaceWith( titleCase(pages[index+1]) )
-    $( "#right" ).show()
+  if ( page != 'test') {
+
+    var index = pages.indexOf(page);
+
+    if ( !(0 < index && index < pages.length) ) {
+      page = 'abstract'
+      index = 0
+    }
+    if ( 0 < index && index < pages.length ) {
+      $( "#left" ).attr("href", "?page="+pages[index-1] )
+      $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
+      $( "#left" ).show()
+    }
+    if ( 0 <= index && index < pages.length-1 ) {
+      $( "#right" ).attr("href", "?page="+pages[index+1] )
+      $( "#rightTitle" ).replaceWith( titleCase(pages[index+1]) )
+      $( "#right" ).show()
+    }
+
   }
 
   $(document).ready(function(){
@@ -312,6 +317,8 @@
             document.head.appendChild(script);
           })()
 
+        loadLargeImage("test1", "style/wait.gif", "https://paulcousin.github.io/triangular-automata/images/home/beauty/rule-89-time-200-OneAlive.svg")
+        loadLargeImage("test2", "style/wait.gif", "https://paulcousin.github.io/triangular-automata/images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
         loadLargeImage("demo", "style/wait.gif", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
         loadLargeImage("beauty1", "style/wait.gif", "images/home/beauty/rule-89-time-200-OneAlive.svg")
         loadLargeImage("beauty2", "style/wait.gif", "images/home/beauty/rule-73-time-256-OneAlive.svg")
@@ -328,10 +335,6 @@
         loadLargeImage("twins","style/wait.gif","images/home/negative.gif")
         loadLargeImage("region-of-influence","style/wait.gif","images/home/space-time/rule-254-OneAlive.gif")
         loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-512-asymmetric.svg")
-        // loadLargeImage("fractal1","style/wait.gif","images/home/fractals/rule-65-time-512-OneAlive.svg")
-        // loadLargeImage("fractal2","style/wait.gif","images/home/fractals/rule-106-time-510-OneAlive.jpg")
-        // loadLargeImage("fractal3","style/wait.gif","images/home/fractals/rule-50-time-352-OneAlive.jpg")
-        // loadLargeImage("texture2","style/wait.gif","images/home/textures/rule-252-time-32-noise.svg")
         
       });
 
