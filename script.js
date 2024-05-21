@@ -1,20 +1,35 @@
 
 //// Image Loader
 function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
-    // Find image element
+    // Find the image element by its ID
     var imgElement = document.getElementById(imageId);
 
-    // Create a new image element for the light image
+    // Check if the image element exists
+    if (!imgElement) {
+        console.error('Image element not found');
+        return;
+    }
+
+    // Create a new image object for the loading image
     var lightImg = new Image();
     lightImg.src = loadingImagePath;
 
-    // Replace the source of the original image with the light image
+    // Replace the source of the original image with the loading image
     imgElement.src = loadingImagePath;
 
-    // Add a load event listener to the light image
-    lightImg.addEventListener('load', function() {
-        // Replace the source of the original image with the large image
+    // Create a new image object for the large image
+    var largeImg = new Image();
+    largeImg.src = largeImagePath;
+
+    // Add a load event listener to the large image
+    largeImg.addEventListener('load', function() {
+        // Replace the source of the original image with the large image once it has loaded
         imgElement.src = largeImagePath;
+    });
+
+    // Optionally, handle errors if the large image fails to load
+    largeImg.addEventListener('error', function() {
+        console.error('Failed to load large image at ' + largeImagePath);
     });
 }
 
