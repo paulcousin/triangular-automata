@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tooltip Example</title>
+    <style>
+        /* Custom tooltip styling */
+        .custom-tooltip {
+            position: fixed;
+            bottom: 20px; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            white-space: nowrap;
+            display: none;
+            z-index: 1000;
+            pointer-events: none; /* Prevent it from blocking other interactions */
+        }
+    </style>
+</head>
+<body>
+    <a href="https://example.com" title="Example Link">Hover over me</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create tooltip element
+            const tooltip = document.createElement('div');
+            tooltip.className = 'custom-tooltip';
+            document.body.appendChild(tooltip);
+
+            // Function to show tooltip
+            function showTooltip(event) {
+                const title = event.target.getAttribute('title');
+                if (title) {
+                    tooltip.textContent = title;
+                    tooltip.style.display = 'block';
+                    event.target.removeAttribute('title'); // Remove the title to prevent default tooltip
+                }
+            }
+
+            // Function to hide tooltip
+            function hideTooltip(event) {
+                tooltip.style.display = 'none';
+                const title = tooltip.textContent;
+                if (title) {
+                    event.target.setAttribute('title', title); // Restore the title
+                }
+            }
+
+            // Attach event listeners to all links
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('mouseover', showTooltip);
+                link.addEventListener('mouseout', hideTooltip);
+            });
+        });
+    </script>
+</body>
+</html>
