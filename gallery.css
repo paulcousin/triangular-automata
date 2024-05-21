@@ -1,0 +1,77 @@
+/* Making the anchor links lend to the right place */
+.anchor{
+    display:inline-block;
+    height:260px; /* height of the header */
+    margin-top:-260px; /* negative value of the height of the header */
+    visibility:hidden;
+    width: 0px;
+    vertical-align: middle;
+}
+
+main article {
+  margin-bottom: 30px;
+  margin-left:2%;
+  width:96%;
+}
+
+.gallery-content {
+    text-align: center;
+}
+
+.gallery-element {
+    display: inline-block;
+    border: solid 1px;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+
+.rule-number {
+    text-decoration: none;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 5px;
+    color: black;
+    text-shadow: white 0px 0px 5px, white 0px 0px 5px;
+    font-size: large;
+    pointer-events: none;
+}
+
+.gallery-element img{
+    width: 150px;
+    height: 150px;
+}
+.gallery-element img:hover{
+  cursor: pointer;
+}
+  
+/* Footer */
+footer {
+  position: fixed;
+  padding: 10px;
+  height: auto;
+  z-index: 10;
+}
+footer p {
+  margin: 0px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+
+#jumpLine {
+  display: none;
+}
+
+#back {
+  position: absolute;
+  overflow: hidden;
+  height: 25px;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 10px;
+  filter: drop-shadow(2px 4px 4px rgba(100, 0, 100, 0.8));
+  z-index: 100;
+}
+#back:hover {
+  cursor: pointer;
+}

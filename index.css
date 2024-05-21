@@ -1,0 +1,141 @@
+/* Making the anchor links lend to the right place */
+.anchor{
+    display:block;
+    height:110px; /* height of the header */
+    margin-top:-110px; /* negative value of the height of the header */
+    visibility:hidden;
+}
+
+main article {
+    margin-bottom: 35px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width:94%;
+    max-width: 800px;
+}
+
+main article p {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+h2 {
+text-align: left;
+}
+
+h2 img {
+  width: 1.8em;
+  vertical-align: middle;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+#home {
+    text-align: left;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+a:link, a:visited  {
+  text-decoration: none;
+  /* color: #7A0022; */
+  color: rgb(191.62, 24.9339, 1.61401);
+}
+a:hover, a:active {
+  color: rgb(251.323, 149.822, 61.494);
+}
+
+.gallery-element {
+    display: inline-block;
+    text-align: center;
+    max-width: 100%;
+    border: solid 1px;
+    width: 180px;
+    height: 180px;
+    margin: 5px;
+}
+
+.gallery-element img{
+    width: 180px;
+    height: 180px;
+}
+
+.rule-number {
+    text-decoration: none;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 5px;
+    color: black;
+    text-shadow: white 0px 0px 5px, white 0px 0px 5px;
+    font-size: large;
+    pointer-events: none;
+}
+
+.step-number {
+    text-decoration: none;
+    text-align: right;
+    position: absolute;
+    margin-top: 3px;
+    width: 175px;
+    color: black;
+    text-shadow: white 0px 0px 5px, white 0px 0px 5px;
+    font-size: large;
+    pointer-events: none;
+}
+
+/* Footer */
+footer {
+  display: inline-block;
+  position: fixed;
+  padding: 10px;
+  height: .4em;
+  z-index: 10;
+}
+footer a {
+  margin-top: -8px;
+  margin-bottom: -8px;
+  z-index: 100;
+}
+footer a:any-link {
+  color: white;
+}
+footer a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+footer img {
+  height: 1em;
+  margin-left: 10px;
+  margin-right: 10px;
+  transform: translateY(20%);
+  filter: drop-shadow(2px 4px 4px rgba(100, 0, 100, 0.8));
+}
+
+#left {
+  display: none;
+  float: left;
+  margin-left: -10px;
+}
+#right {
+  display: none;
+  float: right;
+  margin-right: 10px;
+}
+#down {
+  position:absolute;
+  left: 0px;
+  width: 100%;
+  z-index: -10;
+}
+
+#jumpLine {
+  display: none;
+}

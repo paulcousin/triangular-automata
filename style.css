@@ -11,6 +11,16 @@ html {
     -ms-text-size-adjust: 100%;
   }
   
+/* Main content */
+main article {
+    height: 100%;
+    margin-top: 110px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+  }
+
 /* Header */
 .purple {
     background-color: rgb(50% 0% 50%);
@@ -90,6 +100,20 @@ nav a:visited {
     color: white;
 }
 
+/* Footer */
+footer {
+    text-align: center; 
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    background-color:  rgb(50% 0% 50%);
+    color: white;
+    border-top: solid 1px;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+  }
+
 /* Responsive */
 @media screen and (max-width: 950px) {
     .purple {  
@@ -113,6 +137,10 @@ nav a:visited {
         text-align: center;
         top: 23px;
         width: 100%;
+    }
+
+    main article {
+        margin-top: 125px;
     }
 }
 @media screen and (max-width: 450px) {

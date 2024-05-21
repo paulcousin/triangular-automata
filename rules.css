@@ -1,0 +1,100 @@
+
+main article {
+    margin-bottom: 50px;
+    margin-left:2%;
+    width:96%;
+  }
+
+  #plot {
+    position: relative;
+    border: solid 1px;
+    width: 80vh;
+    max-width: 100%;
+    aspect-ratio: 1;
+  }
+
+  main article p {
+    width: 100%;
+  }
+
+  #rule-title {
+    margin-bottom: -10px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  #rule-and-arrows {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #rule-plot {
+    width: 400px;
+    max-width: 73.5vmin;
+  }
+
+  .arrow {
+    width: 40px;
+    max-width: 7vmin;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /* Footer */
+  footer {
+    position: fixed;
+    padding: 10px;
+    height: auto;
+    z-index: 10;
+  }
+  footer p {
+    margin: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+  }
+
+  #jumpLine {
+    display: none;
+  }
+
+  #back {
+    position: absolute;
+    overflow: hidden;
+    height: 20px;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 10px;
+    filter: drop-shadow(2px 4px 4px rgba(100, 0, 100, 0.8));
+    z-index: 100;
+  }
+  #back:hover {
+    cursor: pointer;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    #jumpLine {
+        display: block;
+    }
+
+    main article {
+        margin-bottom: 70px;
+    }
+  }
+
+  /* Arrows */
+  @media (hover: hover) {
+    #right-arrow:hover {
+        content:url('style/triangle-right-purple.svg');
+        cursor: pointer;
+    }
+    #left-arrow:hover {
+        content:url('style/triangle-left-purple.svg');
+        cursor: pointer;
+    }
+  }
