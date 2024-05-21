@@ -1,47 +1,47 @@
 /* Font */
 @font-face {
-    font-family: Triangle;
-    src: url(style/Triangler.otf);
+    font-family: 'Triangle';
+    src: url('style/Triangler.otf');
 }
 
-/* Managing font size on smarthpone */
+/* Managing font size on smartphone */
 html {
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-  }
-  
+}
+
 /* Main content */
 main article {
     height: 100%;
     margin-top: 110px;
-    padding: 0px;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-align: center;
-  }
-
-/* Header */
-.purple {
-    background-color: rgb(50% 0% 50%);
-    padding-top: 1px;
-    height: 45px;
 }
 
+/* Header */
 header {
     position: fixed;
     overflow: hidden;
-    left: 0px;
+    left: 0;
     width: 100%;
-    top: 0px;
+    top: 0;
     z-index: 10;
     transition: top 0.2s ease-in-out;
+}
+
+.purple {
+    background-color: rgb(50%, 0%, 50%);
+    padding-top: 1px;
+    height: 45px;
 }
 
 .banner {
     position: fixed;
     overflow: hidden;
-    background-image: url(style/banner.png);
+    background-image: url('style/banner.png');
     background-repeat: repeat-x;
     background-size: 600px;
     width: 100%;
@@ -51,30 +51,28 @@ header {
 }
 
 h1 {
-    position: static;
     overflow: hidden;
     text-align: left;
     margin-top: 10px;
     width: 100%;
 }
-    
+
 #title {
-    position: static;
-    font-family: Triangle;
-    font-size: xx-large;
+    font-family: 'Triangle';
+    font-size: 2rem; /* Changed from xx-large for better scalability */
     color: white;
     z-index: 1000;
 }
+
 #title:hover {
     text-decoration: none;
 }
-    
+
 nav p {
     position: absolute;
-    overflow: hidden;
     text-align: center;
-    right:0px;
-    top: 0px;
+    right: 0;
+    top: 0;
     width: 500px;
     max-width: 100%;
     font-family: Arial, Helvetica, sans-serif;
@@ -82,41 +80,35 @@ nav p {
 }
 
 nav a {
-    position: static;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 20px;
     text-decoration: none;
-    margin-right: 20px;
-    margin-left: 20px;
     color: white;
 }
-nav a:hover { 
+
+nav a:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: white;
 }
-nav a:link, 
-nav a:visited { 
+
+nav a:link, nav a:visited {
     color: white;
 }
 
 /* Footer */
 footer {
-    text-align: center; 
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    background-color:  rgb(50% 0% 50%);
+    text-align: center;
+    background-color: rgb(50%, 0%, 50%);
     color: white;
-    border-top: solid 1px;
-    left: 0px;
+    border-top: 1px solid;
+    left: 0;
     width: 100%;
-    bottom: 0px;
-  }
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /* Responsive */
 @media screen and (max-width: 950px) {
-    .purple {  
+    .purple {
         height: 61px;
     }
 
@@ -130,11 +122,10 @@ footer {
     }
 
     #title {
-        font-size: x-large;
+        font-size: 1.5rem; /* Changed from x-large for better scalability */
     }
-    
+
     nav p {
-        text-align: center;
         top: 23px;
         width: 100%;
     }
@@ -143,9 +134,10 @@ footer {
         margin-top: 125px;
     }
 }
+
 @media screen and (max-width: 450px) {
     nav p {
         margin-top: 1.7em;
-        font-size: .7em;
+        font-size: 0.7em;
     }
 }

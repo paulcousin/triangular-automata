@@ -42,7 +42,7 @@
   <!-- Style Sheets -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="index.css">
-  
+
 </head>
 
 <body>
@@ -95,86 +95,81 @@
 <script src="load-mathjax.js" async></script>
 
 <script>
+const pages = [
+  'abstract', 
+  'table-of-contents', 
+  'introduction', 
+  'rules',
+  'behavior',
+  'beauty',
+  'chaos',
+  'fractals',
+  'space-time',
+  'self-reproduction',
+  'noise',
+  'textures',
+  'boring-rules',
+  'twins',
+  'longer-timescale',
+  'graph-theory', 
+  'final-thoughts',
+  'references',
+  'cite-this-website'
+];
 
-  const pages = [
-    'abstract', 
-    'table-of-contents', 
-    'introduction', 
-    'rules',
-    'behavior',
-    'beauty',
-    'chaos',
-    'fractals',
-    'space-time',
-    'self-reproduction',
-    'noise',
-    'textures',
-    'boring-rules',
-    'twins',
-    'longer-timescale',
-    'graph-theory', 
-    'final-thoughts',
-    'references',
-    'cite-this-website'
-  ]
+const urlParams = new URLSearchParams(window.location.search);
+let page = urlParams.get('page') || 'abstract';
+let index = pages.indexOf(page);
 
-  // Fetch parameters //
-  var urlParams = new URLSearchParams(window.location.search);
-  var page = urlParams.get('page');
+if (index === -1) {
+  page = 'abstract';
+  index = 0;
+}
 
-  if ( page != 'test') {
+$(document).ready(() => {
+  if (index > 0) {
+    $( "#left" ).attr("href", "?page="+pages[index-1] )
+    $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
+    $( "#left" ).show()
+  }
 
-    var index = pages.indexOf(page);
-
-    if ( !(0 < index && index < pages.length) ) {
-      page = 'abstract'
-      index = 0
-    }
-    if ( 0 < index && index < pages.length ) {
-      $( "#left" ).attr("href", "?page="+pages[index-1] )
-      $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
-      $( "#left" ).show()
-    }
-    if ( 0 <= index && index < pages.length-1 ) {
+  if (index < pages.length - 1) {
       $( "#right" ).attr("href", "?page="+pages[index+1] )
       $( "#rightTitle" ).replaceWith( titleCase(pages[index+1]) )
       $( "#right" ).show()
-    }
-
   }
 
-  $(document).ready(function(){
+  $("#home").load(`home/${page}.html`, () => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    script.async = true;
+    document.head.appendChild(script);
 
-    $( "#home" ).load( "home/"+page+".html",  function() {
-
-        (function () {
-            var script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-            script.async = true;
-            document.head.appendChild(script);
-          })()
-
-        loadLargeImage("test1", "style/wait.gif", "https://paulcousin.github.io/triangular-automata/images/home/beauty/rule-89-time-200-OneAlive.svg")
-        loadLargeImage("test2", "style/wait.gif", "https://paulcousin.github.io/triangular-automata/images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
-        loadLargeImage("demo", "style/wait.gif", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif")
-        loadLargeImage("beauty1", "style/wait.gif", "images/home/beauty/rule-89-time-200-OneAlive.svg")
-        loadLargeImage("beauty2", "style/wait.gif", "images/home/beauty/rule-73-time-256-OneAlive.svg")
-        loadLargeImage("beauty3", "style/wait.gif", "images/home/beauty/rule-57-time-320-OneAlive.svg")
-        loadLargeImage("beauty4", "style/wait.gif", "images/home/beauty/rule-62-time-256-OneAlive.svg")
-        loadLargeImage("chaos1", "style/wait.gif", "images/home/chaos/chaos-1-2.svg")
-        loadLargeImage("chaos2", "style/wait.gif", "images/home/chaos/chaos-2-2.svg")
-        loadLargeImage("space-time-animation","style/wait.gif","images/home/space-time/rule-10-OneAlive.gif")
-        loadLargeImage("space-time","style/wait.gif","images/home/space-time/rule-10-OneAlive-perspective.jpg")
-        loadLargeImage("self-reproduction","style/wait.gif","images/home/animations/rule-170-TA.gif")
-        loadLargeImage("texture1","style/wait.gif","images/home/textures/rule-204-time-32-noise.svg")
-        loadLargeImage("texture3","style/wait.gif","images/home/textures/rule-100-time-64-noise.svg")
-        loadLargeImage("texture4","style/wait.gif","images/home/textures/rule-108-time-512-noise.svg")
-        loadLargeImage("twins","style/wait.gif","images/home/negative.gif")
-        loadLargeImage("region-of-influence","style/wait.gif","images/home/space-time/rule-254-OneAlive.gif")
-        loadLargeImage("noise","style/wait.gif","images/home/noise/rule-37-time-512-asymmetric.svg")
-        
-      });
-
-    }); 
-    
+    const images = [
+      ["test1", "https://paulcousin.github.io/triangular-automata/images/home/beauty/rule-89-time-200-OneAlive.svg"],
+      ["test2",  "https://paulcousin.github.io/triangular-automata/images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
+      ["demo", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
+      ["beauty1", "images/home/beauty/rule-89-time-200-OneAlive.svg"],
+      ["beauty2", "images/home/beauty/rule-73-time-256-OneAlive.svg"],
+      ["beauty3", "images/home/beauty/rule-57-time-320-OneAlive.svg"],
+      ["beauty4", "images/home/beauty/rule-62-time-256-OneAlive.svg"],
+      ["chaos1", "images/home/chaos/chaos-1-2.svg"],
+      ["chaos2", "images/home/chaos/chaos-2-2.svg"],
+      ["fractal1", "images/home/fractals/rule-65-time-512-OneAlive.svg"],
+      ["fractal2", "images/home/fractals/rule-106-time-510-OneAlive.svg"],
+      ["fractal3", "images/home/fractals/rule-50-time-352-OneAlive.svg"],
+      ["space-time-animation", "images/home/space-time/rule-10-OneAlive.gif"],
+      ["space-time", "images/home/space-time/rule-10-OneAlive-perspective.jpg"],
+      ["self-reproduction", "images/home/animations/rule-170-TA.gif"],
+      ["texture1", "images/home/textures/rule-204-time-32-noise.svg"],
+      ["texture3", "images/home/textures/rule-100-time-64-noise.svg"],
+      ["texture4", "images/home/textures/rule-108-time-512-noise.svg"],
+      // ["twins", "images/home/negative.gif"],
+      ["region-of-influence", "images/home/space-time/rule-254-OneAlive.gif"],
+      ["noise", "images/home/noise/rule-37-time-512-asymmetric.svg"]
+    ];
+    images.forEach(([id, src]) => loadLargeImage(id, "style/wait.gif", src));
+  });
+});
+  
 </script>
