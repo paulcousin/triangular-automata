@@ -1,6 +1,6 @@
 /* Font */
 @font-face {
-    font-family: 'Triangle';
+    font-family: 'Triangler';
     src: url('style/Triangler.otf');
 }
 
@@ -58,7 +58,7 @@ h1 {
 }
 
 #title {
-    font-family: 'Triangle';
+    font-family: 'Triangler';
     font-size: 2rem; /* Changed from xx-large for better scalability */
     color: white;
     z-index: 1000;
