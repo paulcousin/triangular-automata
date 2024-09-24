@@ -96,6 +96,7 @@
 <script src="load-mathjax.js" async></script>
 
 <script>
+
 const pages = [
   'abstract', 
   'table-of-contents', 
@@ -120,6 +121,34 @@ const pages = [
   'final-thoughts',
   'references',
   'cite-this-website'
+];
+
+const images = [
+  ["test1", "https://paulcousin.github.io/triangular-automata/images/home/beauty/rule-89-time-200-OneAlive.svg"],
+  ["test2",  "https://paulcousin.github.io/triangular-automata/images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
+  ["demo", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
+  ["beauty1", "images/home/beauty/rule-89-time-200-OneAlive.svg"],
+  ["beauty2", "images/home/beauty/rule-73-time-256-OneAlive.svg"],
+  ["beauty3", "images/home/beauty/rule-57-time-320-OneAlive.svg"],
+  ["beauty4", "images/home/beauty/rule-62-time-256-OneAlive.svg"],
+  ["chaos1", "images/home/chaos/chaos-1-2.svg"],
+  ["chaos2", "images/home/chaos/chaos-2-2.svg"],
+  ["fractal1", "images/home/fractals/rule-65-time-512-OneAlive.svg"],
+  ["fractal2", "images/home/fractals/rule-106-time-510-OneAlive.svg"],
+  ["fractal3", "images/home/fractals/rule-50-time-352-OneAlive.svg"],
+  ["space-time-animation", "images/home/space-time/rule-10-OneAlive.gif"],
+  ["space-time", "images/home/space-time/rule-10-OneAlive-perspective.jpg"],
+  ["rule-10-slice-plot-512", "images/home/space-time/rule-10-slice-plot-512.svg"],
+  ["self-reproduction", "images/home/animations/rule-170-TA.gif"],
+  ["rule-210-contrast", "images/home/rule-210/rule-210-time-4097-contrast.jpg"],
+  ["rule-210-time-2048-close-up", "images/home/rule-210/rule-210-time-2048-close-up.jpg"],
+  ["rule-210-time-4096-close-up", "images/home/rule-210/rule-210-time-4096-close-up.jpg"],
+  ["rule-210-slice-4096", "images/home/rule-210/rule-210-slice-4096.jpg"],
+  ["texture1", "images/home/textures/rule-204-time-32-noise.svg"],
+  ["texture3", "images/home/textures/rule-100-time-64-noise.svg"],
+  ["texture4", "images/home/textures/rule-108-time-512-noise.svg"],
+  ["region-of-influence", "images/home/space-time/rule-254-OneAlive.gif"],
+  ["noise", "images/home/noise/rule-37-time-512-asymmetric.svg"]
 ];
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -150,38 +179,11 @@ $(document).ready(() => {
     script.async = true;
     document.head.appendChild(script);
 
-    const images = [
-      ["test1", "https://paulcousin.github.io/triangular-automata/images/home/beauty/rule-89-time-200-OneAlive.svg"],
-      ["test2",  "https://paulcousin.github.io/triangular-automata/images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
-      ["demo", "images/home/abstract/rule-181-upto-256-OneAlive-Medium.gif"],
-      ["beauty1", "images/home/beauty/rule-89-time-200-OneAlive.svg"],
-      ["beauty2", "images/home/beauty/rule-73-time-256-OneAlive.svg"],
-      ["beauty3", "images/home/beauty/rule-57-time-320-OneAlive.svg"],
-      ["beauty4", "images/home/beauty/rule-62-time-256-OneAlive.svg"],
-      ["chaos1", "images/home/chaos/chaos-1-2.svg"],
-      ["chaos2", "images/home/chaos/chaos-2-2.svg"],
-      ["fractal1", "images/home/fractals/rule-65-time-512-OneAlive.svg"],
-      ["fractal2", "images/home/fractals/rule-106-time-510-OneAlive.svg"],
-      ["fractal3", "images/home/fractals/rule-50-time-352-OneAlive.svg"],
-      ["space-time-animation", "images/home/space-time/rule-10-OneAlive.gif"],
-      ["space-time", "images/home/space-time/rule-10-OneAlive-perspective.jpg"],
-      ["rule-10-slice-plot-512", "images/home/space-time/rule-10-slice-plot-512.svg"],
-      ["self-reproduction", "images/home/animations/rule-170-TA.gif"],
-      ["rule-210-contrast", "images/home/rule-210/rule-210-time-4097-contrast.jpg"],
-      ["rule-210-time-2048-close-up", "images/home/rule-210/rule-210-time-2048-close-up.jpg"],
-      ["rule-210-time-4096-close-up", "images/home/rule-210/rule-210-time-4096-close-up.jpg"],
-      ["rule-210-slice-4096", "images/home/rule-210/rule-210-slice-4096.jpg"],
-      ["texture1", "images/home/textures/rule-204-time-32-noise.svg"],
-      ["texture3", "images/home/textures/rule-100-time-64-noise.svg"],
-      ["texture4", "images/home/textures/rule-108-time-512-noise.svg"],
-      ["region-of-influence", "images/home/space-time/rule-254-OneAlive.gif"],
-      ["noise", "images/home/noise/rule-37-time-512-asymmetric.svg"]
-    ];
     images.forEach(([id, src]) => loadLargeImage(id, "style/wait.gif", src));
 
   });
 });
 
 
-  
+
 </script>
