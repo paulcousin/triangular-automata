@@ -149,17 +149,6 @@ footer img {
   display: none;
 }
 
-  /* Arrows */
-  @media (hover: hover) {
-    #rightArrow:hover {
-        content:url('style/triangle-right-purple.svg');
-        cursor: pointer;
-    }
-    #leftArrow:hover {
-        content:url('style/triangle-left-purple.svg');
-        cursor: pointer;
-    }
-  }
 
 /* Responsive */
 @media screen and (min-width: 900px) {
@@ -187,4 +176,16 @@ footer img {
     right: 0px;
     margin-right: 10px;
   }
+
+   /* Arrows */
+    @media (hover: hover) {
+      #right:hover #rightArrow {
+          content:url('style/triangle-right-purple.svg');
+          cursor: pointer;
+      }
+      #left:hover #leftArrow {
+          content:url('style/triangle-left-purple.svg');
+          cursor: pointer;
+      }
+    }
 }
