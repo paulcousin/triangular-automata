@@ -1,0 +1,20 @@
+<!-- MINIMAL IMPLEMENTATION -->
+<h2 id="MinimalImplementation">
+    <div class="anchor"></div>
+    <a href="rules.html?rule=45&time=8&start=Hexagon" target="_blank"><img src="style/rule-45-time-8-hexagon.svg"></a> 
+    Minimal Implementation
+</h2>
+
+<p>
+Here is the most minimal implementation I could find. This Mathematica code computes the evolution of a single living cell under any given rule. It does not follow every step of the procedure described in the previous section, but is still reasonably efficient up to intermediate timescales. The following example takes about a minute to compute.
+<pre><code class="mathematica" style="border:solid black 1px;border-radius:10px;"
+    >(*rule number*)rN=50; (*time*)t=352;
+(*height*)h=1+2*t; (*width*)w=1+Ceiling[t,2]; (*order*)o=h*(w+1);
+(*rule*)Table[rule[n]=IntegerDigits[rN,2,8][[-n-1]],{n,0,7}];
+(*adjacency matrix*)aM=#+Transpose@#&@SparseArray[{Band[{w+1,1}]->1,Band[{1,-w}]->1,Band[{1,2},{-2,-1}]->{1,0}},{o,o}];
+(*stateVector*)sV=SparseArray[{o/2-t,1}->1,{o,1}];
+(*evolution*)Monitor[Table[sV=Map[rule,4sV+aM.sV,{2}],{n,t}],n];
+(*plot*)ArrayPlot[ArrayReshape[sV,{h,w},2],AspectRatio->2/Sqrt[3]]
+</code></pre>
+<img style="width:350px;max-width:100%;" src="/images/home/minimal-implementation/minimal-out.png" alt="output">
+</p>
