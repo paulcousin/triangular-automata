@@ -8,7 +8,7 @@ main article {
   #plot {
     position: relative;
     border: solid 1px;
-    width: 80vh;
+    width: calc(100vh - 160px);
     max-width: 100%;
     aspect-ratio: 1;
   }
