@@ -46,20 +46,23 @@
 </head>
 
 <body>
-  <header>
+  <header id="header"><!-- HEADER -->
     <nav>
       <div class="purple">
-        <h1>
-          <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
-        </h1>
-        <p class="menu">
-            <a onclick="window.location='index.html'+window.location.search;">Home</a>
-            <a onclick="window.location='gallery.html'+window.location.search;" style="text-decoration: underline;">Gallery</a>
-            <a href="http://www.youtube.com/@TriangularAutomata" target="_blank">YouTube</a>
-            <a href="https://arxiv.org/pdf/2309.15795" target="_blank">Paper</a>
-            <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
-            <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
-        </p>
+      <h1>
+        <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
+      </h1>
+        <div id="menu">
+            <div class="menu-element" id="menu-home">
+              <a href="index.html" style="text-decoration: underline;">Home</a>
+              <div id="dropdown-container"><div id="dropdown"></div></div>
+            </div>
+            <div class="menu-element"><a href="gallery.html">Gallery</a></div>
+            <div class="menu-element"><a href="http://www.youtube.com/@TriangularAutomata" target="_blank">YouTube</a></div>
+            <div class="menu-element"><a href="https://arxiv.org/pdf/2309.15795" target="_blank">Paper</a></div>
+            <div class="menu-element"><a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a></div>
+            <div class="menu-element"><a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a></div>
+        </div>
       </div>
       <div class="banner"></div>
     </nav>
@@ -139,6 +142,8 @@
 <script src="jquery-3.7.0.min.js"></script> 
 <script src="script.js"></script> 
 <script>
+$("#dropdown").load(`table-of-contents.html`); // DROPDOWN MENU
+
 // Fetch parameters //
 var urlParams = new URLSearchParams(window.location.search);
 

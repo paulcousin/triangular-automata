@@ -56,14 +56,17 @@
       <h1>
         <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
       </h1>
-        <p class="menu">
-            <a href="index.html" style="text-decoration: underline;">Home</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="http://www.youtube.com/@TriangularAutomata" target="_blank">YouTube</a>
-            <a href="https://arxiv.org/pdf/2309.15795" target="_blank">Paper</a>
-            <a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a>
-            <a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a>
-        </p>
+        <div id="menu">
+            <div class="menu-element" id="menu-home">
+              <a href="index.html" style="text-decoration: underline;">Home</a>
+              <div id="dropdown-container"><div id="dropdown"></div></div>
+            </div>
+            <div class="menu-element"><a href="gallery.html">Gallery</a></div>
+            <div class="menu-element"><a href="http://www.youtube.com/@TriangularAutomata" target="_blank">YouTube</a></div>
+            <div class="menu-element"><a href="https://arxiv.org/pdf/2309.15795" target="_blank">Paper</a></div>
+            <div class="menu-element"><a href="https://paulcousin.github.io/triangular-automata-mathematica/" target="_blank">Code</a></div>
+            <div class="menu-element"><a href="https://orcid.org/0000-0002-3866-7615" target="_blank">Contact</a></div>
+        </div>
       </div>
       <div class="banner"></div>
     </nav>
@@ -82,9 +85,6 @@
       <a id="left">
         <img id="leftArrow" src="style/triangle-left-white.svg" ><div id="leftTitle"></div>
       </a>
-      <a id="down" href="?page=table-of-contents">
-        <img src="style/triangle-down-white.svg" >
-      </a>
       <a id="right">
         <div id="rightTitle"></div><img id="rightArrow" src="style/triangle-right-white.svg" >
       </a>
@@ -102,7 +102,6 @@
 
 const pages = [
   'abstract', 
-  'table-of-contents', 
   'introduction', 
   'rules',
   'behavior',
@@ -155,6 +154,8 @@ const images = [
   ["region-of-influence", "images/home/space-time/rule-254-OneAlive.gif"],
   ["noise", "images/home/noise/rule-37-time-512-asymmetric.svg"]
 ];
+
+$("#dropdown").load(`table-of-contents.html`); // DROPDOWN MENU
 
 const urlParams = new URLSearchParams(window.location.search);
 let page = urlParams.get('page') || 'abstract';

@@ -135,15 +135,6 @@ footer img {
 #rightArrow {
   margin-right: .5em;
 }
-#down {
-  position:absolute;
-  left: 0px;
-  width: 100%;
-  z-index: -10;
-}
-#down img {
-  transform:translate(-55%,30%);
-}
 
 #jumpLine {
   display: none;

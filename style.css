@@ -53,14 +53,15 @@ header {
 h1 {
     overflow: hidden;
     text-align: left;
-    margin-top: 10px;
+    margin-top: 12px;
     width: 100%;
 }
 
 #title {
     font-family: 'Triangler';
-    font-size: 2rem; /* Changed from xx-large for better scalability */
+    font-size: 2rem;
     color: white;
+    margin: 0px 20px 0px 20px;
     z-index: 1000;
 }
 
@@ -68,8 +69,9 @@ h1 {
     text-decoration: none;
 }
 
-nav p {
+#menu {
     position: absolute;
+    overflow: hidden;
     text-align: center;
     right: 0;
     top: 0;
@@ -79,19 +81,46 @@ nav p {
     color: white;
 }
 
-nav a {
-    margin: 0 20px;
+.menu-element {
+    display:inline-block;
+    margin: 12.5px 20px;
+}
+
+.menu-element a {
     text-decoration: none;
     color: white;
 }
 
-nav a:hover {
+.menu-element a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-nav a:link, nav a:visited {
+.menu-element a:link, .menu-element a:visited {
     color: white;
+}
+
+#dropdown-container {
+    position:fixed;
+    padding: 10px 0px 0px 0px;
+    z-index: 100000;
+}
+
+#dropdown {
+    display: none;
+    text-align: left;
+    margin: 0px 0px;
+    padding-right: 20px;
+    background-color: rgb(50%, 0%, 50%);
+    border: solid white;
+    border-radius: 20px;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+#menu-home:hover #dropdown, #dropdown-container:hover #dropdown {
+    display: block;
+    opacity: 1;
 }
 
 /* Footer */
@@ -118,15 +147,16 @@ footer {
 
     h1 {
         text-align: center;
-        margin-top: 7px;
+        margin-top: 6px;
     }
 
     #title {
-        font-size: 1.5rem; /* Changed from x-large for better scalability */
+        font-size: 1.5rem;
+        
     }
 
-    nav p {
-        top: 23px;
+    #menu {
+        top: 25px;
         width: 100%;
     }
 
@@ -136,12 +166,12 @@ footer {
 }
 
 @media screen and (max-width: 570px) {
-    nav p {
-        margin-top: 1.4em;
+    #menu {
+        margin-top: 1.2em;
         font-size: 0.8em;
     }
 
-    nav a {
+    .menu-element {
         margin: 0 10px;
     }
 }
