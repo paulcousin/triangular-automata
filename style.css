@@ -83,7 +83,7 @@ h1 {
 
 .menu-element {
     display:inline-block;
-    margin: 12.5px 20px;
+    margin: 14px 20px;
 }
 
 .menu-element a {
@@ -158,6 +158,10 @@ footer {
     #menu {
         top: 25px;
         width: 100%;
+    }
+
+    #dropdown {
+        max-height: calc(100vh - 170px);
     }
 
     main article {
