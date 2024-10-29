@@ -155,8 +155,6 @@ const images = [
   ["noise", "images/home/noise/rule-37-time-512-asymmetric.svg"]
 ];
 
-$("#dropdown").load(`table-of-contents.html`); // DROPDOWN MENU
-
 const urlParams = new URLSearchParams(window.location.search);
 let page = urlParams.get('page') || 'abstract';
 let index = pages.indexOf(page);
@@ -166,7 +164,7 @@ if (index === -1) {
   index = 0;
 }
 
-$(document).ready(() => {
+$(document).ready(() => { 
   if (index > 0) {
     $( "#left" ).attr("href", "?page="+pages[index-1] )
     $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
@@ -180,6 +178,7 @@ $(document).ready(() => {
   }
 
   $("#home").load(`home/${page}.html`, () => {
+    
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
     script.async = true;
@@ -188,6 +187,18 @@ $(document).ready(() => {
     images.forEach(([id, src]) => loadLargeImage(id, "style/wait.gif", src));
 
     hljs.highlightAll();
+   
+    // DROPDOWN MENU
+      $("#dropdown").load(`table-of-contents.html`); 
+      let hideDropdown;
+      $('#dropdown-ref, #menu-home, #dropdown-container').on('mouseenter', function() {
+          clearTimeout(hideDropdown);
+          $('#dropdown').css('display', 'block');
+      }).on('mouseleave', function() {
+          hideDropdown = setTimeout(() => {
+              $('#dropdown').css('display', 'none');
+          }, 300); // Delay in milliseconds
+      });
 
   });
 
