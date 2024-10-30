@@ -54,11 +54,11 @@
     <nav>
       <div class="purple">
       <h1>
-        <a id="title" href="index.html">TRIANGULAR AUTOMATA</a>
+        <a id="title" href="/">TRIANGULAR AUTOMATA</a>
       </h1>
         <div id="menu">
             <div class="menu-element" id="menu-home">
-              <a href="index.html" style="text-decoration: underline;">Home</a>
+              <a href="/" style="text-decoration: underline;">Home</a>
               <div id="dropdown-container"><div id="dropdown"></div></div>
             </div>
             <div class="menu-element"><a href="gallery.html">Gallery</a></div>
@@ -156,7 +156,7 @@ const images = [
 ];
 
 const urlParams = new URLSearchParams(window.location.search);
-let page = urlParams.get('page') || 'abstract';
+let page = urlParams.get('p') || 'abstract';
 let index = pages.indexOf(page);
 
 if (index === -1) {
@@ -166,13 +166,13 @@ if (index === -1) {
 
 $(document).ready(() => { 
   if (index > 0) {
-    $( "#left" ).attr("href", "?page="+pages[index-1] )
+    $( "#left" ).attr("href", "?p="+pages[index-1] )
     $( "#leftTitle" ).replaceWith( titleCase(pages[index-1]) )
     $( "#left" ).show()
   }
 
   if (index < pages.length - 1) {
-      $( "#right" ).attr("href", "?page="+pages[index+1] )
+      $( "#right" ).attr("href", "?p="+pages[index+1] )
       $( "#rightTitle" ).replaceWith( titleCase(pages[index+1]) )
       $( "#right" ).show()
   }

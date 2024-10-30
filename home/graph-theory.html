@@ -26,7 +26,7 @@
   <img src="images/home/layers.svg" class="center" style="width: 220px;">
 
   </p>  
-    We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="?page=references">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
+    We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="?p=references">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
   </p>
   <img src="images/home/graph.svg" class="center" style="width: 220px;">
   <p>
@@ -80,5 +80,5 @@
           Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
         </li>
     </ol>
-    I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="?page=references">20</a>].
+    I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="?p=references">20</a>].
   </p>
