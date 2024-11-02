@@ -10,8 +10,8 @@ main article {
     margin-bottom: 35px;
     margin-left: 50%;
     transform: translateX(-50%);
-    width:94%;
-    max-width: 800px;
+    width: 94%;
+    max-width: 100%;
 }
 
 main article p {
@@ -139,11 +139,14 @@ footer img {
 
 #jumpLine {
   display: none;
-}
-
+} 
 
 /* Responsive */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 550px) {
+  main article {
+      max-width: min(800px, calc(100% - 90px));
+  }
+
   #right, #left {
     margin-top: -6px;
     margin-bottom: -6px;
@@ -181,3 +184,4 @@ footer img {
       }
     }
 }
+
