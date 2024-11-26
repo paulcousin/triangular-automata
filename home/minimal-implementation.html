@@ -1,12 +1,13 @@
-<!-- MINIMAL IMPLEMENTATION -->
 <h2 id="MinimalImplementation">
-    <div class="anchor"></div>
     <a href="rules.html?rule=45&time=8&start=Hexagon" target="_blank"><img src="style/rule-45-time-8-hexagon.svg"></a> 
     Minimal Implementation
 </h2>
 
 <p>
-Here is the most minimal implementation I could find. This Mathematica code computes the evolution of a single living cell under any given rule. It does not follow every step of the procedure described in the previous section, but is still reasonably efficient up to intermediate timescales. The following example takes about a minute to compute.
+    Here is the most minimal implementation I could find. This Mathematica code computes the evolution of a single living cell under any given rule. It does not follow every step of the procedure described in the previous section, but is still reasonably efficient up to intermediate timescales. The following example takes about a minute to compute.
+</p>
+
+<p>
 <pre><code class="mathematica" style="border:solid black 1px;border-radius:10px;"
     >(*rule number*)rN=50; (*time*)t=352;
 (*height*)h=1+2*t; (*width*)w=1+Ceiling[t,2]; (*order*)o=h*(w+1);

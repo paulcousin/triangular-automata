@@ -1,84 +1,90 @@
-<!-- GRAPH THEORY -->
 <h2 id="GraphTheory">
-    <div class="anchor"></div>
     <a href="rules.html?rule=250&time=8" target="_blank"><img src="style/rule-250-time-8.svg"></a> 
     Graph Theory
-  </h2>
+</h2>
 
-  <p>
-    This section introduces some of the tricks used to efficiently compute everything you have seen so far.
-  </p>
-  <p>
-    Have you wondered why most of the previous results have a hexagonal shape? The answer is quite simple: the region of influence of a single cell expands hexagonlly. In physics terms, light cones are hexagonal pyramids in the triangular grid.
-  </p>
-  <p style="text-align: center;">
-    <a  class="center" 
-        style="text-align:center;width:500px;max-width:100%;border:solid black 1px;"
-        href="images/home/space-time/rule-254-OneAlive.gif"
-        target="_blank">
-      <img id="region-of-influence" src="style/wait.gif" style="width:100%;vertical-align:middle;">
-    </a>
-    Region of influence of a single cell <br> displayed by <a href="rules.html?rule=254&view=Animation" target="_blank">rule 254</a> in space-time view
-  </p>
-  <p>
-      The following plot shows the time at which the different layers are affected by the state of the centeral cell.
-  </p>
-  <img src="images/home/layers.svg" class="center" style="width: 220px;">
+<p>
+  This section introduces some of the tricks used to efficiently compute everything you have seen so far.
+</p>
 
-  </p>  
-    We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="?p=references">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
-  </p>
-  <img src="images/home/graph.svg" class="center" style="width: 220px;">
-  <p>
-    The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of its adjacent vertices. We thus have:
-      $$
-      \begin{align*}
-          \mathcal{A}_{ij}&=
-          \begin{cases}
-              1 & \text{ if } v_i\in N(v_j) \\
-              0 & \text{ otherwise}
-          \end{cases}
-      \\
-          \mathcal{S}_i&=s(v_i)
-      \end{align*}
-      $$
-    
-    The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
-      $$ c(v)=4\times s(v)+\sum_{i\in N(v)} s(i)$$
+<p>
+  Have you wondered why most of the previous results have a hexagonal shape? The answer is quite simple: the region of influence of a single cell expands hexagonlly. In physics terms, light cones are hexagonal pyramids in the triangular grid.
+</p>
 
-    As explained earlier, each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
-      $$
-      \begin{aligned}
-      & R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}\\  
-      & R\big(c_t(v)\big)=s_{t+1}\big(v\big)
-      \end{aligned}
-      $$
-    The environment will be simulated with two layers around the region of the influence of our initial structure. Here is an example of how cells can be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
-  </p>
-  <img src="images/home/cell-indices.svg" class="center" style="width: 250px;">
-  <p>
-    Evolving the state of a grid is where this framework pays off the most. It will be done in four steps.
-      <ol>
-        <li>
-          First, a layer is added with the same state as the last vertex.
-        </li>
-        <li>
-          Second, a <b>configuration vector</b> $\mathcal{C}$ is computed ($o$ is the order of the graph here).
+<p style="text-align: center;">
+  <a  class="center" 
+      style="text-align:center;width:500px;max-width:100%;border:solid black 1px;"
+      href="images/home/space-time/rule-254-OneAlive.gif"
+      target="_blank">
+    <img id="region-of-influence" src="style/wait.gif" style="width:100%;vertical-align:middle;">
+  </a>
+  Region of influence of a single cell <br> displayed by <a href="rules.html?rule=254&view=Animation" target="_blank">rule 254</a> in space-time view
+</p>
+
+<p>
+    The following plot shows the time at which the different layers are affected by the state of the centeral cell.
+</p>
+
+<img src="images/home/layers.svg" class="center" style="width: 220px;">
+
+</p>  
+  We are going to use a framework based on graph theory and linear algebra, developed in a <a href="https://arxiv.org/abs/2211.13619" target="_blank">previous work</a> [<a href="?p=references">20</a>]. In this framework, the triangular grid is considered as a graph. This graph is expanded along the region of influence of the initial structure at each time step to mimic an infinite grid.
+</p>
+
+<img src="images/home/graph.svg" class="center" style="width: 220px;">
+
+<p>
+  The interest of seeing the triangular grid as a graph, is that computing its evolution is made quite easy by properties of its <b>adjacency matrix</b> $\mathcal{A}$ and <b>state vector</b> $\mathcal{S}$. Every <b>vertex</b> $v$ of this graph will hold a <b>state</b> $s(v)$. The <b>neighborhood</b> $N(v)$ of a vertex is defined as the set of its adjacent vertices. We thus have:
+    $$
+    \begin{align*}
+        \mathcal{A}_{ij}&=
+        \begin{cases}
+            1 & \text{ if } v_i\in N(v_j) \\
+            0 & \text{ otherwise}
+        \end{cases}
+    \\
+        \mathcal{S}_i&=s(v_i)
+    \end{align*}
+    $$
+  
+  The <b>configuration</b> $c(v)$ of a vertex, as indexed previously, can be expressed as follows:
+    $$ c(v)=4\times s(v)+\sum_{i\in N(v)} s(i)$$
+
+  As explained earlier, each <b>rule</b> $R$ is a function that takes in the configuration of a vertex at time $t$ and returns its state at $t+1$ :
+    $$
+    \begin{aligned}
+    & R: \{0,1,2,3,4,5,6,7\}\rightarrow\{0,1\}\\  
+    & R\big(c_t(v)\big)=s_{t+1}\big(v\big)
+    \end{aligned}
+    $$
+  The environment will be simulated with two layers around the region of the influence of our initial structure. Here is an example of how cells can be ordered: counter-clockwise, with the first vertex of each new layer placed on the south-east diagonal.
+</p>
+
+<img src="images/home/cell-indices.svg" class="center" style="width: 250px;">
+
+<p>
+  Evolving the state of a grid is where this framework pays off the most. It will be done in four steps.
+    <ol>
+      <li>
+        First, a layer is added with the same state as the last vertex.
+      </li>
+      <li>
+        Second, a <b>configuration vector</b> $\mathcal{C}$ is computed ($o$ is the order of the graph here).
+        $$
+          \mathcal{C}=
+          \begin{pmatrix} c(v_1) \\ \vdots \\ c(v_o) \end{pmatrix}
+          =4\times\mathcal{S}+\mathcal{A}\cdot\mathcal{S}
+        $$
+      </li>
+      <li>
+        @ being the operator applying a function to every element of a vector, the state vector $\mathcal{S}$ is then updated as follows:
           $$
-            \mathcal{C}=
-            \begin{pmatrix} c(v_1) \\ \vdots \\ c(v_o) \end{pmatrix}
-            =4\times\mathcal{S}+\mathcal{A}\cdot\mathcal{S}
+              \mathcal{S}=R\,\text{@}\,\mathcal{C}
           $$
-        </li>
-        <li>
-          @ being the operator applying a function to every element of a vector, the state vector $\mathcal{S}$ is then updated as follows:
-            $$
-                \mathcal{S}=R\,\text{@}\,\mathcal{C}
-            $$
-        </li>
-        <li>
-          Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
-        </li>
-    </ol>
-    I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="?p=references">20</a>].
-  </p>
+      </li>
+      <li>
+        Finally, the state of all vertices of the last layer (created in step 1) is set to the value of the last vertex of the now penultimate layer. This removes the artefacts coming from the edges of the computed grid.
+      </li>
+  </ol>
+  I would like to draw your attention to step 2 of this process. This is where graph theory is so useful for working with cellular automata. Multiplying the adjacency matrix of a graph and its state vector gives a vector with the number of alive neighbors of each cell. This way, the parallel nature of cellular automata can be fully exploited: linear algebra is already at the core of modern computers. One could even imagine using a GPU for these operations, as <a href="http://paulcousin.github.io/graph-rewriting-automata/">has been done for Graph-Rewriting Automata</a> [<a href="?p=references">20</a>].
+</p>
