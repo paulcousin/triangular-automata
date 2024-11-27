@@ -4,18 +4,44 @@
 </h2>
 
 <p>
-    Here is the most minimal implementation I could find. This Mathematica code computes the evolution of a single living cell under any given rule. It does not follow every step of the procedure described in the previous section, but is still reasonably efficient up to intermediate timescales. The following example takes about a minute to compute.
+    Here are two short implementations based on very different principles.
 </p>
 
+<h4>Mathematica</h4>
 <p>
 <pre><code class="mathematica" style="border:solid black 1px;border-radius:10px;"
-    >(*rule number*)rN=50; (*time*)t=352;
+>(*rule*)r=50; (*time*)t=352;
 (*height*)h=1+2*t; (*width*)w=1+Ceiling[t,2]; (*order*)o=h*(w+1);
-(*rule*)Table[rule[n]=IntegerDigits[rN,2,8][[-n-1]],{n,0,7}];
-(*adjacency matrix*)aM=#+Transpose@#&@SparseArray[{Band[{w+1,1}]->1,Band[{1,-w}]->1,Band[{1,2},{-2,-1}]->{1,0}},{o,o}];
-(*stateVector*)sV=SparseArray[{o/2-t,1}->1,{o,1}];
-(*evolution*)Monitor[Table[sV=Map[rule,4sV+aM.sV,{2}],{n,t}],n];
-(*plot*)ArrayPlot[ArrayReshape[sV,{h,w},2],AspectRatio->2/Sqrt[3]]
+(*rule*)Table[rule[n]=IntegerDigits[r,2,8][[-n-1]],{n,0,7}];
+(*matrix*)m=#+Transpose@#&@SparseArray[{Band[{w+1,1}]->1,Band[{1,-w}]->1,Band[{1,2},{-2,-1}]->{1,0}},{o,o}];
+(*states*)s=SparseArray[{o/2-t,1}->1,{o,1}];
+(*evolution*)Monitor[Table[s=Map[rule,4s+m.s,{2}],{n,t}],n];
+(*plot*)ArrayPlot[ArrayReshape[s,{h,w},2],AspectRatio->2/Sqrt[3]]
 </code></pre>
-<img style="width:350px;max-width:100%;" src="/images/home/minimal-implementation/minimal-out.png" alt="output">
+<img style="width:350px;max-width:100%;" src="/images/home/minimal-implementation/mathematica-out.png" alt="output">
+</p>
+
+<br>
+
+<h4>Python</h4>
+<p>
+<pre><code class="python" style="border:solid black 1px;border-radius:10px;"
+>import torch, math, matplotlib.pyplot as plt
+
+rule, time = 50, 352 # parameters
+
+height, width, order = 1+2*time, 1+2*math.ceil(time/2), height*width
+state = torch.zeros(order, dtype=torch.int64); state[math.floor(order/2)] = 1
+rule = torch.tensor(([int(d) for d in 8*'0'+str(bin(rule))[2:]])[:-9:-1])
+
+for step in range(time):
+    config = 4*state + torch.roll(state, width) + torch.roll(state, -width)
+    config[0::2] += torch.roll(state, 1)[0::2]
+    config[1::2] += torch.roll(state, -1)[1::2]
+    state = rule.take(config)
+
+state = torch.reshape(state,(height,width))
+plt.axis('off'); plt.imshow(state, aspect=1/math.sqrt(3), interpolation='antialiased')
+</code></pre>
+<img style="width:350px;max-width:100%;" src="/images/home/minimal-implementation/python-out.png" alt="output">
 </p>
