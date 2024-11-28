@@ -36,8 +36,8 @@ rule = torch.tensor(([int(d) for d in 8*'0'+str(bin(rule))[2:]])[:-9:-1])
 
 for step in range(time):
     config = 4*state + torch.roll(state, width) + torch.roll(state, -width)
-    config[0::2] += torch.roll(state, 1)[0::2]
-    config[1::2] += torch.roll(state, -1)[1::2]
+    config[0::2] += torch.roll(state, -1)[0::2]
+    config[1::2] += torch.roll(state, 1)[1::2]
     state = rule.take(config)
 
 state = torch.reshape(state,(height,width))
