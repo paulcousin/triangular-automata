@@ -30,7 +30,7 @@
 
 rule, time = 50, 352 # parameters
 
-height, width, order = 1+2*time, 1+2*math.ceil(time/2), height*width
+height, width = 1+2*time, 1+2*math.ceil(time/2); order = height*width
 state = torch.zeros(order, dtype=torch.int64); state[math.floor(order/2)] = 1
 rule = torch.tensor(([int(d) for d in 8*'0'+str(bin(rule))[2:]])[:-9:-1])
 
