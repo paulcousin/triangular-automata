@@ -1,45 +1,114 @@
-<h3 id="Rule-210">
-    <div class="anchor"></div>
+<h3>
     Rule 210
 </h3>
 
-<iframe class="center" style="max-height:48vw;" width="560" height="315" src="https://www.youtube.com/embed/6jfe_L0YTDc?si=nTZXllvtDRThkve_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
 <p>
-  <b><a href="rules.html?rule=210&view=Animation" target="_blank">Rule 210</a></b> is easy to describe: “<b>change the state of cells that have one neighbor alive</b>”.
+  <b>Rule 210</b> is easy to describe: “<i>change the state of cells that have one neighbor alive</i>”.
 </p>
 
 <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
 
 <p>
-    It is special for several reasons: it creates larger structures as time goes on and a new type of structure appears from around $t=1024$.
+  Starting from a single living cell, it creates a very large stable structure with an intricate shape. This structure starts at a distance of about 1160 from the origin. It is drawn by a difference of density between two regions, both of which are stable up to some oscillators.
 </p>
 
-
-<table class="center" style="width:600px; max-width:100%;">
+<table class="center" style="width:600px;max-width:100%;text-align:center;font-size:x-small">
   <tr>
-      <th><img src="images/home/rule-210/rule-210-time-257.jpg" style="width:100%;vertical-align:middle;"></th>
-      <th><img src="images/home/rule-210/rule-210-time-513.jpg" style="width:100%;vertical-align:middle;"></th>
-      <th><img src="images/home/rule-210/rule-210-time-1025.jpg" style="width:100%;vertical-align:middle;"></th>
-      <th><img src="images/home/rule-210/rule-210-time-2049.jpg" style="width:100%;vertical-align:middle;"></th>
-      <th><img src="images/home/rule-210/rule-210-time-4097.jpg" style="width:100%;vertical-align:middle;"></th>
+    <td><img src="images/home/rule-210/plots/rule-210-time-512.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-1024.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-1536.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-2048.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-2560.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-3072.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-3584.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-4096.png" style="width:100%"></td>
   </tr>
   <tr>
-      <th>$257$</th>
-      <th>$513$</th>
-      <th>$1025$</th>
-      <th>$2049$</th>
-      <th>$4097$</th>
+      <td>512</td>
+      <td>1024</td>
+      <td>1536</td>
+      <td>2048</td>
+      <td>2560</td>
+      <td>3072</td>
+      <td>3584</td>
+      <td>4096</td>
+  </tr>
+  <tr>
+    <td><img src="images/home/rule-210/plots/rule-210-time-4608.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-5120.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-5632.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-6144.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-6656.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-7168.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-7680.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-8192.png" style="width:100%"></td>
+  </tr>
+  <tr>
+      <td>4608</td>
+      <td>5120</td>
+      <td>5632</td>
+      <td>6144</td>
+      <td>6656</td>
+      <td>7168</td>
+      <td>7680</td>
+      <td>8192</td>
+  </tr>
+  <tr>
+    <td><img src="images/home/rule-210/plots/rule-210-time-8704.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-9216.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-9728.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-10240.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-10752.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-11264.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-11776.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-12288.png" style="width:100%"></td>
+  </tr>
+  <tr>
+      <td>8704</td>
+      <td>9216</td>
+      <td>9728</td>
+      <td>10240</td>
+      <td>10752</td>
+      <td>11264</td>
+      <td>11776</td>
+      <td>12288</td>
+  </tr>
+  <tr>
+    <td><img src="images/home/rule-210/plots/rule-210-time-12800.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-13312.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-13824.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-14336.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-14848.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-15360.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-15872.png" style="width:100%"></td>
+    <td><img src="images/home/rule-210/plots/rule-210-time-16384.png" style="width:100%"></td>
+  </tr>
+  <tr>
+      <td>12800</td>
+      <td>13312</td>
+      <td>13824</td>
+      <td>14336</td>
+      <td>14848</td>
+      <td>15360</td>
+      <td>15872</td>
+      <td>16384</td>
   </tr>
 </table>
-
 <p class="center">
-  <i>Rule 210 at $t=2^i+1$ <br> (the structure is best seen on odd time steps from afar)</i>
+  <i>Rule 210 from a lone 1 cell</i>
 </p>
 
-<br>
+<p class="center">
+  <a href="images/home/rule-210/stable-structure.pdf" target="_blank">
+    <img src="images/home/rule-210/stable-structure.jpg" style="width:500px;max-width:100%;"><br>
+  </a>
+  <i>Top of the stable structure (click on it to see the details)</i>
+</p>
 
-<p style="text-align: center;">
+<iframe class="center" style="max-height:48vw;" width="560" height="315" src="https://www.youtube.com/embed/6jfe_L0YTDc?si=nTZXllvtDRThkve_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<!-- <p style="text-align: center;">
   <a  class="center" 
       style="text-align:center;width:500px;max-width:100%;"
       href="images/home/rule-210/rule-210-time-4097-contrast.jpg"
@@ -83,11 +152,14 @@
     <img id="rule-210-slice-4096" src="style/wait.gif" style="width:100%;vertical-align:middle;">
   </a>
   <i>Slice plot of rule 210 up to $t=4096$</i>
-</p>
+</p> -->
 
 <br>
 
-<p>Rule 210 initially alternates between what seems like 2 population densities (i.e. number of living cells / size of the first cell's region of influence). When the new structure appears, around $t=1024$, the population stabilizes in a density cycle of period 4 between slowly evolving values.</p>
+<p>
+  Rule 210 initially alternates between what seems like two global population densities (i.e. number of living cells / size of the first cell's region of influence). When the new structure appears, around $t=1024$, the population stabilizes in a density cycle of period 4 between slowly evolving values.
+</p>
+
 <table class="center" style="width:760px; max-width:100%;">
   <tr>
     <th style="padding-right: 20px">
@@ -105,70 +177,70 @@
 
 <p class="center"><i>Evolution of two coarse-grained values under rule 210</i></p>
 
-<br><hr>
+<!-- <br><hr>
 
 <p>Here is a selection of computations that you can download by clicking in the miniature.  I urge you to take a look at the longest computations (if your computer allows you to), it is magnificent.</p>
 
 <div style="width:100%;text-align: center;">
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">256</a>
+  <a class="step-number">256</a>
   <a href="images/home/long-time-scale/rule-210-time-256.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-256.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">257</a>
+  <a class="step-number">257</a>
   <a href="images/home/long-time-scale/rule-210-time-257.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-257.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">512</a>
+  <a class="step-number">512</a>
   <a href="images/home/long-time-scale/rule-210-time-512.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-512.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">513</a>
+  <a class="step-number">513</a>
   <a href="images/home/long-time-scale/rule-210-time-513.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-513.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">1024</a>
+  <a class="step-number">1024</a>
   <a href="images/home/long-time-scale/rule-210-time-1024.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-1024.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">1025</a>
+  <a class="step-number">1025</a>
   <a href="images/home/long-time-scale/rule-210-time-1025.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-1025.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">2048</a>
+  <a class="step-number">2048</a>
   <a href="images/home/long-time-scale/rule-210-time-2048.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-2048.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">2049</a>
+  <a class="step-number">2049</a>
   <a href="images/home/long-time-scale/rule-210-time-2049.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-2049.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">4096</a>
+  <a class="step-number">4096</a>
   <a href="https://files.paulcousin.net/triangular-automata/long-time-scale/rule-210-time-4096.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-4096.jpg">
   </a>
 </div>
 <div class="gallery-element">
-  <!--<a class="rule-number">210</a>--><a class="step-number">4097</a>
+  <a class="step-number">4097</a>
   <a href="https://files.paulcousin.net/triangular-automata/long-time-scale/rule-210-time-4097.pdf" target="_blank">
     <img src="images/home/long-time-scale/rule-210-time-4097.jpg">
   </a>
 </div>
 </div>
-<br>
+<br> -->

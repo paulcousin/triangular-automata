@@ -1,4 +1,4 @@
-<h2 id="Rules">
+<h2>
     <a href="rules.html?rule=86&time=8" target="_blank"><img src="style/rule-86-time-8.svg"></a> 
     Rules
 </h2>
@@ -38,13 +38,129 @@
 <p>
   Like in the Wolfram Code, we can use rule numbers such that, in binary, they display the behavior of the rule.
   $$n=\sum_{c=0}^7 2^c R(c)$$
-  Starting from the right, the binary digits of a <b>rule number</b> show the future state associated with all configurations as we ordered them. For example, if a cell's configuration is $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if its configuration is $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$. Can you find the binary number of the following rule?
+  Starting from the right, the binary digits of a <b>rule number</b> show the future state associated with all configurations as we ordered them. For example, if a cell's configuration is $c=0$ and the least significant digit of the rule number is 1, then it will become alive at $t+1$. Similarly, if its configuration is $c=7$ and the most significant digit of the rule number is 0, then it will be dead at $t+1$.
 </p>
 
-<a href="rules.html?rule=210&view=Animation" target="_blank">
-  <img src="images/rules/rule-210.svg" class="center" style="width: 400px;">
+<p class="center">
+  <a href="rules.html?rule=210&view=Animation" target="_blank">
+    <img src="images/rules/rule-210.svg" style="width:400px;max-width:100%;">
+  </a><br>
+  Example of rule $11010010_2=210_{10}$
+</p>
+
+<br><hr><!------------------ Boring Rules ------------------>
+
+<a href="#BoringRules" style="color: black;">
+  <h4 id="BoringRules" >
+    <div class="anchor"></div>
+    Boring Rules
+  </h4>
+</a>
+
+<table style="width:100%;">
+  <tr>
+    <td><img src="images/rules/rule-240.svg" style="width:100%"></td>
+    <td style="width:52%;min-width:100px;text-align:left;"><b><a href="rules.html?rule=240&start=Random&view=Animation" target="_blank">Rule 240</a></b> is the <b>identity</b> and leaves any grid unchanged.</td>
+  </tr>
+</table>
+
+<table style="width:100%;">
+  <tr>
+    <td style="width:52%;min-width:100px;text-align:right;"><b><a href="rules.html?rule=15&start=Random&view=Animation" target="_blank">Rule 15</a></b> is the <b>negative</b> rule and swaps states.</td>
+    <td><img src="images/rules/rule-15.svg" style="width:100%"></td>
+  </tr>
+</table>
+
+<table style="width:100%;">
+  <tr>
+    <td><img src="images/rules/rule-0.svg" style="width:100%"></td>
+    <td style="width:52%;min-width:100px;text-align:left;"><b><a href="rules.html?rule=0&start=Random&view=Animation" target="_blank">Rule 0</a></b> kills everything.</td>
+  </tr>
+</table>
+
+<table style="width:100%;">
+  <tr>
+    <td style="width:52%;min-width:100px;text-align:right;"><b><a href="rules.html?rule=255&start=Random&view=Animation" target="_blank">Rule 255</a></b> makes all cells live.</td>
+    <td><img src="images/rules/rule-255.svg" style="width:100%"></td>
+  </tr>
+</table>
+
+<br><hr><!------------------ Twins ------------------>
+
+<a href="#Twins" style="color: black;">
+  <h4 id="Twins" >
+    <div class="anchor"></div>
+    Twins
+  </h4>
 </a>
 
 <p>
-  The number of this rule is $11010010_2=210_{10}$. If you didn't guess, can you see now where it appears in the plot above?
+  A simple procedure can be followed to find the evil twin of a rule. This twin has the same effect but in the negative world where all states have been swapped. To find it, take the number in its binary form (including the leading zeros needed for the number to be 8 digits long), swap ones and zeros and read backwards. Let's take <a href="rules.html?rule=214&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 214</a> as an example.
+</p>
+
+<table>
+  <tr>
+    <td><b>1.</b></td>
+    <td>Find the binary form of the rule number&emsp;</td>
+    <td style="text-align:center;">$214=11010110_2$</td>
+  </tr>
+  <tr>
+    <td><b>2.</b></td>
+    <td>Swap ones and zeros&emsp;</td>
+    <td style="text-align:center;">$00101001_2$</td>
+  </tr>
+  <tr>
+    <td><b>3.</b></td>
+    <td>Reverse the order of the digits&emsp;</td>
+    <td style="text-align:center;">$10010100_2=148$</td>
+  </tr>
+</table>
+
+<p class="center" >
+  <a href="images/home/negative.gif" target="_blank">
+    <img id="twins" src="images/home/negative.gif" style="width:500px;max-width:100%;">
+  </a><br>
+  <b>left</b>: <i><a href="rules.html?rule=214&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 214</a> from one alive cell</i><br>
+  <b>right</b>: <i><a href="rules.html?rule=148&start=Random&view=Animation" style="text-align:center;" target="_blank">rule 148</a> from one dead cell</i>
+</p>
+
+<br><hr><!------------------ Destroboscopification ------------------>
+
+<a href="#Destroboscopification" style="color: black;">
+  <h4 id="Destroboscopification" >
+    <div class="anchor"></div>
+    Destroboscopification
+  </h4>
+</a>
+
+<p>
+  Rules of the form $0\_\,\_\,\_\,\_\,\_\,\_\,1_2$ are stroboscopic. This means that the universe will switch state at every time step. An elegant procedure to remove this effect without altering the behavior of the rule was found by <a href="https://scholar.google.com/citations?user=FxU9cG0AAAAJ">Pierre-André Noël</a>. If we use the two steps to find the twin of a rule independently, we obtain two rule numbers. Alternating between these rules will destroboscopify a stroboscopic rule (or stroboscopify one that is not). Let us take a glider of <a href="?p=rule-53">rule 53</a> as an example.
+</p>
+
+<table>
+  <tr>
+    <td><b>1.</b></td>
+    <td>First, we take the binary rule number with the leading zeros&emsp;</td>
+    <td style="text-align:center;">$53=00110101_2$</td>
+  </tr>
+  <tr>
+    <td><b>2.1.</b></td>
+    <td>Swapping ones and zeros&emsp;</td>
+    <td style="text-align:center;"> $11001010_2=202$</td>
+  </tr>
+  <tr>
+    <td><b>2.2.</b></td>
+    <td>Reversing the digits&emsp;</td>
+    <td style="text-align:center;">$10101100_2=172$</td>
+  </tr>
+</table>
+
+<p class="center">
+  <img src="/images/home/alternating-rules/glider-stroboscopific.svg" style="width:500px;max-width:100%"><br>
+  <i>The original rule 53 glider</i>
+</p>
+
+<p class="center">
+  <img src="/images/home/alternating-rules/glider-destroboscopified.svg" style="width:500px;max-width:100%"><br>
+  <i>The destroboscopified glider</i>
 </p>
