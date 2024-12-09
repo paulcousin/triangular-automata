@@ -2,7 +2,7 @@
 .anchor{
     display:block;
     height:110px; /* height of the header */
-    margin-top:-110px; /* negative value of the height of the header */
+    margin-top:-125px; /* negative value of the height of the header */
     visibility:hidden;
 }
 

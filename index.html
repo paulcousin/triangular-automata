@@ -178,28 +178,48 @@ $(document).ready(() => {
   }
 
   $("#home").load(`home/${page}.html`, () => {
-    
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-    script.async = true;
-    document.head.appendChild(script);
+    // Add external scripts
+    document.head.appendChild(Object.assign(document.createElement('script'), {
+        src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
+        async: true,
+    }));
 
     images.forEach(([id, src]) => loadLargeImage(id, "style/wait.gif", src));
-
     hljs.highlightAll();
-   
-    // DROPDOWN MENU
-      $("#dropdown").load(`table-of-contents.html`); 
-      let hideDropdown;
-      $('#dropdown-ref, #menu-home, #dropdown-container').on('mouseenter', function() {
-          clearTimeout(hideDropdown);
-          $('#dropdown').css('display', 'block');
-      }).on('mouseleave', function() {
-          hideDropdown = setTimeout(() => {
-              $('#dropdown').css('display', 'none');
-          }, 300); // Delay in milliseconds
-      });
 
+    // Load dropdown menu and set up behavior
+    $("#dropdown").load(`table-of-contents.html`);
+    let hideDropdown;
+    $('#dropdown-ref, #menu-home, #dropdown-container').hover(
+        () => {
+            clearTimeout(hideDropdown);
+            $('#dropdown').show();
+        },
+        () => {
+            hideDropdown = setTimeout(() => $('#dropdown').hide(), 300);
+        }
+    );
+
+    // Scroll to the target header after images load
+    const hash = window.location.hash;
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+            const images = $("#home img");
+            let pending = images.length;
+
+            images.one("load error", () => {
+                if (--pending === 0) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // Scroll immediately if no images
+            if (pending === 0) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
   });
 
 
