@@ -1,36 +1,31 @@
-
 //// Image Loader
-function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
-    // Find the image element by its ID
-    var imgElement = document.getElementById(imageId);
+function loadImagesWithLoadingEffect() {
+    // Get all images with the class "load"
+    var images = document.querySelectorAll(".load");
 
-    // If the image element is not found, do nothing
-    if (!imgElement) {
-        return;
-    }
+    images.forEach(function(imgElement) {
+        const originalSrc = imgElement.src; // The current source is the large image
+        const loadingImagePath = "style/wait.gif";
 
-    // Set the source of the image element to the loading image
-    imgElement.src = loadingImagePath;
+        // Temporarily set the source to the loading image
+        imgElement.src = loadingImagePath;
 
-    // Create a new Image object to preload the large image
-    var largeImg = new Image();
+        // Preload the original large image
+        var largeImg = new Image();
 
-    // Add a load event listener to the large image
-    largeImg.onload = function() {
-        // Once the large image is fully loaded, update the source of the image element
-        imgElement.src = largeImagePath;
-    };
+        largeImg.onload = function() {
+            // Replace with the original large image after it has loaded
+            imgElement.src = originalSrc;
+        };
 
-    // Optionally, handle errors if the large image fails to load
-    largeImg.onerror = function() {
-        console.error('Failed to load large image at ' + largeImagePath);
-    };
+        largeImg.onerror = function() {
+            console.error("Failed to load large image at " + originalSrc);
+        };
 
-    // Start loading the large image by setting its source
-    largeImg.src = largeImagePath;
+        // Start preloading the large image
+        largeImg.src = originalSrc;
+    });
 }
-
-
 
 //// Hide part of the header on scroll down for smartphone view
   var didScroll;
