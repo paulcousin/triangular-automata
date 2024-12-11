@@ -1,11 +1,21 @@
 //// Image Loader
 function loadImagesWithLoadingEffect() {
-    // Get all images with the class "load"
-    var images = document.querySelectorAll(".load");
+    // Get all images with the class "load" or "load-small"
+    var images = document.querySelectorAll(".load, .load-small");
 
     images.forEach(function(imgElement) {
         const originalSrc = imgElement.src; // The current source is the large image
-        const loadingImagePath = "style/wait.gif";
+        let loadingImagePath;
+
+        // Determine the loading image based on the class
+        if (imgElement.classList.contains("load")) {
+            loadingImagePath = "style/wait.gif";
+        } else if (imgElement.classList.contains("load-small")) {
+            loadingImagePath = "style/wait-small.gif";
+        } else {
+            console.error("Unexpected class for image element:", imgElement);
+            return;
+        }
 
         // Temporarily set the source to the loading image
         imgElement.src = loadingImagePath;
@@ -26,6 +36,40 @@ function loadImagesWithLoadingEffect() {
         largeImg.src = originalSrc;
     });
 }
+
+
+
+//// Image Loader for the gallery
+function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
+    // Find the image element by its ID
+    var imgElement = document.getElementById(imageId);
+
+    // If the image element is not found, do nothing
+    if (!imgElement) {
+        return;
+    }
+
+    // Set the source of the image element to the loading image
+    imgElement.src = loadingImagePath;
+
+    // Create a new Image object to preload the large image
+    var largeImg = new Image();
+
+    // Add a load event listener to the large image
+    largeImg.onload = function() {
+        // Once the large image is fully loaded, update the source of the image element
+        imgElement.src = largeImagePath;
+    };
+
+    // Optionally, handle errors if the large image fails to load
+    largeImg.onerror = function() {
+        console.error('Failed to load large image at ' + largeImagePath);
+    };
+
+    // Start loading the large image by setting its source
+    largeImg.src = largeImagePath;
+}
+
 
 //// Hide part of the header on scroll down for smartphone view
   var didScroll;
