@@ -1,3 +1,6 @@
+//// Dropdown menu
+$("#dropdown").load(`table-of-contents.html`); // DROPDOWN MENU
+
 //// Image Loader
 function loadImagesWithLoadingEffect() {
     // Get all images with the class "load" or "load-small"
