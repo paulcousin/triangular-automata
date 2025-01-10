@@ -178,6 +178,10 @@ $(document).ready(() => {
   }
 
   $("#home").load(`home/${page}.html`, () => {
+    // Change page title
+    if (index != 0) {
+      document.title = 'Triangular Automata ▷ '+titleCase(pages[index]);
+    };
     // Add external scripts
     document.head.appendChild(Object.assign(document.createElement('script'), {
         src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',

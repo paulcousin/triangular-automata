@@ -12,7 +12,7 @@
   </script>
 
   <!-- HTML Meta Tags -->
-  <title>Triangular Automata</title>
+  <title>Triangular Automata ▷ Gallery</title>
   <meta name="description" content="The 256 Elementary Cellular Automata of the 2D Plane">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -217,6 +217,8 @@ function updatePage() {
     } else {
       document.getElementById('time-selection').innerHTML = '<option value="0">0</option><option value="1">1</option><option value="2">2</option> <option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="8">8</option><option value="10">10</option><option value="16">16</option><option value="25">25</option><option value="32">32</option><option value="50">50</option><option value="64">64</option><option value="75">75</option><option value="96">96</option><option value="100">100</option><option value="125">125</option><option value="126">126</option><option value="127">127</option><option value="128">128</option>';
     }
+    // Update title
+    document.title = 'Triangular Automata ▷ Gallery ▷ Rule '+currentRule.toString();
     // Updating selection
     document.getElementById("rule-selection").value = currentRule;
     document.getElementById("start-selection").value = currentStart;
