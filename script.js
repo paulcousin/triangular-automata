@@ -125,4 +125,12 @@ function loadLargeImage(imageId, loadingImagePath, largeImagePath) {
     return splitStr.join(' '); 
  }
 
-
+//// Scrolls to the hashtag
+function scrollToHashWithDelay() {
+    const hash = window.location.hash;
+    if (hash && $(hash).length) {
+        setTimeout(() => {
+            $(hash)[0].scrollIntoView({ behavior: 'smooth' });
+        }, 400);
+    }
+}
