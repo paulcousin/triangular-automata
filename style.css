@@ -53,9 +53,8 @@ header {
 }
 
 h1 {
-    overflow: hidden;
     text-align: left;
-    margin-top: 28px;
+    margin-top: 0;
     width: 100%;
 }
 
@@ -67,7 +66,8 @@ h1 {
     z-index: 1000;
     text-decoration: none;
     font-weight: 500;
-    vertical-align: middle;
+    position: relative;
+    top: 14px;
 }
 
 #title:hover {
@@ -153,11 +153,11 @@ footer {
 
     h1 {
         text-align: center;
-        margin-top: 0px;
     }
 
     #title {
         font-size: 1.5rem;
+        top: -1px;
         
     }
 
