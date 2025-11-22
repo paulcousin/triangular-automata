@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://triangular-automata.net/sitemap.xml
