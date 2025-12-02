@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60"><svg height="60" viewBox="0 0 45 45" width="60" version="1.1" id="SvgjsSvg1049" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="SvgjsDefs1048"></defs>
+  <clipPath id="SvgjsClipPath1047">
+    <path d="M 20,9 H 42.238281 V 35 H 20 Z m 0,0" id="SvgjsPath1046"></path>
+  </clipPath>
+  <clipPath id="SvgjsClipPath1045">
+    <path d="M 2.640625,0 H 24 V 24 H 2.640625 Z m 0,0" id="SvgjsPath1044"></path>
+  </clipPath>
+  <clipPath id="SvgjsClipPath1043">
+    <path d="M 2.640625,20 H 24 V 45 H 2.640625 Z m 0,0" id="SvgjsPath1042"></path>
+  </clipPath>
+  <g id="SvgjsG1041" transform="translate(3.0444696,0.5)">
+    <path d="M 4.171875,22 21.707031,11.875 v 20.25 z m 0,0" fill="#800080" fill-rule="evenodd" id="SvgjsPath1040"></path>
+    <path d="M 40.414062,22 22.875,11.875 v 20.25 z m 0,0" fill="#ffffff" fill-rule="evenodd" id="SvgjsPath1039"></path>
+    <g clip-path="url(#a)" id="SvgjsG1038">
+      <path d="M 40.414062,22 22.875,11.875 v 20.25 z m 0,0" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="3.25" stroke-width="0.5" id="SvgjsPath1037"></path>
+    </g>
+    <path d="M 21.125,10.863281 3.585938,0.738281 v 20.25 z m 0,0" fill="#ffffff" fill-rule="evenodd" id="SvgjsPath1036"></path>
+    <g clip-path="url(#b)" id="SvgjsG1035">
+      <path d="M 21.125,10.863281 3.585938,0.738281 v 20.25 z m 0,0" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="3.25" stroke-width="0.5" id="SvgjsPath1034"></path>
+    </g>
+    <path d="m 21.125,33.136719 -17.539062,-10.125 v 20.25 z m 0,0" fill="#ffffff" fill-rule="evenodd" id="SvgjsPath1033"></path>
+    <g clip-path="url(#c)" id="SvgjsG1032">
+      <path d="m 21.125,33.136719 -17.539062,-10.125 v 20.25 z m 0,0" fill="none" stroke="#000000" stroke-linecap="square" stroke-miterlimit="3.25" stroke-width="0.5" id="SvgjsPath1031"></path>
+    </g>
+  </g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
